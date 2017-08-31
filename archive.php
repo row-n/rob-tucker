@@ -1,46 +1,65 @@
 <?php get_header(); ?>
-<div id="content">
 
-	<h1>
-		<?php if ( is_day() ) : /* if the daily archive is loaded */ ?>
-			<?php printf( __( 'Daily Archives: <span>%s</span>' ), get_the_date() ); ?>
-		<?php elseif ( is_month() ) : /* if the montly archive is loaded */ ?>
-			<?php printf( __( 'Monthly Archives: <span>%s</span>' ), get_the_date('F Y') ); ?>
-		<?php elseif ( is_year() ) : /* if the yearly archive is loaded */ ?>
-			<?php printf( __( 'Yearly Archives: <span>%s</span>' ), get_the_date('Y') ); ?>
-		<?php else : /* if anything else is loaded, ex. if the tags or categories template is missing this page will load */ ?>
-			Blog Archives
-		<?php endif; ?>
-	</h1>
+  <?php if (have_posts()) : ?>
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		<div class="post-single">
-			<h2><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-			<?php if ( has_post_thumbnail() ) { /* loades the post's featured thumbnail, requires Wordpress 3.0+ */ echo '<div class="featured-thumbnail">'; the_post_thumbnail(); echo '</div>'; } ?>
-			<p><?php _e('Written on '); the_time('F j, Y'); _e(' at '); the_time(); _e(', by '); the_author_posts_link() ?></p>
-			<div class="post-excerpt">
-				<?php the_excerpt(); /* the excerpt is loaded to help avoid duplicate content issues */ ?>
-			</div>
+    <?php if (is_category()) { ?>
 
-			<div class="post-meta">
-				<p><?php comments_popup_link('No Comments', '1 Comment', '% Comments'); ?></p>
-				<p><?php _e('Categories: '); the_category(', ') ?></p>
-				<p><?php if (the_tags('Tags: ', ', ', ' ')); ?></p>
-			</div><!--.postMeta-->
-		</div><!--.post-single-->
-	<?php endwhile; else: ?>
-		<div class="no-results">
-			<p><strong><?php _e('There has been an error.'); ?></strong></p>
-			<p><?php _e('We apologize for any inconvenience, please hit back on your browser or use the search form below.'); ?></p>
-			<?php get_search_form(); /* outputs the default Wordpress search form */ ?>
-		</div><!--noResults-->
-	<?php endif; ?>
+      <h2><?php _e('Archive for the', 'rob-tucker'); ?> &#8216;<?php single_cat_title(); ?>&#8217; <?php _e('Category', 'rob-tucker'); ?></h2>
 
-	<div class="oldernewer">
-		<p class="older"><?php next_posts_link('&laquo; Older Entries') ?></p>
-		<p class="newer"><?php previous_posts_link('Newer Entries &raquo;') ?></p>
-	</div><!--.oldernewer-->
+    <?php } elseif(is_tag()) { ?>
 
-</div><!--#content-->
+      <h2><?php _e('Posts Tagged', 'rob-tucker'); ?> &#8216;<?php single_tag_title(); ?>&#8217;</h2>
+
+    <?php } elseif (is_day()) { ?>
+
+      <h2><?php _e('Archive for', 'rob-tucker'); ?> <?php the_time('F jS, Y'); ?></h2>
+
+    <?php } elseif (is_month()) { ?>
+
+      <h2><?php _e('Archive for', 'rob-tucker'); ?> <?php the_time('F, Y'); ?></h2>
+
+    <?php } elseif (is_year()) { ?>
+
+      <h2><?php _e('Archive for', 'rob-tucker'); ?> <?php the_time('Y'); ?></h2>
+
+    <?php } elseif (is_author()) { ?>
+
+      <h2><?php _e('Author Archive for', 'rob-tucker'); ?> <?php the_post(); echo get_the_author(); rewind_posts(); ?></h2>
+
+    <?php } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
+
+      <h2><?php _e('Blog Archives', 'rob-tucker'); ?></h2>
+
+    <?php } ?>
+
+    <?php get_template_part('inc/nav'); ?>
+
+    <?php while (have_posts()) : the_post(); ?>
+
+      <div id="post-<?php the_ID(); ?>" <?php post_class() ?>>
+
+        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+
+        <?php get_template_part('inc/meta'); ?>
+
+        <div class="entry">
+
+          <?php the_excerpt(); ?>
+
+        </div>
+
+      </div>
+
+    <?php endwhile; ?>
+
+    <?php get_template_part('inc/nav'); ?>
+
+  <?php else : ?>
+
+    <?php get_template_part('inc/gone'); ?>
+
+  <?php endif; ?>
+
 <?php get_sidebar(); ?>
+
 <?php get_footer(); ?>

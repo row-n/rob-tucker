@@ -1,0 +1,53 @@
+{
+  "name": "rob-tucker",
+  "version": "1.0.0",
+  "description": "Portfolio site, built with Wordpress for rob-tucker.com",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "blazy": "^1.8.2",
+    "jquery": "^3.2.1",
+    "pace-progress": "git+https://github.com/HubSpot/pace.git"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "browserify": "^14.1.0",
+    "del": "^2.2.2",
+    "fancy-log": "^1.3.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-changed": "^2.0.0",
+    "gulp-combine-mq": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-eslint": "^3.0.1",
+    "gulp-if": "^2.0.2",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sass-lint": "^1.3.2",
+    "gulp-sourcemaps": "^2.5.0",
+    "gulp-uglify": "^2.1.2",
+    "run-sequence": "^1.2.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "start": "node_modules/.bin/gulp",
+    "build": "node_modules/.bin/gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://row-n@bitbucket.org/row-n/rob-tucker.git"
+  },
+  "keywords": [
+    "wordpress",
+    "gulp",
+    "browserify",
+    "portfolio"
+  ],
+  "author": "Rowan Parkinson <rowan.parkinson@gmail.com>",
+  "license": "ISC",
+  "homepage": ""
+}

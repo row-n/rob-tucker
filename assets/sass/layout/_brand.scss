@@ -1,0 +1,20 @@
+.brand {
+  float: left;
+  height: inherit;
+  position: relative;
+  z-index: $brand-zindex;
+
+  .brand__logo {
+    border-bottom: 0;
+    color: $brand-link-color;
+    font-size: $brand-font-size;
+    font-weight: $brand-font-weight;
+    padding-bottom: 0;
+    text-decoration: none;
+    transition: color ($global-duration / 2) $global-timing-function;
+
+    .menu-open & {
+      color: $brand-link-color-active;
+    }
+  }
+}

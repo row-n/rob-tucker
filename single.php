@@ -1,41 +1,54 @@
 <?php get_header(); ?>
-<div id="content">
-	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-		<div id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
 
-			<article class="content-width">
-				<h1><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-				<div id="post-author">
-					<h4><?php _e('Written by '); the_author_posts_link() ?></h4>
-				</div><!--#post-author-->
-				<?php edit_post_link('<small>Edit this entry</small>','',''); ?>
-				<?php if ( has_post_thumbnail() ) { /* loades the post's featured thumbnail, requires Wordpress 3.0+ */ echo '<div class="featured-thumbnail">'; the_post_thumbnail(); echo '</div>'; } ?>
-				<div class="post-content">
-					<?php the_content(); ?>
-					<?php wp_link_pages('before=<div class="pagination">&after=</div>'); ?>
-				</div><!--.post-content-->
-			</article>
+  <div id="content">
 
-			<div id="post-meta">
-				<p>
-					<small>
-						<?php _e('Posted on '); the_time('F j, Y'); _e(' at '); the_time() ?> // <a href="<?php bloginfo('rss2_url'); ?>" rel="nofollow">RSS 2.0</a> feed.<br />
-						<?php _e(' Categories: '); the_category(', ') ?><br />
-						<?php the_tags('Tags: ', ', ', ' '); ?>
-					</small>
-				</p>
-			</div><!--#post-meta-->
+    <?php if (have_posts()) : ?>
 
-			<?php /* If a user fills out their bio info, it's included here */ ?>			
+      <?php while (have_posts()) : the_post(); ?>
 
-		</div><!-- #post-## -->
+        <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<div class="newer-older">
-			<p class="older"><?php previous_post_link('%link', '&laquo; Previous post') ?>
-			<p class="newer"><?php next_post_link('%link', 'Next Post &raquo;') ?></p>
-		</div><!--.newer-older-->
+          <h1><a href="<?php the_permalink(); ?>" title="Permanent link: <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 
-	<?php endwhile; /* end loop */ ?>
-</div><!--#content-->
+          <?php get_template_part('inc/meta'); ?>
+
+          <?php if (has_post_thumbnail()) the_post_thumbnail(); ?>
+
+          <div class="entry">
+
+            <?php the_content(); ?>
+
+            <?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
+
+          </div>
+
+          <div class="postmetadata">
+
+            <?php the_tags('<p>Tags: ', ', ', '</p>'); ?>
+
+            <p>
+              <?php _e('Posted in', 'rob-tucker'); ?> <?php the_category(', '); ?> |
+              <?php comments_popup_link('Leave a comment', '1 comment', '% comments', 'comments-link', 'Comments disabled'); ?>
+            </p>
+
+          </div>
+
+        </div>
+
+      <?php endwhile; ?>
+
+      <?php get_template_part('inc/nav'); ?>
+
+      <?php comments_template(); ?>
+
+    <?php else : ?>
+
+      <?php get_template_part('inc/gone'); ?>
+
+    <?php endif; ?>
+
+  </div>
+
 <?php get_sidebar(); ?>
+
 <?php get_footer(); ?>
