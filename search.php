@@ -1,31 +1,35 @@
 <?php get_header(); ?>
-<div id="content" class="search">
 
-	<h1><?php the_search_query(); ?></h1>
+  <?php if (have_posts()) : ?>
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		<div class="post-single">
-			<h2><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-			<?php if ( has_post_thumbnail() ) { /* loades the post's featured thumbnail, requires Wordpress 3.0+ */ echo '<div class="featured-thumbnail">'; the_post_thumbnail(); echo '</div>'; } ?>
-			<p><?php _e('Written on '); the_time('F j, Y'); _e(' at '); the_time(); _e(', by ');  the_author_posts_link() ?></p>
-	
-			<div class="post-excerpt">
-				<?php the_excerpt(); /* the excerpt is loaded to help avoid duplicate content issues */ ?>
-			</div><!--.post-excerpt-->
-		</div><!--.post-single-->
-	<?php endwhile; else: ?>
-		<div class="no-results">
-			<h2><?php _e('No Results'); ?></h2>
-			<p><?php _e('Please feel free try again!'); ?></p>
-			<?php get_search_form(); /* outputs the default Wordpress search form */ ?>
-		</div><!--no-results-->
-	<?php endif; ?>
+    <h2><?php _e('Search Results', 'rob-tucker'); ?></h2>
 
-	<div class="oldernewer">
-		<p class="older"><?php next_posts_link('&laquo; Older Entries') ?></p>
-		<p class="newer"><?php previous_posts_link('Newer Entries &raquo;') ?></p>
-	</div><!--.oldernewer-->
-	
-</div><!-- #content -->
+    <?php while (have_posts()) : the_post(); ?>
+
+      <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+
+        <?php get_template_part('inc/meta'); ?>
+
+        <div class="entry">
+
+          <?php the_excerpt(); ?>
+
+        </div>
+
+      </div>
+
+    <?php endwhile; ?>
+
+    <?php get_template_part('inc/nav'); ?>
+
+  <?php else : ?>
+
+    <?php get_template_part('inc/gone'); ?>
+
+  <?php endif; ?>
+
 <?php get_sidebar(); ?>
+
 <?php get_footer(); ?>

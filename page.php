@@ -1,21 +1,41 @@
 <?php get_header(); ?>
 
-<div id="content">
+  <div id="content">
 
-	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-		<div id="post-<?php the_ID(); ?>" <?php post_class('page'); ?>>
-			<article class="content-width">
-				<h1><?php the_title(); ?></h1>
-				<?php edit_post_link('<small>Edit this entry</small>','',''); ?>
+    <?php if (have_posts()) : ?>
 
-				<div class="post-content page-content">
-					<?php the_content(); ?>
-					<?php wp_link_pages('before=<div class="pagination">&after=</div>'); ?>
-				</div><!--.post-content .page-content -->
-			</article>
-		</div><!--#post-# .post-->
+      <?php while (have_posts()) : the_post(); ?>
 
-	<?php endwhile; ?>
-</div><!--#content-->
+        <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+          <h1><a href="<?php the_permalink(); ?>" title="Permanent link: <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+
+          <?php get_template_part('inc/meta'); ?>
+
+          <?php if (has_post_thumbnail()) the_post_thumbnail(); ?>
+
+          <div class="entry">
+
+            <?php the_content(); ?>
+
+            <?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
+
+          </div>
+
+        </div>
+
+      <?php endwhile; ?>
+
+      <?php comments_template(); ?>
+
+    <?php else : ?>
+
+      <?php get_template_part('inc/gone'); ?>
+
+    <?php endif; ?>
+
+  </div>
+
+<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

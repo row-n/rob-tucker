@@ -1,0 +1,54 @@
+.pagination {
+  list-style: none;
+  margin: 3em auto 1em;
+  padding-left: 0;
+  text-align: center;
+  width: 100%;
+
+  li {
+    display: inline-block;
+    height: inherit;
+  }
+
+  .active {
+    a {
+      background-color: $blue;
+      color: $white;
+
+      &:hover {
+        background-color: $blue-dark;
+        color: $white;
+      }
+    }
+  }
+
+  .disabled {
+    a {
+      border-color: $black-20;
+      color: $black-20;
+
+      &:hover {
+        border-color: $black-20;
+        color: $black-20;
+      }
+    }
+  }
+
+  a {
+    border: .125em solid $blue;
+    color: $blue;
+    cursor: pointer;
+    float: left;
+    font-family: $body-font-family;
+    outline: none;
+    padding: .5em 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color $global-duration ease, border-color $global-duration ease, color $global-duration ease;
+
+    &:hover {
+      border-color: $blue-dark;
+      color: $blue-dark;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.row {
+  @include container($content-width);
+}
+
+.col {
+  width: 100%;
+
+  @media #{$tablet} {
+    @include span(6 of 12);
+  }
+
+  &:last-child {
+    @media #{$tablet} {
+      @include last;
+    }
+  }
+}

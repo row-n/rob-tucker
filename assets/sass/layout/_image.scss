@@ -1,0 +1,37 @@
+.image {
+  margin-bottom: 2em;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .b-lazy {
+    display: inline-block;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity $global-duration ease, transform $global-duration ease;
+    width: 100%;
+
+    + .spinner {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .b-loaded {
+    opacity: 1;
+    transform: scale(1);
+
+    + .spinner {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .image__asset {
+    max-width: 100%;
+  }
+}
