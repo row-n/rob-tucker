@@ -5,6 +5,12 @@
     </div>
   </footer>
 
+  <a href="javascript:void(0)" id="back-to-top" class="back-to-top">
+    <svg role="img" class="icon icon--chevron-up icon--xs">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#chevron-up"></use>
+    </svg>
+  </a>
+
   <?php wp_footer(); ?>
 
   </body>

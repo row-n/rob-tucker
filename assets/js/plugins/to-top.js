@@ -44,8 +44,8 @@ function scrollTo(element, to, duration) {
 }
 
 window.addEventListener('scroll', function() {
-  // console.log(this);
-  if (this.offsetTop > offset) {
+  console.log(this);
+  if (this.top >= offset) {
     $backToTop.classList.toggle('menu-open');
   }
 });
