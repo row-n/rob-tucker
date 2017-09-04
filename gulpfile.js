@@ -1,23 +1,23 @@
 'use strict';
 
 // Set environment
-let isProduction = false;
+var isProduction = false;
 
 // Load gulp
-const gulp = require('gulp');
+var gulp = require('gulp');
 
 // Load all plugins in 'devDependencies' into the variable $
-const $ = require('gulp-load-plugins')({
+var $ = require('gulp-load-plugins')({
   pattern: ['*'],
   scope: ['devDependencies']
 });
 
-const onError = (err) => {
+var onError = function(err) {
   console.log(err);
 };
 
 // Styles
-gulp.task('styles:lint', () => {
+gulp.task('styles:lint', function() {
   return gulp.src(['./assets/sass/**/*.s+(a|c)ss', '!./assets/sass/generic/_normalize.scss'])
     .pipe($.plumber({errorHandler: onError}))
     .pipe($.sassLint({
@@ -27,7 +27,7 @@ gulp.task('styles:lint', () => {
     .pipe($.sassLint.failOnError());
 });
 
-gulp.task('styles', ['styles:lint'], () => {
+gulp.task('styles', ['styles:lint'], function() {
   $.fancyLog("-> Compiling scss");
   return gulp.src('./assets/sass/style.s+(a|c)ss')
     .pipe($.plumber({errorHandler: onError}))
@@ -48,7 +48,7 @@ gulp.task('styles', ['styles:lint'], () => {
 });
 
 // Scripts
-gulp.task('scripts:lint', () => {
+gulp.task('scripts:lint', function() {
   return gulp.src(['./assets/js/**/*.js', '!./node_modules/**/*.js'])
     .pipe($.plumber({errorHandler: onError}))
     .pipe($.eslint())
@@ -56,7 +56,7 @@ gulp.task('scripts:lint', () => {
     .pipe($.eslint.failAfterError());
 });
 
-gulp.task('scripts', ['scripts:lint'], () => {
+gulp.task('scripts', ['scripts:lint'], function() {
   var b = $.browserify({
     entries: './assets/js/script.js',
     debug: true
@@ -76,13 +76,13 @@ gulp.task('scripts', ['scripts:lint'], () => {
 });
 
 // Clean
-gulp.task('clean', () => {
+gulp.task('clean', function() {
   $.fancyLog("-> Cleaning assets");
   return $.del(['./style.css', './script.js']);
 });
 
 // Browser Sync
-gulp.task('browser-sync', () => {
+gulp.task('browser-sync', function() {
 
   var files = [
     './style.css',
@@ -96,23 +96,23 @@ gulp.task('browser-sync', () => {
     open: 'external'
   });
 
-  gulp.watch('./assets/sass/**/*.s+(a|c)ss', ['styles:lint',  () => {
+  gulp.watch('./assets/sass/**/*.s+(a|c)ss', ['styles',  function() {
     $.browserSync.reload(['./style.css'], {stream: true});
   }]);
 
-  gulp.watch('./assets/js/**/*.js', ['scripts:lint',  () => {
-    $.browserSync.reload(['./script.css'], {stream: true});
+  gulp.watch('./assets/js/**/*.js', ['scripts',  function() {
+    $.browserSync.reload(['./script.js'], {stream: true});
   }]);
 });
 
 // Environment Build
-gulp.task('build', () => {
+gulp.task('build', function() {
   isProduction = true;
   $.runSequence('clean', 'styles', 'scripts');
 });
 
 // Default Task
-gulp.task('default', () => {
+gulp.task('default', function() {
   isProduction = false;
   $.runSequence('clean', 'styles', 'scripts', 'browser-sync');
 });
