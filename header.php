@@ -32,3 +32,7 @@
         </button>
       </div>
     </header>
+
+    <nav id="menu" class="menu" role="navigation">
+      <?php main_nav(); ?>
+    </nav>

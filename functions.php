@@ -1,5 +1,9 @@
 <?php
 
+/*------------------------------------*\
+	Theme Support
+\*------------------------------------*/
+
 if (!defined('ABSPATH')) exit;
 
 /*------------------------------------*\
@@ -9,9 +13,56 @@ if (!defined('ABSPATH')) exit;
 // Set up theme support
 function shapeSpace_setup()
 {
+  add_theme_support('menus');
   add_theme_support('post-thumbnails');
   add_theme_support('automatic-feed-links');
   add_theme_support('title-tag');
+}
+
+// Blank navigation
+function main_nav()
+{
+	wp_nav_menu(
+	array(
+		'theme_location'  => 'header-menu',
+		'menu'            => 'main',
+		'container'       => 'false',
+		'container_class' => 'menu-{menu slug}-container',
+		'container_id'    => '',
+		'menu_class'      => 'menu',
+		'menu_id'         => '',
+		'echo'            => true,
+		'fallback_cb'     => 'wp_page_menu',
+		'before'          => '',
+		'after'           => '',
+		'link_before'     => '',
+		'link_after'      => '',
+		'items_wrap'      => '<ul class="menu__list">%3$s</ul>',
+		'depth'           => 0,
+		'walker'          => ''
+		)
+	);
+}
+
+// Add class to menu items
+function nav_menu_item_class($classes , $item, $args, $depth)
+{
+	$new_classes = array('menu__item');
+	if ( in_array('current-menu-item', $classes)) {
+		$new_classes[] = 'selected';
+	}
+
+	return $new_classes;
+}
+
+// Add class to menu link
+function nav_menu_link_atts($atts, $item, $args, $depth) {
+	$new_atts = array('class' => 'menu__link');
+	if ( isset( $atts['href'] ) ) {
+		$new_atts['href'] = $atts['href'];
+	}
+
+	return $new_atts;
 }
 
 // Load Blank scripts (header.php)
@@ -20,7 +71,6 @@ function blank_header_scripts()
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
     wp_deregister_script('wp-embed'); // Remove wp-embed
     wp_deregister_script('jquery'); // Remove jQuery
-
   }
 }
 
@@ -38,13 +88,6 @@ function blank_styles()
 {
   wp_register_style('rob-tucker', get_template_directory_uri() . '/style.css', array(), '1.0.0', 'all');
   wp_enqueue_style('rob-tucker'); // Enqueue it!
-}
-
-// Remove the <div> surrounding the dynamic navigation to cleanup markup
-function my_wp_nav_menu_args($args = '')
-{
-  $args['container'] = false;
-  return $args;
 }
 
 // Add page slug to body class, love this - Credit: Starkers Wordpress Theme
@@ -136,3 +179,6 @@ remove_action('wp_print_styles', 'print_emoji_styles'); // Remove emoji styles
 // Add Filters
 add_filter('body_class', 'add_slug_to_body_class'); // Add slug to body class (Starkers build)
 add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
+add_filter( 'nav_menu_item_id', '__return_empty_string' ); // Remove id from nav menu items
+add_filter( 'nav_menu_css_class', 'nav_menu_item_class', 10, 4 ); // Add class to menu items
+add_filter( 'nav_menu_link_attributes', 'nav_menu_link_atts', 10, 4 ); // Add class to menu link
