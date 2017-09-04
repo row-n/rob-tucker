@@ -1,28 +1,6 @@
-// var $window = $(window),
-//     $body = $('body'),
-//     $backToTop = $('.back-to-top'),
-//     offset = 300,
-//     offsetOpacity = 1200,
-//     scrollTopDuration = 700;
-
-// // Back to top
-// $window.scroll(function(){
-//   ( $(this).scrollTop() > offset ) ? $backToTop.addClass('is-visible') : $backToTop.removeClass('is-visible fade-out');
-//   if( $(this).scrollTop() > offsetOpacity ) {
-//     $backToTop.addClass('fade-out');
-//   }
-// });
-
-// $backToTop.on('click', function(event){
-//   event.preventDefault();
-//   $body.animate({
-//     scrollTop: 0 ,
-//     }, scrollTopDuration
-//   );
-// });
-
 var $body = document.getElementsByTagName('body')[0]
 var $backToTop = document.getElementById('back-to-top');
+var scrollObject = {};
 
 var offset = 300;
 var scrollTopDuration = 700;
@@ -43,11 +21,20 @@ function scrollTo(element, to, duration) {
   }, 10);
 }
 
-window.addEventListener('scroll', function() {
-  console.log(this);
-  if (this.top >= offset) {
-    $backToTop.classList.toggle('menu-open');
+function getScrollPosition() {
+  scrollObject = {
+    x: window.pageXOffset,
+    y: window.pageYOffset
   }
-});
 
+  if(scrollObject.y >= offset) {
+    $backToTop.classList.add('is-visible');
+  } else {
+    $backToTop.classList.remove('is-visible');
+  }
+}
+
+window.onscroll = function() {
+  getScrollPosition();
+}
 $backToTop.addEventListener('click', runScroll, false)
