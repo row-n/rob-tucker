@@ -31,7 +31,6 @@ gulp.task('styles', ['styles:lint'], () => {
   $.fancyLog("-> Compiling scss");
   return gulp.src('./assets/sass/style.s+(a|c)ss')
     .pipe($.plumber({errorHandler: onError}))
-    .pipe($.changed('./style.css'))
     .pipe($.sass({
       outputStyle: 'compressed'
     }).on('error', $.sass.logError))
