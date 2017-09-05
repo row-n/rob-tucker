@@ -52,8 +52,8 @@ gulp.task('scripts:lint', () => {
   return gulp.src(['./assets/js/**/*.js', '!./node_modules/**/*.js'])
     .pipe($.plumber({errorHandler: onError}))
     .pipe($.eslint())
-    .pipe($.eslint.format())
-    .pipe($.eslint.failAfterError());
+    .pipe($.eslint.format());
+    // .pipe($.eslint.failAfterError());
 });
 
 gulp.task('scripts', ['scripts:lint'], () => {
