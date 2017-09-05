@@ -11,6 +11,7 @@
     </svg>
   </a>
 
+  <?php get_template_part('inc/icons'); ?>
   <?php wp_footer(); ?>
 
   </body>
