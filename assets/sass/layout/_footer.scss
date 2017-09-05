@@ -8,10 +8,6 @@
   width: 100%;
   z-index: $footer-zindex;
 
-  @media #{$tablet} {
-    height: $footer-height * 1.5;
-  }
-
   .footer__content {
     align-items: center;
     display: inline-flex;

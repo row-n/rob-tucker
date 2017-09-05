@@ -221,7 +221,6 @@ body {
 }
 
 .main {
-  height: calc(100vh - 8em);
   margin: 4em auto;
   opacity: 1;
   transition: opacity 350ms cubic-bezier(0.8, 0, 0.55, 0.94);
@@ -1116,9 +1115,7 @@ button.button--bordered:hover {
 
 @media only screen and (min-width: 48em) {
   .main {
-    height: calc(100vh - 12em);
-    margin-bottom: 6em;
-    margin-top: 6em;
+    width: 90%;
   }
 
   .visible-mobile {
@@ -1202,10 +1199,6 @@ button.button--bordered:hover {
     margin-bottom: 1em;
     margin-top: 0;
     opacity: 0;
-  }
-
-  .footer {
-    height: 6em;
   }
 
   .footer .footer__content {

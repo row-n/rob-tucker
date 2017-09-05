@@ -4,7 +4,7 @@
 
 <?php get_header(); ?>
 
-  <div id="content">
+  <main class="main">
 
     <?php if (have_posts()) : ?>
 
@@ -23,7 +23,7 @@
 
     <?php endif; ?>
 
-  </div>
+  </main>
 
 <?php get_sidebar(); ?>
 

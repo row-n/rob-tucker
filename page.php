@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-  <div id="content">
+  <main class="main">
 
     <?php if (have_posts()) : ?>
 
@@ -8,7 +8,7 @@
 
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-          <h1><a href="<?php the_permalink(); ?>" title="Permanent link: <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+          <h1><?php the_title(); ?></h1>
 
           <?php get_template_part('inc/meta'); ?>
 
@@ -34,7 +34,7 @@
 
     <?php endif; ?>
 
-  </div>
+  </main>
 
 <?php get_sidebar(); ?>
 
