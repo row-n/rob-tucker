@@ -8,12 +8,10 @@
 // Generic base styles
 @import 'generic/normalize';
 @import 'generic/keyframes';
-// @import 'generic/grid';
-@import 'generic/base';
 @import 'generic/font';
-@import 'generic/typography';
+@import 'generic/base';
 @import 'generic/icons';
-@import 'generic/spinner';
+@import 'generic/typography';
 
 // Site specific
 @import 'layout/background';

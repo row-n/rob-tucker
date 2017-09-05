@@ -1,5 +1,4 @@
-/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */html {
-  font-family: sans-serif;
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -40,10 +39,6 @@ pre {
 a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
-}
-
-a:active,a:hover {
-  outline-width: 0;
 }
 
 abbr[title] {
@@ -139,9 +134,7 @@ button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusri
 }
 
 fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+  padding: 0.35em 0.75em 0.625em;
 }
 
 legend {
@@ -314,6 +307,43 @@ body {
   z-index: 0;
 }
 
+.icon {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icon>* {
+  fill: inherit;
+}
+
+.icon--xs {
+  height: .5rem;
+  width: .5rem;
+}
+
+.icon--sm {
+  height: 1rem;
+  width: 1rem;
+}
+
+.icon--md {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.icon--lg {
+  height: 2rem;
+  width: 2rem;
+}
+
+.icon--xl {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
 h1,h2,h3,h4,h5,h6 {
   color: #1a1a1a;
   font-family: "Plain","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -397,114 +427,6 @@ a:active,a:focus,a:hover {
   color: #b3a577;
   outline: inherit;
   text-decoration: none;
-}
-
-.icon {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.icon>* {
-  fill: inherit;
-}
-
-.icon--xs {
-  height: .5rem;
-  width: .5rem;
-}
-
-.icon--sm {
-  height: 1rem;
-  width: 1rem;
-}
-
-.icon--md {
-  height: 1.5rem;
-  width: 1.5rem;
-}
-
-.icon--lg {
-  height: 2rem;
-  width: 2rem;
-}
-
-.icon--xl {
-  height: 2.5rem;
-  width: 2.5rem;
-}
-
-.spinner {
-  display: block;
-  height: 3em;
-  left: 50%;
-  margin: -1.5em 0 0 -1.5em;
-  opacity: 0;
-  pointer-events: none;
-  position: fixed;
-  top: 50%;
-  -ms-transform: rotate(45deg);
-  transform: rotateZ(45deg);
-  transition: opacity .35s ease-out, visibility .35s;
-  visibility: hidden;
-  width: 3em;
-}
-
-.spinner.spinner--sm {
-  height: 1.5em;
-  margin: .75em auto;
-  width: 1.5em;
-}
-
-.spinner .spinner__cube {
-  float: left;
-  height: 50%;
-  position: relative;
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-  width: 50%;
-}
-
-.spinner .spinner__cube:before {
-  animation: fold-cube 2.4s infinite linear both;
-  background-color: gray;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  -ms-transform-origin: 100% 100%;
-  transform-origin: 100% 100%;
-  width: 100%;
-}
-
-.spinner .spinner__cube.spinner__cube--2 {
-  -ms-transform: scale(1.1) rotate(90deg);
-  transform: scale(1.1) rotateZ(90deg);
-}
-
-.spinner .spinner__cube.spinner__cube--2:before {
-  animation-delay: .3s;
-}
-
-.spinner .spinner__cube.spinner__cube--3 {
-  -ms-transform: scale(1.1) rotate(180deg);
-  transform: scale(1.1) rotateZ(180deg);
-}
-
-.spinner .spinner__cube.spinner__cube--3:before {
-  animation-delay: .6s;
-}
-
-.spinner .spinner__cube.spinner__cube--4 {
-  -ms-transform: scale(1.1) rotate(270deg);
-  transform: scale(1.1) rotateZ(270deg);
-}
-
-.spinner .spinner__cube.spinner__cube--4:before {
-  animation-delay: .9s;
 }
 
 .background .background__image {
@@ -1363,44 +1285,6 @@ button.button--bordered:hover {
   }
 }
 
-@keyframes bounce {
-  from,20%,53%,80%,to {
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transform: translate3d(0, 0, 0);
-  }
-
-  40%,43% {
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transform: translate3d(0, -0.25em, 0);
-  }
-
-  70% {
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transform: translate3d(0, -0.5em, 0);
-  }
-
-  90% {
-    transform: translate3d(0, -0.1em, 0);
-  }
-}
-
-@keyframes fold-cube {
-  0%,10% {
-    opacity: 0;
-    transform: perspective(140px) rotateX(-180deg);
-  }
-
-  25%,75% {
-    opacity: 1;
-    transform: perspective(140px) rotateX(0deg);
-  }
-
-  90%,100% {
-    opacity: 0;
-    transform: perspective(140px) rotateY(180deg);
-  }
-}
-
 @keyframes arrow-move-top {
   0% {
     opacity: 1;
@@ -1419,37 +1303,5 @@ button.button--bordered:hover {
   100% {
     margin-top: 0;
     opacity: 1;
-  }
-}
-
-@keyframes background {
-  0% {
-    background-color: #dde0e4;
-  }
-
-  33% {
-    background-color: #dadeda;
-  }
-
-  66% {
-    background-color: #dbd3d2;
-  }
-
-  100% {
-    background-color: #dde0e4;
-  }
-}
-
-@keyframes pulse {
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-
-  50% {
-    transform: scale3d(1.05, 1.05, 1.05);
-  }
-
-  to {
-    transform: scale3d(1, 1, 1);
   }
 }

@@ -48,7 +48,7 @@ function main_nav()
 function nav_menu_item_class($classes , $item, $args, $depth)
 {
 	$new_classes = array('menu__item');
-	if ( in_array('current-menu-item', $classes)) {
+	if (in_array('current-menu-item', $classes)) {
 		$new_classes[] = 'selected';
 	}
 
@@ -58,7 +58,7 @@ function nav_menu_item_class($classes , $item, $args, $depth)
 // Add class to menu link
 function nav_menu_link_atts($atts, $item, $args, $depth) {
 	$new_atts = array('class' => 'menu__link');
-	if ( isset( $atts['href'] ) ) {
+	if (isset($atts['href'])) {
 		$new_atts['href'] = $atts['href'];
 	}
 
