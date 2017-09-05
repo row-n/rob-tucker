@@ -1,22 +1,19 @@
-var $body = document.getElementsByTagName('body')[0]
-var $backToTop = document.getElementById('back-to-top');
-var scrollObject = {};
-
-var offset = 300;
-var scrollTopDuration = 700;
-
-function runScroll() {
-  scrollTo($body, 0, scrollTopDuration);
-}
+const $body = document.getElementsByTagName('body')[0];
+const $backToTop = document.getElementById('back-to-top');
+const offset = 300;
+const scrollTopDuration = 700;
+let scrollObject = {};
 
 function scrollTo(element, to, duration) {
   if (duration <= 0) return;
-  var difference = to - element.scrollTop;
-  var perTick = difference / duration * 10;
+  const elementScroll = element.scrollTop;
+  const difference = to - elementScroll;
+  const perTick = (difference / duration) * 20;
 
-  setTimeout(function() {
-    element.scrollTop = element.scrollTop + perTick;
-    if (element.scrollTop == to) return;
+
+  setTimeout(() => {
+    element.scrollTop += perTick;
+    if (elementScroll === to) return;
     scrollTo(element, to, duration - 10);
   }, 10);
 }
@@ -24,17 +21,21 @@ function scrollTo(element, to, duration) {
 function getScrollPosition() {
   scrollObject = {
     x: window.pageXOffset,
-    y: window.pageYOffset
-  }
+    y: window.pageYOffset,
+  };
 
-  if(scrollObject.y >= offset) {
+  if (scrollObject.y >= offset) {
     $backToTop.classList.add('is-visible');
   } else {
     $backToTop.classList.remove('is-visible');
   }
 }
 
-window.onscroll = function() {
-  getScrollPosition();
+function runScroll() {
+  scrollTo($body, 0, scrollTopDuration);
 }
-$backToTop.addEventListener('click', runScroll, false)
+
+window.onscroll = () => {
+  getScrollPosition();
+};
+$backToTop.addEventListener('click', runScroll, false);

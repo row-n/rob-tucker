@@ -1,5 +1,5 @@
-var pace = require('pace-progress');
+const pace = require('pace-progress');
 
 pace.start({
-  document: false
+  document: false,
 });
