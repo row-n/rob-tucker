@@ -12,7 +12,7 @@ const $ = require('gulp-load-plugins')({
   scope: ['devDependencies']
 });
 
-const onError = (err) => {
+const onError = function(err) {
   console.log(err);
 };
 
@@ -96,12 +96,12 @@ gulp.task('browser-sync', () => {
     open: 'external'
   });
 
-  gulp.watch('./assets/sass/**/*.s+(a|c)ss', ['styles:lint',  () => {
+  gulp.watch('./assets/sass/**/*.s+(a|c)ss', ['styles', () => {
     $.browserSync.reload(['./style.css'], {stream: true});
   }]);
 
-  gulp.watch('./assets/js/**/*.js', ['scripts:lint',  () => {
-    $.browserSync.reload(['./script.css'], {stream: true});
+  gulp.watch('./assets/js/**/*.js', ['scripts', () => {
+    $.browserSync.reload(['./script.js'], {stream: true});
   }]);
 });
 

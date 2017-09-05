@@ -907,13 +907,13 @@ button.button--bordered:hover {
   text-align: left;
 }
 
-.menu .menu__item.active .menu__link {
+.menu .menu__item.selected .menu__link {
   color: #000;
   text-shadow: -1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff;
   transition: text-shadow 350ms ease;
 }
 
-.menu .menu__item.active .menu__link:hover {
+.menu .menu__item.selected .menu__link:hover {
   text-shadow: -1px -1px 0 #cec5a8,1px -1px 0 #cec5a8,-1px 1px 0 #cec5a8,1px 1px 0 #cec5a8;
 }
 

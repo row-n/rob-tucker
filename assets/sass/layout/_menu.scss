@@ -39,7 +39,7 @@
     padding-bottom: 2em;
     text-align: left;
 
-    &.active {
+    &.selected {
       .menu__link {
         color: $black;
         text-shadow: -1px -1px 0 $white, 1px -1px 0 $white, -1px 1px 0 $white, 1px 1px 0 $white;
