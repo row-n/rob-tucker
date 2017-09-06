@@ -487,8 +487,8 @@ a:active,a:focus,a:hover {
   color: #fff;
 }
 
-button {
-  background-color: #cec5a8;
+.button {
+  background: #cec5a8;
   border: 0.0625em solid #cec5a8;
   color: #fff;
   cursor: pointer;
@@ -499,17 +499,17 @@ button {
   transition: background-color 700ms ease,border-color 700ms ease,color 700ms ease;
 }
 
-button:hover {
-  background-color: #c0b58f;
+.button:hover {
+  background: #c0b58f;
   border-color: #c0b58f;
 }
 
-button.button--bordered {
+.button.button--bordered {
   background-color: transparent;
   color: #cec5a8;
 }
 
-button.button--bordered:hover {
+.button.button--bordered:hover {
   color: #c0b58f;
 }
 

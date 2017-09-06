@@ -1,5 +1,5 @@
-button {
-  background-color: $beige;
+.button {
+  background: $beige;
   border: .0625em solid $beige;
   color: $white;
   cursor: pointer;
@@ -10,7 +10,7 @@ button {
   transition: background-color $global-duration ease, border-color $global-duration ease, color $global-duration ease;
 
   &:hover {
-    background-color: $beige-dark;
+    background: $beige-dark;
     border-color: $beige-dark;
   }
 
