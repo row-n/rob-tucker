@@ -1,29 +1,40 @@
-var $form = $('.form');
+(function formFactory() {
+  const $form = document.getElementById('form');
+  const $inputs = document.getElementsByClassName('form__input');
 
-// Form floating labels
-$("input:not([value]), input[value=''], textarea:not([value]), textarea[value='']").addClass('empty');
+  function textInputFocusHandler(element) {
+    element.classList.remove('empty');
+  }
 
-$('input, textarea').on('input keyup', function() {
-    $(this).toggleClass('empty', !Boolean($(this).val()));
-});
-
-
-// Form validation
-$form.on('submit', function(e) {
-
-  var hasError = false;
-
-  $('input, textarea').each(function() {
-    var $this = $(this);
-
-    if ($this.val() == '') {
-      hasError = true;
-      $this.parent().addClass('error');
-      e.preventDefault();
-    } if($this.val() != '') {
-      $this.parent().removeClass('error');
+  function textInputChangeHandler(element) {
+    if (element.value === '') {
+      element.classList.add('empty');
     } else {
-      return true;
+      element.classList.remove('empty');
     }
+  }
+
+  function formSubmit(element, event) {
+    Array.from($inputs).forEach(() => {
+      if (element.value === '') {
+        event.preventDefault();
+        $form.classList.add('error');
+      } else if (element.value !== '') {
+        $form.classList.remove('error');
+      }
+    });
+  }
+
+  Array.from($inputs).forEach((element) => {
+    element.classList.add('empty');
+    element.addEventListener('focus', textInputFocusHandler.bind(null, element), false);
+    element.addEventListener('input', textInputChangeHandler.bind(null, element), false);
+    element.addEventListener('blur', textInputChangeHandler.bind(null, element), false);
   });
-});
+
+  if ($form) {
+    $form.addEventListener('submit', (event) => {
+      formSubmit($inputs, event);
+    });
+  }
+}());

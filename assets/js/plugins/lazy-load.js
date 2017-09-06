@@ -1,10 +1,7 @@
-var Blazy = require('blazy');
+const LazyLoad = require('vanilla-lazyload');
 
-var bLazy = new Blazy({
-  success: function(element){
-    setTimeout(function(){
-      var parent = element.parentNode;
-      parent.className = parent.className.replace(/\bloading\b/,'');
-    }, 200);
-  }
-});
+(function lazyloadFactory() {
+  const myLazyLoad = new LazyLoad();
+
+  // myLazyLoad();
+}());

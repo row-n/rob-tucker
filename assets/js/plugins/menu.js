@@ -1,9 +1,11 @@
-const $body = document.getElementsByTagName('body')[0];
-const $trigger = document.getElementById('trigger');
+(function menuFactory() {
+  const $body = document.getElementsByTagName('body')[0];
+  const $trigger = document.getElementById('trigger');
 
-// Menu trigger
-function classToggle() {
-  $body.classList.toggle('menu-open');
-}
+  // Menu trigger
+  function classToggle() {
+    $body.classList.toggle('menu-open');
+  }
 
-$trigger.addEventListener('click', classToggle, false);
+  $trigger.addEventListener('click', classToggle, false);
+}());
