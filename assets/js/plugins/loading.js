@@ -1,5 +1,7 @@
 const pace = require('pace-progress');
 
-pace.start({
-  document: false,
-});
+(function loadingFactory() {
+  pace.start({
+    document: false,
+  });
+}());
