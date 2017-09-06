@@ -158,6 +158,12 @@ function remove_admin_bar()
   return false;
 }
 
+// Remove span elements from Contact Form 7
+function remove_contact_spans($content) {
+  $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
+  return $content;
+}
+
 /*------------------------------------*\
 	Actions + Filters + ShortCodes
 \*------------------------------------*/
@@ -192,3 +198,4 @@ add_filter('nav_menu_css_class', 'nav_menu_item_class', 10, 4); // Add class to 
 add_filter('nav_menu_link_attributes', 'nav_menu_link_atts', 10, 4); // Add class to menu link
 add_filter('style_loader_src', 'sdt_remove_ver_css_js', 9999); // Remove WP Version From Styles
 add_filter('script_loader_src', 'sdt_remove_ver_css_js', 9999); // Remove WP Version From Scripts
+add_filter('wpcf7_form_elements', 'remove_contact_spans'); // Remove span elements from Contact Form 7
