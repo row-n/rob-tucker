@@ -1,4 +1,4 @@
-@keyframes arrow-move-top {
+@keyframes scroll-up {
   0% {
     opacity: 1;
   }
@@ -15,6 +15,27 @@
 
   100% {
     margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes scroll-down {
+  0% {
+    margin-top: 0;
+    opacity: 1;
+  }
+
+  33% {
+    margin-top: 0;
+    opacity: 0;
+  }
+
+  66% {
+    margin-top: -1em;
+    opacity: 0;
+  }
+
+  100% {
     opacity: 1;
   }
 }

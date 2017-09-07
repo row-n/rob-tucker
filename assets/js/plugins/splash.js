@@ -1,8 +1,29 @@
-// $(window).on('load scroll', function () {
-//   var blur = ($(window).scrollTop() / 2);
-//   var opacity = (1 - $(window).scrollTop() / 100);
-//   var scale = (1 + 1 * $(window).scrollTop() / 250);
-//   if (scale <= 1.4) {
-//     $('.splash__img').css({'opacity': opacity, 'filter': 'blur(' + blur + 'px)', 'transform': 'scale(' + scale + ')'});
-//   }
-// });
+(function splashFactory() {
+  const $header = document.getElementById('header');
+  const $mouse = document.getElementById('mouse');
+  const offset = 10;
+  let scrollObject = {};
+
+  function getScrollPosition() {
+    scrollObject = {
+      x: window.pageXOffset,
+      y: window.pageYOffset,
+    };
+
+    if (scrollObject.y >= offset) {
+      $header.classList.add('header--sm');
+      if ($mouse) {
+        $mouse.classList.remove('is-visible');
+      }
+    } else if (scrollObject.y < offset) {
+      $header.classList.remove('header--sm');
+      if ($mouse) {
+        $mouse.classList.add('is-visible');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    getScrollPosition();
+  }, false);
+}());
