@@ -199,3 +199,4 @@ add_filter('nav_menu_link_attributes', 'nav_menu_link_atts', 10, 4); // Add clas
 add_filter('style_loader_src', 'sdt_remove_ver_css_js', 9999); // Remove WP Version From Styles
 add_filter('script_loader_src', 'sdt_remove_ver_css_js', 9999); // Remove WP Version From Scripts
 add_filter('wpcf7_form_elements', 'remove_contact_spans'); // Remove span elements from Contact Form 7
+add_filter( 'use_default_gallery_style', '__return_false' ); // Remove Gallery styles
