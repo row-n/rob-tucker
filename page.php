@@ -2,15 +2,17 @@
 
   <main class="main">
 
-    <div class="content">
+    <section class="content">
 
       <?php if (have_posts()) : ?>
 
         <?php while (have_posts()) : the_post(); ?>
 
-          <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+          <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-            <h1><?php the_title(); ?></h1>
+            <header class="page__header">
+              <h1><?php the_title(); ?></h1>
+            </header>
 
             <?php get_template_part('inc/meta'); ?>
 
@@ -24,7 +26,7 @@
 
             </div>
 
-          </div>
+          </article>
 
         <?php endwhile; ?>
 
@@ -36,7 +38,7 @@
 
       <?php endif; ?>
 
-    </div>
+    </section>
 
   </main>
 
