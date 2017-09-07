@@ -217,6 +217,10 @@ body {
   min-height: calc(100vh - (4em + 4em));
 }
 
+body.pace-running {
+  overflow: hidden;
+}
+
 .global-icons {
   height: 0;
   overflow: hidden;
@@ -256,7 +260,7 @@ body {
 }
 
 .pace .pace-progress {
-  background-color: #5faeff;
+  background-color: #0580ff;
   bottom: 0;
   height: 100%;
   overflow: hidden;
@@ -448,6 +452,10 @@ a:active,a:focus,a:hover {
   color: #fff;
 }
 
+.pace-running .brand .brand__logo {
+  color: #fff;
+}
+
 .brand .brand__description {
   display: none;
 }
@@ -524,7 +532,6 @@ a:active,a:focus,a:hover {
 }
 
 .header {
-  background-color: #fff;
   height: 4em;
   left: 0;
   position: fixed;
@@ -553,6 +560,10 @@ a:active,a:focus,a:hover {
 .header:hover:before {
   -ms-transform: scale(1, 1);
   transform: scale(1, 1);
+}
+
+.header:hover .brand .brand__logo {
+  color: #1a1a1a;
 }
 
 .page-template-page-splash .header {

@@ -26,6 +26,10 @@ body {
     margin-bottom: $footer-height-desktop;
     min-height: calc(100vh - (#{$site-header-height-desktop} + #{$footer-height-desktop}));
   }
+
+  &.pace-running {
+    overflow: hidden;
+  }
 }
 
 .global-icons {
@@ -71,7 +75,7 @@ body {
   }
 
   .pace-progress {
-    background-color: $blue-light;
+    background-color: $blue;
     bottom: 0;
     height: 100%;
     overflow: hidden;

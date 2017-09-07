@@ -1,5 +1,4 @@
 .header {
-  background-color: $white;
   height: $site-header-height-mobile;
   left: 0;
   position: fixed;
@@ -29,6 +28,12 @@
   &:hover {
     &:before {
       transform: scale(1, 1);
+    }
+
+    .brand {
+      .brand__logo {
+        color: $brand-link-color;
+      }
     }
   }
 
