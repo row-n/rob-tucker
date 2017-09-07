@@ -17,36 +17,18 @@ $black-90: darken($white, 90%);
 $black: #000;
 
 // Bluescale
-$blue-v-light: #dde0e4;
-$blue-light: #bbc1ca;
-$blue: #9aa3af;
-$blue-dark: #788495;
-$blue-v-dark: #56667b;
+$blue-v-light: #badcff;
+$blue-light: #5faeff;
+$blue: #0580ff;
+$blue-dark: #0452a3;
+$blue-v-dark: #022346;
 
-// Beige
-$beige-v-light: #eae6d9;
-$beige-light: #dcd6c1;
-$beige: #cec5a8;
-$beige-dark: #c0b58f;
-$beige-v-dark: #b3a577;
-
-// Green
-$green-v-light: #dadeda;
-$green-light: #c2c8c2;
-$green: #aab2aa;
-$green-dark: #929c92;
-$green-v-dark: #7a877a;
-
-// Maroon
-
-$maroon-v-light: #dbd3d2;
-$maroon-light: #c3b5b4;
-$maroon: #ab9896;
-$maroon-dark: #937b78;
-$maroon-v-dark: #7b5e5a;
-
-// Validation
-$red: #dc6d51;
+// redscale
+$red-v-light: #ffd8d2;
+$red-light: #ffa496;
+$red: #ff715b;
+$red-dark: #a3483a;
+$red-v-dark: #461f19;
 
 // Social
 $facebook: #3b5998;
@@ -62,7 +44,7 @@ $global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-duration: 700ms;
 $global-timing-function: cubic-bezier(.8, 0, .55, .94);
-$body-background: $white;
+$body-background: #f7f7f7;
 $body-font-colour: $black-80;
 $body-font-family: 'Plain', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $body-font-size: $global-font-size;
@@ -78,7 +60,7 @@ $header-font-family: $body-font-family;
 $header-font-weight: 400;
 $header-font-style: normal;
 $font-family-monospace: $font-family-monospace;
-$header-color: $black-90;
+$header-color: $blue;
 $header-lineheight: 1.4;
 $header-letter-spacing: .1em;
 $header-margin-bottom: .5rem;
@@ -94,8 +76,8 @@ $large-font-size: 112.5%;
 $x-large-font-size: 125%;
 $paragraph-lineheight: 1.6;
 $paragraph-margin-bottom: 1rem;
-$anchor-color: $beige;
-$anchor-color-hover: $beige-v-dark;
+$anchor-color: $blue;
+$anchor-color-hover: $blue-v-dark;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: 100%;
@@ -141,7 +123,7 @@ $screen: 'only screen and (min-width: #{$screen-lg})'; //1200px
 
 $brand-height: 4em;
 $brand-link-color: $black-90;
-$brand-link-color-hover: $beige;
+$brand-link-color-hover: $blue;
 $brand-link-color-active: $white;
 $brand-font-size: $x-large-font-size;
 $brand-font-family: $header-font-family;
@@ -154,12 +136,9 @@ $brand-font-weight: 200;
 $button-font-family: $header-font-family;
 $button-letter-spacing: $header-letter-spacing;
 $button-color: $white;
-$button-background-color: $black-60;
+$button-background-color: $blue;
 $button-color-hover: $button-color;
-$button-background-color-hover: $black-80;
-$button-bordered-color-hover: $black-80;
-$button-bordered-background-color: transparent;
-$button-bordered-background-color-hover: transparent;
+$button-background-color-hover: $blue-dark;
 $button-border-color: $black-60;
 $button-border-color-hover: $black-80;
 $button-border: .125em solid $button-border-color;
@@ -179,7 +158,7 @@ $close-height: $close-width;
 // ------------
 
 $hamburger-link-color: $black-90;
-$hamburger-link-color-hover: $beige;
+$hamburger-link-color-hover: $blue;
 $hamburger-link-color-active: $white;
 $hamburger-font-family: $header-font-family;
 $hamburger-font-size: $x-large-font-size;
@@ -189,7 +168,8 @@ $hamburger-font-weight: 200;
 // Header
 // ---------
 
-$site-header-height: 4em;
+$site-header-height-mobile: 4em;
+$site-header-height-desktop: ($site-header-height-mobile * 1.5);
 $site-header-width: 100%;
 $site-header-background: $white;
 $site-header-link-color: $black-90;
@@ -198,7 +178,6 @@ $site-header-link-background-hover: $black-80;
 $site-header-font-size: $x-large-font-size;
 $site-header-font-family: $header-font-family;
 $site-header-font-weight: 200;
-$site-header-line-height: $site-header-height;
 $site-header-text-decoration: none;
 $site-header-padding: 0 1.15em;
 
@@ -221,7 +200,6 @@ $navbar-link-padding: 0 1.25em;
 // Content
 // ----------
 
-$content-top-spacing: $site-header-height;
 $content-width: 80em;
 
 
@@ -229,7 +207,9 @@ $content-width: 80em;
 // ---------
 
 $footer-color: $black-30;
-$footer-height: $site-header-height;
+$footer-background: $white;
+$footer-height-mobile: $site-header-height-mobile;
+$footer-height-desktop: ($footer-height-mobile * 1.5);
 $footer-font-size: $x-small-font-size;
 
 
@@ -276,7 +256,7 @@ $brand-zindex: 40;
 $hamburger-zindex: $brand-zindex;
 $site-header-zindex: 30;
 $menu-zindex: 20;
-$footer-zindex: 10;
+$footer-zindex: -1;
 $backtotop-zindex: $menu-zindex;
 
 // sass-lint:disable no-color-keywords

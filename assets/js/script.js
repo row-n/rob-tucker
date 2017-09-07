@@ -3,4 +3,4 @@ require('./plugins/lazy-load');
 require('./plugins/loading');
 require('./plugins/menu');
 require('./plugins/to-top');
-// require('./plugins/splash');
+require('./plugins/splash');

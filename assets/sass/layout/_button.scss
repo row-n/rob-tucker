@@ -1,25 +1,14 @@
-button {
-  background-color: $beige;
-  border: .0625em solid $beige;
-  color: $white;
+.button {
+  background-color: $button-background-color;
+  color: $button-color;
   cursor: pointer;
   font-family: $body-font-family;
   outline: none;
   padding: .75em 2em;
   text-transform: uppercase;
-  transition: background-color $global-duration ease, border-color $global-duration ease, color $global-duration ease;
+  transition: background-color $global-duration ease, color $global-duration ease;
 
   &:hover {
-    background-color: $beige-dark;
-    border-color: $beige-dark;
-  }
-
-  &.button--bordered {
-    background-color: transparent;
-    color: $beige;
-
-    &:hover {
-      color: $beige-dark;
-    }
+    background-color: $blue-dark;
   }
 }

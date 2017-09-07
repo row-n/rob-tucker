@@ -27,7 +27,7 @@
     opacity: 0;
     padding-left: 0;
     transition: opacity ($global-duration / 2) $global-timing-function;
-    width: 85%;
+    width: 90%;
 
     .menu-open & {
       opacity: 1;
@@ -46,7 +46,7 @@
         transition: text-shadow ($global-duration / 2) ease;
 
         &:hover {
-          text-shadow: -1px -1px 0 $beige, 1px -1px 0 $beige, -1px 1px 0 $beige, 1px 1px 0 $beige;
+          text-shadow: -1px -1px 0 $blue, 1px -1px 0 $blue, -1px 1px 0 $blue, 1px 1px 0 $blue;
         }
       }
     }
@@ -64,7 +64,7 @@
     text-transform: lowercase;
 
     &:hover {
-      color: $beige;
+      color: $blue;
     }
   }
 }
