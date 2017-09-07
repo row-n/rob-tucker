@@ -1,5 +1,20 @@
 .content {
+  margin: $site-header-height-mobile auto $footer-height-mobile;
+  min-height: calc(100vh - (#{$site-header-height-mobile} + #{$footer-height-mobile}));
+  opacity: 1;
   position: relative;
+  transition: opacity ($global-duration / 2) $global-timing-function;
+  width: 90%;
+
+  @media #{$tablet} {
+    margin-bottom: $footer-height-desktop;
+    margin-top: $site-header-height-desktop;
+    min-height: calc(100vh - (#{$site-header-height-desktop} + #{$footer-height-desktop}));
+  }
+
+  .pace-running & {
+    opacity: 0;
+  }
 
   .content__left {
     background: none;
@@ -30,7 +45,6 @@
     margin-bottom: 2em;
 
     h1 {
-      color: $beige-v-dark;
       margin-bottom: 0;
       margin-top: 0;
     }

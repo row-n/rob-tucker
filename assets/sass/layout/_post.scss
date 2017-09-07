@@ -1,29 +1,21 @@
-.post {
+.page {
   @include clearfix;
   display: block;
   margin-bottom: 2em;
   text-align: left;
   width: 100%;
 
-  @media #{$tablet} {
-    display: table;
-  }
-
-  .post__link {
-    text-decoration: none;
-  }
-
-  .post__img {
-    width: 100%;
+  .page__header {
+    margin-bottom: 2em;
+    margin-top: 2em;
 
     @media #{$tablet} {
-      display: table-cell;
-      vertical-align: top;
-      width: 35%;
+      margin-bottom: 4em;
+      margin-top: 4em;
     }
   }
 
-  .post__content {
+  .page__content {
     @media #{$tablet} {
       display: table-cell;
       padding-left: 1em;
@@ -38,23 +30,5 @@
         position: absolute;
       }
     }
-  }
-
-  .post__title {
-    border-bottom: 3px solid $black-90;
-
-    @media #{$tablet} {
-      margin-top: 0;
-    }
-
-    a {
-      color: $header-color;
-      text-decoration: none;
-    }
-  }
-
-  .post__thumbnail {
-    float: left;
-    max-width: 100%;
   }
 }

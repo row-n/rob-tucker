@@ -2,37 +2,41 @@
 
   <main class="main">
 
-    <?php if (have_posts()) : ?>
+    <div class="content">
 
-      <?php while (have_posts()) : the_post(); ?>
+      <?php if (have_posts()) : ?>
 
-        <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <?php while (have_posts()) : the_post(); ?>
 
-          <h1><?php the_title(); ?></h1>
+          <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-          <?php get_template_part('inc/meta'); ?>
+            <h1><?php the_title(); ?></h1>
 
-          <?php if (has_post_thumbnail()) the_post_thumbnail(); ?>
+            <?php get_template_part('inc/meta'); ?>
 
-          <div class="entry">
+            <?php if (has_post_thumbnail()) the_post_thumbnail(); ?>
 
-            <?php the_content(); ?>
+            <div class="entry">
 
-            <?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
+              <?php the_content(); ?>
+
+              <?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
+
+            </div>
 
           </div>
 
-        </div>
+        <?php endwhile; ?>
 
-      <?php endwhile; ?>
+        <?php comments_template(); ?>
 
-      <?php comments_template(); ?>
+      <?php else : ?>
 
-    <?php else : ?>
+        <?php get_template_part('inc/gone'); ?>
 
-      <?php get_template_part('inc/gone'); ?>
+      <?php endif; ?>
 
-    <?php endif; ?>
+    </div>
 
   </main>
 

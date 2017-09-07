@@ -19,34 +19,13 @@ body {
   font-family: $body-font-family;
   font-size: $body-font-size;
   font-weight: $body-font-weight;
-  height: 100%;
-}
-
-.push {
-  height: $footer-height;
-}
-
-.main {
-  margin: $site-header-height auto;
-  opacity: 1;
-  transition: opacity ($global-duration / 2) $global-timing-function;
-  width: 85%;
-
-  .pace-running & {
-    opacity: 0;
-  }
+  margin-bottom: $footer-height-mobile;
+  min-height: calc(100vh - (#{$site-header-height-mobile} + #{$footer-height-mobile}));
 
   @media #{$tablet} {
-    width: 90%;
+    margin-bottom: $footer-height-desktop;
+    min-height: calc(100vh - (#{$site-header-height-desktop} + #{$footer-height-desktop}));
   }
-}
-
-.gallery-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 100vh;
-  width: 100%;
 }
 
 .global-icons {
@@ -83,25 +62,6 @@ body {
   }
 }
 
-.article {
-  // float: left;
-  margin: 0 auto 3em;
-  text-align: center;
-  width: 45%;
-
-  // &:nth-child(2n) {
-  //   float: right;
-  // }
-
-  .article__image {
-    width: 100%;
-  }
-
-  .article__title {
-    margin-top: 1em;
-  }
-}
-
 .pace {
   pointer-events: none;
   user-select: none;
@@ -111,7 +71,7 @@ body {
   }
 
   .pace-progress {
-    background-color: $black-10;
+    background-color: $blue-light;
     bottom: 0;
     height: 100%;
     overflow: hidden;

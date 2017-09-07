@@ -1,24 +1,24 @@
 .footer {
   align-items: center;
+  background-color: $footer-background;
   bottom: 0;
-  height: $footer-height;
+  height: $footer-height-mobile;
   left: 0;
   position: fixed;
   text-align: left;
   width: 100%;
   z-index: $footer-zindex;
 
+  @media #{$tablet} {
+    height: $footer-height-desktop;
+  }
+
   .footer__content {
     align-items: center;
     display: inline-flex;
     height: inherit;
-    margin-left: 7.5%;
-    width: 85%;
-
-    @media #{$tablet} {
-      margin-left: 5%;
-      width: 90%;
-    }
+    margin-left: 5%;
+    width: 90%;
   }
 
   .copyright {
