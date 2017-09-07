@@ -17,4 +17,14 @@
       color: $brand-link-color-active;
     }
   }
+
+  .brand__description {
+    display: none;
+
+    @media #{$tablet} {
+      display: inline-block;
+      font-size: $x-small-font-size;
+      margin-left: 1.0666666667em;
+    }
+  }
 }
