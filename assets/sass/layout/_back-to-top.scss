@@ -1,24 +1,29 @@
 .back-to-top {
   border: .0625em solid $black-90;
   bottom: .75em;
-  height: 2.5em;
+  height: 1.5em;
   opacity: 0;
-  padding: 1em;
+  padding: .5em;
   position: fixed;
-  right: 7.5%;
+  right: 5%;
   transform: translate3d(1em, 0, 0);
   transform-origin: 50% 100%;
   transition: opacity 200ms ease-out, transform 200ms ease-out;
-  width: 2.5em;
+  width: 1.5em;
   z-index: $backtotop-zindex;
+
+  @media #{$mobile} {
+    height: 2.5em;
+    padding: 1em;
+    width: 2.5em;
+  }
 
   @media #{$tablet} {
     bottom: 1.75em;
-    right: 5%;
   }
 
   .icon {
-    animation-duration: 1.25s;
+    animation-duration: 1.35s;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
@@ -28,7 +33,7 @@
 
   &:hover {
     .icon {
-      animation-name: arrow-move-top;
+      animation-name: scroll-up;
     }
   }
 
