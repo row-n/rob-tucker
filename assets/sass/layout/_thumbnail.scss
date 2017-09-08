@@ -1,0 +1,46 @@
+.thumbnail-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: -1em;
+  margin-right: -1em;
+}
+
+.thumbnail {
+  border-bottom: 0;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  width: 100%;
+
+  @media #{$mobile} {
+    margin-bottom: 2em;
+    width: calc(50% - 2em);
+  }
+
+  @media #{$desktop} {
+    margin-bottom: 4em;
+    width: calc(33.333% - 2em);
+  }
+
+  &:hover {
+    img {
+      box-shadow: none;
+      transform: scale(.98);
+    }
+  }
+
+  img {
+    box-shadow: 0 0 30px 0 alpha($black, .3);
+    height: auto;
+    transform: scale(1);
+    transition: box-shadow ($global-duration / 2) $global-timing-function, transform ($global-duration / 2) $global-timing-function;
+    width: 100%;
+  }
+
+  .thumbnail__heading {
+    margin-bottom: 0;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}

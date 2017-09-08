@@ -15,32 +15,39 @@
           echo '<div class="splash" style="background-image: url(' . esc_url($featured_img_url) . ');"><div class="mouse is-visible" id="mouse"><div class="mouse__scroll"></div></div></div>';
         endif; ?>
 
-        <div class="thumbnail-list">
+        <section class="content content--splash">
 
-          <?php $mypages = get_pages( array( 'child_of' => 9, 'sort_column' => 'menu_order', 'sort_order' => 'ASC' ) );
-          foreach( $mypages as $page ) {
-            $content = $page->post_content;
-            $thumbnail = get_the_post_thumbnail( $page->ID, 'large' );
-            $galleries = get_post_galleries_images( $page );
-            foreach( $galleries as $gallery ) {
-              if ( $thumbnail ) { ?>
-                <a href="<?php echo get_page_link( $page->ID ); ?>" class="thumbnail">
-                  <?php echo $thumbnail ?>
-                  <h3><?php echo $page->post_title; ?></h3>
-                </a>
-              <?php }
-            }
-          } ?>
+          <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-        </div>
+            <header class="page__header">
+              <h1>Works</h1>
+            </header>
 
-      <?php endwhile; ?>
+            <div class="thumbnail-list">
 
-    <?php else : ?>
+              <?php $mypages = get_pages( array( 'child_of' => 9, 'sort_column' => 'menu_order', 'sort_order' => 'ASC' ) );
+              foreach( $mypages as $page ) {
+                $thumbnail = get_the_post_thumbnail( $page->ID, 'large' );
+                if ( $thumbnail ) { ?>
+                  <a href="<?php echo get_page_link( $page->ID ); ?>" class="thumbnail">
+                    <?php echo $thumbnail ?>
+                    <h3 class="thumbnail__heading"><?php echo $page->post_title; ?></h3>
+                  </a>
+                <?php }
+              } ?>
 
-      <?php get_template_part('inc/gone'); ?>
+            </div>
+          </article>
 
-    <?php endif; ?>
+        <?php endwhile; ?>
+
+      <?php else : ?>
+
+        <?php get_template_part('inc/gone'); ?>
+
+      <?php endif; ?>
+
+    </section>
 
   </main>
 
