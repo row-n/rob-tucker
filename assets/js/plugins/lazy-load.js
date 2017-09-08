@@ -1,7 +1,5 @@
 const LazyLoad = require('vanilla-lazyload');
 
 (function lazyloadFactory() {
-  const myLazyLoad = new LazyLoad();
-
-  // myLazyLoad();
+  new LazyLoad(); // eslint-disable-line no-new
 }());
