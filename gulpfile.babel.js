@@ -1,4 +1,3 @@
-'use strict';
 
 // Set environment
 let isProduction = false;
@@ -9,17 +8,18 @@ const gulp = require('gulp');
 // Load all plugins in 'devDependencies' into the variable $
 const $ = require('gulp-load-plugins')({
   pattern: ['*'],
-  scope: ['devDependencies']
+  scope: ['devDependencies'],
 });
 
-const onError = function(err) {
-  console.log(err);
+const onError = (err) => {
+  console.log(err); // eslint-disable-line no-console
 };
 
 // Styles
 gulp.task('styles:lint', () => {
-  return gulp.src(['./assets/sass/**/*.s+(a|c)ss', '!./assets/sass/generic/_normalize.scss'])
-    .pipe($.plumber({errorHandler: onError}))
+  $.fancyLog('-> Linting scss');
+  gulp.src(['./assets/sass/**/*.s+(a|c)ss', '!./assets/sass/generic/_normalize.scss'])
+    .pipe($.plumber({ errorHandler: onError }))
     .pipe($.sassLint({
       configFile: '.sass-lint.yml',
     }))
@@ -28,18 +28,18 @@ gulp.task('styles:lint', () => {
 });
 
 gulp.task('styles', ['styles:lint'], () => {
-  $.fancyLog("-> Compiling scss");
-  return gulp.src('./assets/sass/style.s+(a|c)ss')
-    .pipe($.plumber({errorHandler: onError}))
+  $.fancyLog('-> Compiling scss');
+  gulp.src('./assets/sass/style.s+(a|c)ss')
+    .pipe($.plumber({ errorHandler: onError }))
     .pipe($.sass({
-      outputStyle: 'compressed'
+      outputStyle: 'compressed',
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer({
       browsers: ['last 2 versions', 'ie 9', 'ie 10'],
     }))
     .pipe($.combineMq())
     .pipe(gulp.dest('./'))
-    .pipe($.if(isProduction, $.sourcemaps.init({loadMaps: true})))
+    .pipe($.if(isProduction, $.sourcemaps.init({ loadMaps: true })))
     .pipe($.if(isProduction, $.cssnano()))
     .pipe($.if(isProduction, $.sourcemaps.write()))
     .pipe($.if(isProduction, $.rename('style.min.css')))
@@ -48,59 +48,72 @@ gulp.task('styles', ['styles:lint'], () => {
 
 // Scripts
 gulp.task('scripts:lint', () => {
-  return gulp.src(['./assets/js/**/*.js', '!./node_modules/**/*.js'])
-    .pipe($.plumber({errorHandler: onError}))
+  $.fancyLog('-> Linting js');
+  gulp.src(['./assets/js/**/*.js', '!./node_modules/**/*.js'])
+    .pipe($.plumber({ errorHandler: onError }))
     .pipe($.eslint())
-    .pipe($.eslint.format());
-    // .pipe($.eslint.failAfterError());
+    .pipe($.eslint.format())
+    .pipe($.eslint.failAfterError());
 });
 
 gulp.task('scripts', ['scripts:lint'], () => {
-  var b = $.browserify({
+  const b = $.browserify({
     entries: './assets/js/script.js',
-    debug: true
+    debug: true,
   });
 
-  $.fancyLog("-> Building js");
-  return b.bundle()
-    .pipe($.plumber({errorHandler: onError}))
+  $.fancyLog('-> Building js');
+  b.bundle()
+    .pipe($.plumber({ errorHandler: onError }))
     .pipe($.vinylSourceStream('script.js'))
     .pipe($.vinylBuffer())
     .pipe(gulp.dest('./'))
-    .pipe($.if(isProduction, $.sourcemaps.init({loadMaps: true})))
+    .pipe($.if(isProduction, $.sourcemaps.init({ loadMaps: true })))
     .pipe($.if(isProduction, $.uglify()))
     .pipe($.if(isProduction, $.sourcemaps.write()))
     .pipe($.if(isProduction, $.rename('script.min.js')))
     .pipe($.if(isProduction, gulp.dest('./')));
 });
 
+// Php
+gulp.task('php:lint', () => {
+  $.fancyLog('-> Linting php');
+  gulp.src(['./**/*.php'])
+    .pipe($.plumber({ errorHandler: onError }))
+    .pipe($.phplint('', { skipPassedFiles: true }))
+    .pipe($.phplint.reporter('fail'));
+});
+
 // Clean
 gulp.task('clean', () => {
-  $.fancyLog("-> Cleaning assets");
-  return $.del(['./style.css', './script.js']);
+  $.fancyLog('-> Cleaning assets');
+  $.del(['./style.css', './script.js']);
 });
 
 // Browser Sync
 gulp.task('browser-sync', () => {
-
-  var files = [
+  const files = [
     './style.css',
     './script.js',
-    './*.php'
+    './*.php',
   ];
 
   $.browserSync.init(files, {
     proxy: 'http://robtucker.dev',
     host: 'robtucker.dev',
-    open: 'external'
+    open: 'external',
   });
 
   gulp.watch('./assets/sass/**/*.s+(a|c)ss', ['styles', () => {
-    $.browserSync.reload(['./style.css'], {stream: true});
+    $.browserSync.reload(['./style.css'], { stream: true });
   }]);
 
   gulp.watch('./assets/js/**/*.js', ['scripts', () => {
-    $.browserSync.reload(['./script.js'], {stream: true});
+    $.browserSync.reload(['./script.js'], { stream: true });
+  }]);
+
+  gulp.watch('./**/*.php', ['php:lint', () => {
+    $.browserSync.reload();
   }]);
 });
 
@@ -113,5 +126,5 @@ gulp.task('build', () => {
 // Default Task
 gulp.task('default', () => {
   isProduction = false;
-  $.runSequence('clean', 'styles', 'scripts', 'browser-sync');
+  $.runSequence('clean', 'php:lint', 'styles', 'scripts', 'browser-sync');
 });

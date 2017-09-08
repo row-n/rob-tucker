@@ -4,7 +4,6 @@
   "description": "Portfolio site, built with Wordpress for rob-tucker.com",
   "main": "gulpfile.babel.js",
   "dependencies": {
-    "jquery": "^3.2.1",
     "pace-progress": "git+https://github.com/HubSpot/pace.git",
     "vanilla-lazyload": "^10.0.1"
   },
@@ -25,6 +24,7 @@
     "gulp-eslint": "^4.0.0",
     "gulp-if": "^2.0.2",
     "gulp-load-plugins": "^1.5.0",
+    "gulp-phplint": "^0.3.4",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
