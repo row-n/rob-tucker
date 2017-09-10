@@ -25,13 +25,25 @@
 
             <div class="thumbnail-list">
 
-              <?php $mypages = get_pages( array( 'child_of' => 9, 'sort_column' => 'menu_order', 'sort_order' => 'ASC' ) );
-              foreach( $mypages as $page ) {
-                $thumbnail = get_the_post_thumbnail( $page->ID, 'large' );
+              <?php
+              // Set up the objects needed
+              $my_wp_query = new WP_Query();
+              $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'posts_per_page' => '-1', 'orderby' => 'menu_order', 'order' => 'ASC'));
+
+              // Get the page as an Object
+              $portfolio =  get_page_by_title('Works');
+
+              // Filter through all pages and find Portfolio's children
+              $portfolio_children = get_page_children( $portfolio->ID, $all_wp_pages );
+
+              // echo what we get back from WP to the browser
+              // echo '<pre>' . print_r( $portfolio_children, true ) . '</pre>';
+              foreach( $portfolio_children as $children ) {
+                $thumbnail = get_the_post_thumbnail( $children->ID, 'large' );
                 if ( $thumbnail ) { ?>
-                  <a href="<?php echo get_page_link( $page->ID ); ?>" class="thumbnail">
+                  <a href="<?php echo get_page_link( $children->ID ); ?>" class="thumbnail">
                     <?php echo $thumbnail ?>
-                    <h3 class="thumbnail__heading"><?php echo $page->post_title; ?></h3>
+                    <h3 class="thumbnail__heading"><?php echo $children->post_title; ?></h3>
                   </a>
                 <?php }
               } ?>

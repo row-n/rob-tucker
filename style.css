@@ -1039,6 +1039,7 @@ a:active,a:focus,a:hover {
 }
 
 .splash {
+  background-attachment: fixed;
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
