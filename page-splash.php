@@ -20,7 +20,7 @@
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
             <header class="page__header">
-              <h1>Works</h1>
+              <h3>Works</h3>
             </header>
 
             <div class="thumbnail-list">
@@ -28,7 +28,7 @@
               <?php
               // Set up the objects needed
               $my_wp_query = new WP_Query();
-              $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'posts_per_page' => '-1', 'orderby' => 'menu_order', 'order' => 'ASC'));
+              $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'posts_per_page' => '-1', 'order' => 'ASC'));
 
               // Get the page as an Object
               $portfolio =  get_page_by_title('Works');
@@ -36,13 +36,13 @@
               // Filter through all pages and find Portfolio's children
               $portfolio_children = get_page_children( $portfolio->ID, $all_wp_pages );
 
-              // echo what we get back from WP to the browser
-              // echo '<pre>' . print_r( $portfolio_children, true ) . '</pre>';
               foreach( $portfolio_children as $children ) {
                 $thumbnail = get_the_post_thumbnail( $children->ID, 'large' );
                 if ( $thumbnail ) { ?>
                   <a href="<?php echo get_page_link( $children->ID ); ?>" class="thumbnail">
-                    <?php echo $thumbnail ?>
+                    <div class="thumbnail__image">
+                      <?php echo $thumbnail ?>
+                    </div>
                     <div class="thumbnail__body">
                       <h3 class="thumbnail__heading"><?php echo $children->post_title; ?></h3>
                       <?php if ( $children->post_excerpt ) { ?>
