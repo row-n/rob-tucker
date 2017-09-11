@@ -209,7 +209,7 @@ html {
 
 body {
   background-color: #f7f7f7;
-  color: #333;
+  color: #000;
   font-family: "Plain","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 100%;
   font-weight: 200;
@@ -309,30 +309,31 @@ body.pace-running {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  color: #ccc;
-  font-family: "Playfair Display",Cambria,Georgia,serif;
+  color: #000;
   letter-spacing: .1em;
   line-height: 1.4;
   margin-bottom: .5rem;
 }
 
 h1 {
-  font-size: 1.602em;
+  font-family: "Playfair Display",Cambria,Georgia,serif;
+  font-size: 2.441em;
   font-weight: 200;
 }
 
 h2 {
-  font-size: 1.424em;
+  font-family: "Playfair Display",Cambria,Georgia,serif;
+  font-size: 1.953em;
   font-weight: 200;
 }
 
 h3 {
-  font-size: 1.266em;
+  font-size: 1.563em;
   font-weight: 200;
 }
 
 h4 {
-  font-size: 1.125em;
+  font-size: 1.25em;
   font-weight: 200;
 }
 
@@ -342,7 +343,7 @@ h5 {
 }
 
 h6 {
-  font-size: .889em;
+  font-size: .8em;
   font-weight: 200;
 }
 
@@ -380,7 +381,7 @@ sup {
 
 a {
   border-bottom: 0.09375em dashed #0580ff;
-  color: #333;
+  color: #000;
   outline: none;
   padding-bottom: .0625em;
   text-decoration: none;
@@ -394,7 +395,7 @@ a:active,a:focus,a:hover {
 }
 
 .back-to-top {
-  border: 0.0625em solid #1a1a1a;
+  border: 0.0625em solid #000;
   bottom: .75em;
   height: 1.5em;
   opacity: 0;
@@ -415,7 +416,7 @@ a:active,a:focus,a:hover {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   display: block;
-  fill: #1a1a1a;
+  fill: #000;
 }
 
 .back-to-top:hover .icon {
@@ -436,7 +437,7 @@ a:active,a:focus,a:hover {
 
 .brand .brand__logo {
   border-bottom: 0;
-  color: #1a1a1a;
+  color: #000;
   font-size: 125%;
   font-weight: 200;
   padding-bottom: 0;
@@ -474,9 +475,10 @@ a:active,a:focus,a:hover {
 .hamburger {
   background-color: transparent;
   border: 0;
-  color: #1a1a1a;
+  color: #000;
   float: right;
-  font-family: "Playfair Display",Cambria,Georgia,serif;
+  font-family: "Plain","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 100%;
   font-weight: 200;
   height: inherit;
   outline: none;
@@ -502,7 +504,7 @@ a:active,a:focus,a:hover {
 }
 
 .hamburger .hamburger__icon .hamburger__line {
-  background-color: #1a1a1a;
+  background-color: #000;
   display: block;
   height: .0625em;
   margin-left: auto;
@@ -559,7 +561,7 @@ a:active,a:focus,a:hover {
 }
 
 .header:hover .brand .brand__logo {
-  color: #1a1a1a;
+  color: #000;
 }
 
 .page-template-page-splash .header {
@@ -734,7 +736,7 @@ a:active,a:focus,a:hover {
 }
 
 .form .form__label:before,.form .form__label:after {
-  background-color: #1a1a1a;
+  background-color: #000;
   content: '';
   height: .0625em;
   left: 0;
@@ -829,7 +831,6 @@ a:active,a:focus,a:hover {
 }
 
 .menu .menu__item {
-  padding-bottom: 2em;
   text-align: left;
 }
 
@@ -847,7 +848,7 @@ a:active,a:focus,a:hover {
   border-bottom: 0;
   color: #fff;
   cursor: pointer;
-  font-size: 10vw;
+  font-size: 18vh;
   font-weight: 400;
   padding-bottom: 0;
   position: relative;
@@ -959,6 +960,14 @@ a:active,a:focus,a:hover {
 .page .page__header {
   margin-bottom: 2em;
   margin-top: 2em;
+}
+
+.content--splash .page .page__header>* {
+  color: #ccc;
+}
+
+.page .page__excerpt {
+  margin-top: 0;
 }
 
 .image {
@@ -1077,33 +1086,49 @@ a:active,a:focus,a:hover {
 }
 
 .thumbnail:hover img {
-  box-shadow: none;
   -ms-transform: scale(0.98);
   transform: scale(0.98);
 }
 
+.thumbnail:hover .thumbnail__image {
+  box-shadow: none;
+}
+
 .thumbnail img {
-  box-shadow: 0 0 30px 0 rgba(0,0,0,0.3);
+  bottom: -100%;
   height: auto;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: -100%;
   -ms-transform: scale(1);
   transform: scale(1);
-  transition: box-shadow 350ms cubic-bezier(0.8, 0, 0.55, 0.94),transform 350ms cubic-bezier(0.8, 0, 0.55, 0.94);
+  transition: transform 350ms cubic-bezier(0.8, 0, 0.55, 0.94);
   width: 100%;
 }
 
+.thumbnail .thumbnail__image {
+  box-shadow: 0 0 30px 0 rgba(0,0,0,0.3);
+  height: 20em;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow 350ms cubic-bezier(0.8, 0, 0.55, 0.94);
+}
+
 .thumbnail .thumbnail__body {
-  padding-left: 1.5em;
-  padding-right: 1.5em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .thumbnail .thumbnail__heading {
   color: #0580ff;
-  font-family: "Plain","Helvetica Neue",Helvetica,Arial,sans-serif;
   margin-bottom: 0;
 }
 
 .thumbnail .thumbnail__excerpt {
-  color: #333;
+  color: #000;
+  font-family: "Playfair Display",Cambria,Georgia,serif;
   font-size: 100%;
   margin-bottom: 0;
   margin-top: 0;
@@ -1149,6 +1174,7 @@ a:active,a:focus,a:hover {
 
 @media only screen and (min-width: 48em) {
   body {
+    font-size: 18px;
     margin-bottom: 6em;
     min-height: calc(100vh - (6em + 6em));
   }

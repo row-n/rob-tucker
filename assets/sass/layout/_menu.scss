@@ -36,7 +36,6 @@
   }
 
   .menu__item {
-    padding-bottom: 2em;
     text-align: left;
 
     &.selected {
@@ -56,7 +55,7 @@
     border-bottom: 0;
     color: $white;
     cursor: pointer;
-    font-size: 10vw;
+    font-size: 18vh;
     font-weight: 400;
     padding-bottom: 0;
     position: relative;
