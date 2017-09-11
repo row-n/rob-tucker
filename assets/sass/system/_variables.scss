@@ -45,9 +45,10 @@ $global-weight-bold: bold;
 $global-duration: 700ms;
 $global-timing-function: cubic-bezier(.8, 0, .55, .94);
 $body-background: #f7f7f7;
-$body-font-colour: $black-80;
+$body-font-colour: $black;
 $body-font-family: 'Plain', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $body-font-size: $global-font-size;
+$body-font-size-desktop: 18px;
 $body-font-weight: 200;
 $body-border-box: true;
 $font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
@@ -60,16 +61,16 @@ $header-font-family: 'Playfair Display', Cambria, Georgia, serif;
 $header-font-weight: 200;
 $header-font-style: normal;
 $font-family-monospace: $font-family-monospace;
-$header-color: $black-20;
+$header-color: $black;
 $header-lineheight: 1.4;
 $header-letter-spacing: .1em;
 $header-margin-bottom: .5rem;
-$h1-font-size: 1.602em;
-$h2-font-size: 1.424em;
-$h3-font-size: 1.266em;
-$h4-font-size: 1.125em;
+$h1-font-size: 2.441em;
+$h2-font-size: 1.953em;
+$h3-font-size: 1.563em;
+$h4-font-size: 1.25em;
 $h5-font-size: 1em;
-$h6-font-size: .889em;
+$h6-font-size: .8em;
 $x-small-font-size: 75%;
 $small-font-size: 87.5%;
 $large-font-size: 112.5%;
@@ -122,7 +123,7 @@ $screen: 'only screen and (min-width: #{$screen-lg})'; //1200px
 // --------
 
 $brand-height: 4em;
-$brand-link-color: $black-90;
+$brand-link-color: $black;
 $brand-link-color-hover: $blue;
 $brand-link-color-active: $white;
 $brand-font-size: $x-large-font-size;
@@ -157,11 +158,11 @@ $close-height: $close-width;
 // Hamburger
 // ------------
 
-$hamburger-link-color: $black-90;
+$hamburger-link-color: $black;
 $hamburger-link-color-hover: $blue;
 $hamburger-link-color-active: $white;
-$hamburger-font-family: $header-font-family;
-$hamburger-font-size: $x-large-font-size;
+$hamburger-font-family: $body-font-family;
+$hamburger-font-size: $body-font-size;
 $hamburger-font-weight: 200;
 
 
@@ -172,7 +173,7 @@ $site-header-height-mobile: 4em;
 $site-header-height-desktop: ($site-header-height-mobile * 1.5);
 $site-header-width: 100%;
 $site-header-background: $white;
-$site-header-link-color: $black-90;
+$site-header-link-color: $black;
 $site-header-link-color-hover: $white;
 $site-header-link-background-hover: $black-80;
 $site-header-font-size: $x-large-font-size;
@@ -188,8 +189,8 @@ $site-header-padding: 0 1.15em;
 $navbar-font-family: $header-font-family;
 $navbar-font-size: $body-font-size;
 $navbar-font-weight: $header-font-weight;
-$navbar-item-color: $black-90;
-$navbar-item-color-hover: $black-90;
+$navbar-item-color: $black;
+$navbar-item-color-hover: $black;
 $navbar-item-1-background-hover: $black-60;
 $navbar-item-1-background-active: $black-80;
 $navbar-item-2-background-hover: $black-60;
@@ -242,11 +243,10 @@ $social-icon-spacing: 1em;
 
 $thumbnail-color: $white;
 $thumbnail-background: $black;
-$thumbnail-title-font-family: $body-font-family;
-$thumbnail-title-font-weight: 400;
 $thumbnail-excerpt-color: $body-font-colour;
+$thumbnail-excerpt-font-family: $header-font-family;
 $thumbnail-excerpt-font-size:  $global-font-size;
-$thumbnail-content-padding: 1.5em;
+$thumbnail-content-padding: 2em;
 $thumbnail-hr-color: $thumbnail-color;
 
 

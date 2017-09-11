@@ -8,18 +8,19 @@ h4,
 h5,
 h6 {
   color: $header-color;
-  font-family: $header-font-family;
   letter-spacing: $header-letter-spacing;
   line-height: $header-lineheight;
   margin-bottom: $header-margin-bottom;
 }
 
 h1 {
+  font-family: $header-font-family;
   font-size: $h1-font-size;
   font-weight: $header-font-weight;
 }
 
 h2 {
+  font-family: $header-font-family;
   font-size: $h2-font-size;
   font-weight: $header-font-weight;
 }

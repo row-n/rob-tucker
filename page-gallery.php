@@ -16,6 +16,7 @@
 
             <header class="page__header">
               <h1><?php the_title(); ?></h1>
+              <h4 class="page__excerpt"><?php the_excerpt(); ?></h4>
             </header>
 
             <?php the_content(); ?>

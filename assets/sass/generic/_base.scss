@@ -23,6 +23,7 @@ body {
   min-height: calc(100vh - (#{$site-header-height-mobile} + #{$footer-height-mobile}));
 
   @media #{$tablet} {
+    font-size: $body-font-size-desktop;
     margin-bottom: $footer-height-desktop;
     min-height: calc(100vh - (#{$site-header-height-desktop} + #{$footer-height-desktop}));
   }

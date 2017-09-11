@@ -1,5 +1,5 @@
 .back-to-top {
-  border: .0625em solid $black-90;
+  border: .0625em solid $black;
   bottom: .75em;
   height: 1.5em;
   opacity: 0;
@@ -28,7 +28,7 @@
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     display: block;
-    fill: $black-90;
+    fill: $black;
   }
 
   &:hover {
