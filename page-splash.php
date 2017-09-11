@@ -43,7 +43,12 @@
                 if ( $thumbnail ) { ?>
                   <a href="<?php echo get_page_link( $children->ID ); ?>" class="thumbnail">
                     <?php echo $thumbnail ?>
-                    <h3 class="thumbnail__heading"><?php echo $children->post_title; ?></h3>
+                    <div class="thumbnail__body">
+                      <h3 class="thumbnail__heading"><?php echo $children->post_title; ?></h3>
+                      <?php if ( $children->post_excerpt ) { ?>
+                        <h4 class="thumbnail__excerpt"><?php echo $children->post_excerpt; ?></h4>
+                      <?php } ?>
+                    </div>
                   </a>
                 <?php }
               } ?>

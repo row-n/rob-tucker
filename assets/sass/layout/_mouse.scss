@@ -6,7 +6,7 @@
   left: 50%;
   margin-left: -.4em;
   opacity: 0;
-  padding: 1.4em .8em;
+  padding: 1.4em .7em;
   position: absolute;
   transition: opacity 200ms ease-out;
 
@@ -22,8 +22,8 @@
     animation-name: scroll-down;
     animation-timing-function: ease-in-out;
     background-color: $white;
-    border-radius: 25%;
-    height: .5em;
-    width: .125em;
+    border-radius: 50%;
+    height: .25em;
+    width: .25em;
   }
 }

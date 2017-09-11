@@ -56,11 +56,11 @@ $font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
 // Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
-$header-font-weight: 400;
+$header-font-family: 'Playfair Display', Cambria, Georgia, serif;
+$header-font-weight: 200;
 $header-font-style: normal;
 $font-family-monospace: $font-family-monospace;
-$header-color: $blue;
+$header-color: $black-20;
 $header-lineheight: 1.4;
 $header-letter-spacing: .1em;
 $header-margin-bottom: .5rem;
@@ -242,10 +242,11 @@ $social-icon-spacing: 1em;
 
 $thumbnail-color: $white;
 $thumbnail-background: $black;
-$thumbnail-background-opacity: .9;
-$thumbnail-height: 19.5em;
-$thumbnail-title-font-size:  $global-font-size;
-$thumbnail-padding: 2em;
+$thumbnail-title-font-family: $body-font-family;
+$thumbnail-title-font-weight: 400;
+$thumbnail-excerpt-color: $body-font-colour;
+$thumbnail-excerpt-font-size:  $global-font-size;
+$thumbnail-content-padding: 1.5em;
 $thumbnail-hr-color: $thumbnail-color;
 
 

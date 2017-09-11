@@ -38,9 +38,22 @@
     width: 100%;
   }
 
+  .thumbnail__body {
+    padding-left: $thumbnail-content-padding;
+    padding-right: $thumbnail-content-padding;
+  }
+
   .thumbnail__heading {
+    color: $blue;
+    font-family: $thumbnail-title-font-family;
+    // font-weight: $thumbnail-title-font-weight;
     margin-bottom: 0;
-    padding-left: 1em;
-    padding-right: 1em;
+  }
+
+  .thumbnail__excerpt {
+    color: $thumbnail-excerpt-color;
+    font-size: $thumbnail-excerpt-font-size;
+    margin-bottom: 0;
+    margin-top: 0;
   }
 }

@@ -309,8 +309,8 @@ body.pace-running {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  color: #0580ff;
-  font-family: "Plain","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #ccc;
+  font-family: "Playfair Display",Cambria,Georgia,serif;
   letter-spacing: .1em;
   line-height: 1.4;
   margin-bottom: .5rem;
@@ -318,17 +318,17 @@ h1,h2,h3,h4,h5,h6 {
 
 h1 {
   font-size: 1.602em;
-  font-weight: 400;
+  font-weight: 200;
 }
 
 h2 {
   font-size: 1.424em;
-  font-weight: 400;
+  font-weight: 200;
 }
 
 h3 {
   font-size: 1.266em;
-  font-weight: 400;
+  font-weight: 200;
 }
 
 h4 {
@@ -476,7 +476,7 @@ a:active,a:focus,a:hover {
   border: 0;
   color: #1a1a1a;
   float: right;
-  font-family: "Plain","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Playfair Display",Cambria,Georgia,serif;
   font-weight: 200;
   height: inherit;
   outline: none;
@@ -867,7 +867,7 @@ a:active,a:focus,a:hover {
   left: 50%;
   margin-left: -.4em;
   opacity: 0;
-  padding: 1.4em .8em;
+  padding: 1.4em .7em;
   position: absolute;
   transition: opacity 200ms ease-out;
 }
@@ -884,9 +884,9 @@ a:active,a:focus,a:hover {
   animation-name: scroll-down;
   animation-timing-function: ease-in-out;
   background-color: #fff;
-  border-radius: 25%;
-  height: .5em;
-  width: .125em;
+  border-radius: 50%;
+  height: .25em;
+  width: .25em;
 }
 
 .pagination {
@@ -1091,10 +1091,22 @@ a:active,a:focus,a:hover {
   width: 100%;
 }
 
+.thumbnail .thumbnail__body {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
 .thumbnail .thumbnail__heading {
+  color: #0580ff;
+  font-family: "Plain","Helvetica Neue",Helvetica,Arial,sans-serif;
   margin-bottom: 0;
-  padding-left: 1em;
-  padding-right: 1em;
+}
+
+.thumbnail .thumbnail__excerpt {
+  color: #333;
+  font-size: 100%;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 @font-face {
