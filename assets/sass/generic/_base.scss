@@ -28,16 +28,10 @@ body {
     min-height: calc(100vh - (#{$site-header-height-desktop} + #{$footer-height-desktop}));
   }
 
-  &.pace-running {
+  &.pace-running,
+  &.menu-open {
     overflow: hidden;
   }
-}
-
-.global-icons {
-  height: 0;
-  overflow: hidden;
-  visibility: hidden;
-  width: 0;
 }
 
 .sr-only {
@@ -49,41 +43,4 @@ body {
   padding: 0;
   position: absolute;
   width: 1px;
-}
-
-.visible-mobile {
-  display: block;
-
-  @media #{$tablet} {
-    display: none;
-  }
-}
-
-.visible-desktop {
-  display: none;
-
-  @media #{$tablet} {
-    display: block;
-  }
-}
-
-.pace {
-  pointer-events: none;
-  user-select: none;
-
-  &.pace-inactive {
-    display: none;
-  }
-
-  .pace-progress {
-    background-color: $blue;
-    bottom: 0;
-    height: 100%;
-    overflow: hidden;
-    position: fixed;
-    right: 100%;
-    top: 0;
-    width: 100%;
-    z-index: 0;
-  }
 }

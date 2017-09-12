@@ -1,15 +1,15 @@
 .back-to-top {
   border: .0625em solid $black;
   bottom: .75em;
-  height: 1.5em;
+  height: 2em;
   opacity: 0;
-  padding: .5em;
+  padding: .75em;
   position: fixed;
   right: 5%;
   transform: translate3d(1em, 0, 0);
   transform-origin: 50% 100%;
   transition: opacity 200ms ease-out, transform 200ms ease-out;
-  width: 1.5em;
+  width: 2em;
   z-index: $backtotop-zindex;
 
   @media #{$mobile} {
