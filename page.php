@@ -8,29 +8,37 @@
 
         <?php while (have_posts()) : the_post(); ?>
 
-          <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+          <header class="content__header">
+            <h1><?php the_title(); ?></h1>
+          </header>
 
-            <header class="page__header">
-              <h1><?php the_title(); ?></h1>
-            </header>
+          <?php if (has_post_thumbnail()) the_post_thumbnail(); ?>
 
-            <?php get_template_part('inc/meta'); ?>
+          <div class="entry">
 
-            <?php if (has_post_thumbnail()) the_post_thumbnail(); ?>
+            <?php the_content(); ?>
 
-            <div class="entry">
+            <?php
+            $fields = get_field_objects();
 
-              <?php the_content(); ?>
+            if( $fields ) :
+              uasort($fields,'compareOrderNo');
+              foreach( $fields as $field ): ?>
 
-              <?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
+              <?php if( $field['value'] ): ?>
+                <div class="entry__col entry__col--<?php echo $field['name']; ?>">
+                  <?php echo $field['value']; ?>
+                </div>
+              <?php endif;
 
-            </div>
+              endforeach;
+            endif; ?>
 
-          </article>
+            <?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
+
+          </div>
 
         <?php endwhile; ?>
-
-        <?php comments_template(); ?>
 
       <?php else : ?>
 

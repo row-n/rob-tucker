@@ -164,6 +164,11 @@ function remove_contact_spans($content) {
   return $content;
 }
 
+// Order Advanced Custom Fields by sort order
+function compareOrderNo($elem1, $elem2) {
+	return strcmp($elem1['order_no'], $elem2['order_no']);
+}
+
 /*------------------------------------*\
 	Actions + Filters + ShortCodes
 \*------------------------------------*/
