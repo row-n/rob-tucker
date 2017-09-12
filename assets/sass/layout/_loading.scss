@@ -1,0 +1,20 @@
+.pace {
+  pointer-events: none;
+  user-select: none;
+
+  &.pace-inactive {
+    display: none;
+  }
+
+  .pace-progress {
+    background-color: $blue;
+    bottom: 0;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    right: 100%;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+  }
+}

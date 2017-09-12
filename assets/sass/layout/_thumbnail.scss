@@ -8,12 +8,12 @@
 
 .thumbnail {
   border-bottom: 0;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   margin-left: 1em;
   margin-right: 1em;
   width: 100%;
 
-  @media #{$mobile} {
+  @media #{$tablet} {
     margin-bottom: 2em;
     width: calc(50% - 2em);
   }
@@ -25,43 +25,37 @@
 
   &:hover {
     img {
-      transform: scale(.98);
-    }
-
-    .thumbnail__image {
       box-shadow: none;
+      transform: scale(.98);
     }
   }
 
   img {
-    bottom: -100%;
+    box-shadow: 0 0 30px 0 alpha($black, .3);
     height: auto;
-    left: 0;
     margin: auto;
-    position: absolute;
-    right: 0;
-    top: -100%;
     transform: scale(1);
-    transition: transform ($global-duration / 2) $global-timing-function;
+    transition: box-shadow ($global-duration / 2) $global-timing-function, transform ($global-duration / 2) $global-timing-function;
     width: 100%;
   }
 
   .thumbnail__image {
-    box-shadow: 0 0 30px 0 alpha($black, .3);
-    height: 20em;
-    overflow: hidden;
-    position: relative;
-    transition: box-shadow ($global-duration / 2) $global-timing-function;
+
   }
 
   .thumbnail__body {
-    padding-left: $thumbnail-content-padding;
-    padding-right: $thumbnail-content-padding;
+    margin-top: .625em;
+
+    @media #{$tablet} {
+      padding-left: $thumbnail-content-padding;
+      padding-right: $thumbnail-content-padding;
+    }
   }
 
   .thumbnail__heading {
     color: $blue;
     margin-bottom: 0;
+    margin-top: 0;
   }
 
   .thumbnail__excerpt {

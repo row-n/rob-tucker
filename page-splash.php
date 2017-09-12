@@ -20,7 +20,7 @@
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
             <header class="page__header">
-              <h3>Works</h3>
+              <h1>Works</h1>
             </header>
 
             <div class="thumbnail-list">
