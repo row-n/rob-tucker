@@ -65,8 +65,8 @@ function nav_menu_link_atts($atts, $item, $args, $depth) {
 	return $new_atts;
 }
 
-// Load Blank scripts (header.php)
-function blank_header_scripts()
+// Load scripts (header.php)
+function header_scripts()
 {
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
     wp_deregister_script('wp-embed'); // Remove wp-embed
@@ -74,8 +74,8 @@ function blank_header_scripts()
   }
 }
 
-// Load Blank scripts (footer.php)
-function blank_footer_scripts()
+// Load scripts (footer.php)
+function footer_scripts()
 {
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
     wp_register_script('rob-tucker', get_template_directory_uri() . '/script.js', array(), '', true); // Custom scripts
@@ -83,8 +83,8 @@ function blank_footer_scripts()
   }
 }
 
-// Load Blank styles
-function blank_styles()
+// Load styles
+function styles()
 {
   wp_register_style('rob-tucker', get_template_directory_uri() . '/style.css', array(), '', 'all');
   wp_enqueue_style('rob-tucker'); // Enqueue it!
@@ -159,13 +159,15 @@ function remove_admin_bar()
 }
 
 // Remove span elements from Contact Form 7
-function remove_contact_spans($content) {
+function remove_contact_spans($content)
+{
   $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
   return $content;
 }
 
 // Order Advanced Custom Fields by sort order
-function compareOrderNo($elem1, $elem2) {
+function compare_order_no($elem1, $elem2)
+{
 	return strcmp($elem1['order_no'], $elem2['order_no']);
 }
 
@@ -174,9 +176,9 @@ function compareOrderNo($elem1, $elem2) {
 \*------------------------------------*/
 
 // Add Actions
-add_action('init', 'blank_header_scripts'); // Add Custom Scripts to wp_head()
-add_action('init', 'blank_footer_scripts'); // Add Custom Scripts to wp_footer()
-add_action('wp_enqueue_scripts', 'blank_styles'); // Add Theme Stylesheet
+add_action('init', 'header_scripts'); // Add Custom Scripts to wp_head()
+add_action('init', 'footer_scripts'); // Add Custom Scripts to wp_footer()
+add_action('wp_enqueue_scripts', 'styles'); // Add Theme Stylesheet
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('after_setup_theme', 'shapeSpace_setup'); // Add theme support setup
 
@@ -204,6 +206,6 @@ add_filter('nav_menu_link_attributes', 'nav_menu_link_atts', 10, 4); // Add clas
 add_filter('style_loader_src', 'sdt_remove_ver_css_js', 9999); // Remove WP Version From Styles
 add_filter('script_loader_src', 'sdt_remove_ver_css_js', 9999); // Remove WP Version From Scripts
 add_filter('wpcf7_form_elements', 'remove_contact_spans'); // Remove span elements from Contact Form 7
-add_filter( 'use_default_gallery_style', '__return_false' ); // Remove Gallery styles
+add_filter('use_default_gallery_style', '__return_false'); // Remove Gallery styles
 
-add_post_type_support( 'page', 'excerpt' );
+add_post_type_support('page', 'excerpt');

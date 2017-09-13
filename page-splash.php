@@ -26,7 +26,7 @@
             <?php
             // Set up the objects needed
             $my_wp_query = new WP_Query();
-            $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'posts_per_page' => '-1', 'order' => 'ASC'));
+            $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'posts_per_page' => '-1', 'order' => 'DESC'));
 
             // Get the page as an Object
             $portfolio =  get_page_by_title('Works');
@@ -64,7 +64,5 @@
     </section>
 
   </main>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

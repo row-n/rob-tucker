@@ -7,9 +7,17 @@
   width: 90%;
 
   @media #{$tablet} {
-    margin-bottom: $footer-height-desktop;
-    margin-top: $site-header-height-desktop;
+    margin-bottom: ($footer-height-desktop * 1.5);
+    margin-top: ($site-header-height-desktop * 1.5);
     min-height: calc(100vh - (#{$site-header-height-desktop} + #{$footer-height-desktop}));
+  }
+
+  &.content--splash {
+    .content__header {
+      > * {
+        color: $black-20;
+      }
+    }
   }
 
   .pace-running & {
@@ -18,17 +26,9 @@
 
   .content__header {
     margin-bottom: 2em;
-    margin-top: 2em;
 
     @media #{$tablet} {
       margin-bottom: 4em;
-      margin-top: 4em;
-    }
-
-    .content--splash & {
-      > * {
-        color: $black-20;
-      }
     }
   }
 
@@ -48,6 +48,7 @@
       }
 
       @media #{$desktop} {
+        float: none;
         padding: 4em;
         position: absolute;
         right: 0;
@@ -64,12 +65,14 @@
         padding: 2em;
         width: 50%;
 
-        > * {
+        * {
+          border-color: inherit;
           color: inherit;
         }
       }
 
       @media #{$desktop} {
+        float: none;
         padding: 4em;
       }
     }

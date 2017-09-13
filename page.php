@@ -22,7 +22,7 @@
             $fields = get_field_objects();
 
             if( $fields ) :
-              uasort($fields,'compareOrderNo');
+              uasort($fields,'compare_order_no');
               foreach( $fields as $field ): ?>
 
               <?php if( $field['value'] ): ?>
@@ -49,7 +49,5 @@
     </section>
 
   </main>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
