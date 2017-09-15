@@ -1,55 +1,35 @@
 .form {
   .form__field {
-    display: inline-block;
-    margin-bottom: 2em;
-    position: relative;
-    width: 100%;
+    &,
+    &[type='text'],
+    &[type='email'] {
+      background-color: transparent;
+      border-color: $black;
+      border-radius: 0;
+      border-style: solid;
+      border-width: 0 0 .125em;
+      display: block;
+      padding: .4em .25em;
+      position: relative;
+      width: 100%;
 
-    &.error {
-      label {
-        color: $red;
-      }
-
-      input,
-      textarea {
-        border-color: $red;
-      }
-
-      .validation {
-        display: block;
+      &:focus  {
+        border-color: $blue;
+        outline: none;
       }
     }
   }
 
-  .form__label {
+  label {
     display: inline-block;
-    pointer-events: none;
     text-align: left;
-    user-select: none;
     width: 100%;
-  }
-
-  input,
-  textarea {
-    background-color: transparent;
-    border-color: $black;
-    border-radius: 0;
-    border-style: solid;
-    border-width: 0 0 .125em;
-    display: block;
-    padding: .4em .25em;
-    position: relative;
-    width: 100%;
-
-    &:focus  {
-      border-color: $blue;
-      outline: none;
-    }
   }
 
   .button {
     background-color: $button-background-color;
     border: 0;
+    box-shadow: 0 4px 6px alpha($blue-v-dark, .11), 0 1px 3px alpha($black, .08);
     color: $button-color;
     cursor: pointer;
     font-family: $body-font-family;
@@ -62,6 +42,12 @@
 
     &:hover {
       background-color: $blue-dark;
+      box-shadow: 0 7px 14px alpha($blue-v-dark, .1), 0 3px 6px alpha($black, .08);
+    }
+
+    &:active {
+      background-color: $blue-v-dark;
+      box-shadow: 0 4px 6px alpha($blue-v-dark, .11), 0 1px 3px alpha($black, .08);
     }
   }
 

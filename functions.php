@@ -1,13 +1,13 @@
 <?php
 
 /*------------------------------------*\
-	Theme Support
+  Theme Support
 \*------------------------------------*/
 
 if (!defined('ABSPATH')) exit;
 
 /*------------------------------------*\
-	Functions
+  Functions
 \*------------------------------------*/
 
 // Set up theme support
@@ -22,47 +22,47 @@ function shapeSpace_setup()
 // Blank navigation
 function main_nav()
 {
-	wp_nav_menu(
-	array(
-		'theme_location'  => 'header-menu',
-		'menu'            => 'main',
-		'container'       => 'false',
-		'container_class' => 'menu-{menu slug}-container',
-		'container_id'    => '',
-		'menu_class'      => 'menu',
-		'menu_id'         => '',
-		'echo'            => true,
-		'fallback_cb'     => 'wp_page_menu',
-		'before'          => '',
-		'after'           => '',
-		'link_before'     => '',
-		'link_after'      => '',
-		'items_wrap'      => '<ul class="menu__list">%3$s</ul>',
-		'depth'           => 0,
-		'walker'          => ''
-		)
-	);
+  wp_nav_menu(
+    array(
+      'theme_location'  => 'header-menu',
+      'menu'            => 'main',
+      'container'       => 'false',
+      'container_class' => 'menu-{menu slug}-container',
+      'container_id'    => '',
+      'menu_class'      => 'menu',
+      'menu_id'         => '',
+      'echo'            => true,
+      'fallback_cb'     => 'wp_page_menu',
+      'before'          => '',
+      'after'           => '',
+      'link_before'     => '',
+      'link_after'      => '',
+      'items_wrap'      => '<ul class="menu__list">%3$s</ul>',
+      'depth'           => 0,
+      'walker'          => ''
+    )
+  );
 }
 
 // Add class to menu items
 function nav_menu_item_class($classes , $item, $args, $depth)
 {
-	$new_classes = array('menu__item');
-	if (in_array('current-menu-item', $classes)) {
-		$new_classes[] = 'selected';
-	}
+  $new_classes = array('menu__item');
+  if (in_array('current-menu-item', $classes)) {
+    $new_classes[] = 'selected';
+  }
 
-	return $new_classes;
+  return $new_classes;
 }
 
 // Add class to menu link
 function nav_menu_link_atts($atts, $item, $args, $depth) {
-	$new_atts = array('class' => 'menu__link');
-	if (isset($atts['href'])) {
-		$new_atts['href'] = $atts['href'];
-	}
+  $new_atts = array('class' => 'menu__link');
+  if (isset($atts['href'])) {
+    $new_atts['href'] = $atts['href'];
+  }
 
-	return $new_atts;
+  return $new_atts;
 }
 
 // Load scripts (header.php)
@@ -70,7 +70,7 @@ function header_scripts()
 {
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
     wp_deregister_script('wp-embed'); // Remove wp-embed
-    wp_deregister_script('jquery'); // Remove jQuery
+    // wp_deregister_script('jquery'); // Remove jQuery
   }
 }
 
@@ -147,9 +147,9 @@ function my_remove_recent_comments_style()
 // Function to remove version numbers
 function sdt_remove_ver_css_js($src)
 {
-	if (strpos( $src, 'ver=' ))
-		$src = remove_query_arg('ver', $src);
-	return $src;
+  if (strpos( $src, 'ver=' ))
+    $src = remove_query_arg('ver', $src);
+  return $src;
 }
 
 // Remove Admin bar
@@ -158,21 +158,14 @@ function remove_admin_bar()
   return false;
 }
 
-// Remove span elements from Contact Form 7
-function remove_contact_spans($content)
-{
-  $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
-  return $content;
-}
-
 // Order Advanced Custom Fields by sort order
 function compare_order_no($elem1, $elem2)
 {
-	return strcmp($elem1['order_no'], $elem2['order_no']);
+  return strcmp($elem1['order_no'], $elem2['order_no']);
 }
 
 /*------------------------------------*\
-	Actions + Filters + ShortCodes
+  Actions + Filters + ShortCodes
 \*------------------------------------*/
 
 // Add Actions
@@ -181,6 +174,9 @@ add_action('init', 'footer_scripts'); // Add Custom Scripts to wp_footer()
 add_action('wp_enqueue_scripts', 'styles'); // Add Theme Stylesheet
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('after_setup_theme', 'shapeSpace_setup'); // Add theme support setup
+
+// Add Support
+add_post_type_support('page', 'excerpt'); // Add excerpt to Pages
 
 // Remove Actions
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
@@ -205,7 +201,4 @@ add_filter('nav_menu_css_class', 'nav_menu_item_class', 10, 4); // Add class to 
 add_filter('nav_menu_link_attributes', 'nav_menu_link_atts', 10, 4); // Add class to menu link
 add_filter('style_loader_src', 'sdt_remove_ver_css_js', 9999); // Remove WP Version From Styles
 add_filter('script_loader_src', 'sdt_remove_ver_css_js', 9999); // Remove WP Version From Scripts
-add_filter('wpcf7_form_elements', 'remove_contact_spans'); // Remove span elements from Contact Form 7
 add_filter('use_default_gallery_style', '__return_false'); // Remove Gallery styles
-
-add_post_type_support('page', 'excerpt');
