@@ -682,13 +682,8 @@ body.pace-running,body.menu-open {
 
 .menu {
   background-color: #000;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  display: block;
   height: 100%;
-  -ms-flex-pack: center;
-  justify-content: center;
   left: 0;
   opacity: 0;
   position: fixed;
@@ -698,6 +693,11 @@ body.pace-running,body.menu-open {
   visibility: hidden;
   width: 100%;
   z-index: 20;
+}
+
+.menu ul {
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
 }
 
 .menu-open .menu {
@@ -740,7 +740,7 @@ body.pace-running,body.menu-open {
   border-bottom: 0;
   color: #fff;
   cursor: pointer;
-  font-size: 18vmin;
+  font-size: 2.441em;
   font-weight: 400;
   padding-bottom: 0;
   position: relative;
@@ -752,10 +752,45 @@ body.pace-running,body.menu-open {
   color: #0580ff;
 }
 
+.menu-back {
+  bottom: 0;
+  color: #fff;
+  height: 4em;
+  position: absolute;
+  right: 5%;
+}
+
+.menu-back .icon {
+  fill: #fff;
+  margin-right: 1.25em;
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
 .sub-menu {
+  opacity: 0;
   padding-left: 0;
   position: absolute;
-  top: 0;
+}
+
+.child-items-1>.menu__item>.menu__link {
+  font-size: 18vmin;
+}
+
+.child-items-2>.menu__item>.menu__link {
+  font-size: 18vmin;
+}
+
+.child-items-3>.menu__item>.menu__link {
+  font-size: 18vmin;
+}
+
+.child-items-4>.menu__item>.menu__link {
+  font-size: 18vmin;
+}
+
+.child-items-5>.menu__item>.menu__link {
+  font-size: 18vmin;
 }
 
 .mouse {
@@ -1130,8 +1165,12 @@ body.pace-running,body.menu-open {
     height: 6em;
   }
 
-  .menu .menu__link {
+  .child-items-3>.menu__item>.menu__link {
     font-size: 14vmin;
+  }
+
+  .child-items-5>.menu__item>.menu__link {
+    font-size: 12vmin;
   }
 
   .page .page__header {
@@ -1191,8 +1230,12 @@ body.pace-running,body.menu-open {
     width: 60%;
   }
 
-  .menu .menu__link {
+  .child-items-3>.menu__item>.menu__link {
     font-size: 13.5vmin;
+  }
+
+  .child-items-5>.menu__item>.menu__link {
+    font-size: 11.5vmin;
   }
 
   .thumbnail {

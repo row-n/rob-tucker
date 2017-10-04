@@ -34,5 +34,11 @@
 
       <nav id="menu" class="menu" role="navigation">
         <?php main_nav(); ?>
+        <button class="menu-back" id="menu-back">
+          <svg role="img" class="icon icon--chevron-left icon--sm">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#chevron-up"></use>
+          </svg>
+          Back
+        </button>
       </nav>
     </header>
