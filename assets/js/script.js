@@ -1,6 +1,11 @@
-require('./plugins/form');
-require('./plugins/lazy-load');
-require('./plugins/loading');
-require('./plugins/menu');
-require('./plugins/to-top');
-require('./plugins/splash');
+import $ from 'jquery';
+
+import './plugins/form';
+import './plugins/lazy-load';
+import './plugins/loading';
+import './plugins/menu';
+import './plugins/to-top';
+import './plugins/splash';
+
+$('#scroll-to-top').ScrollToTop();
+$('#splash').Splash();
