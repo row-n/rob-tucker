@@ -33,14 +33,6 @@
     }
   }
 
-  .menu-open & {
-    &:hover {
-      &:before {
-        transform: scale(1, 0);
-      }
-    }
-  }
-
   .page-template-page-splash & {
     background-color: transparent;
   }

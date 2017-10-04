@@ -1,5 +1,3 @@
-const LazyLoad = require('vanilla-lazyload');
+import LazyLoad from 'vanilla-lazyload';
 
-(function lazyloadFactory() {
-  new LazyLoad(); // eslint-disable-line no-new
-}());
+new LazyLoad(); // eslint-disable-line no-new

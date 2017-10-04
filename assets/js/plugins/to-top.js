@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import debounce from './debounce';
 import plugin from './plugin';
 
 class ScrollToTop {
@@ -6,11 +7,16 @@ class ScrollToTop {
     const $element = $(element);
 
     $(window).scroll((event) => {
-      if ($(event.target).scrollTop() > options.offset) {
-        $element.addClass('is-visible');
-      } else {
-        $element.removeClass('is-visible');
-      }
+      const scroll = debounce(() => {
+        console.log('test');
+        if ($(event.target).scrollTop() > options.offset) {
+          $element.addClass('is-visible');
+        } else {
+          $element.removeClass('is-visible');
+        }
+      }, 250);
+
+      scroll();
     });
 
     $element.click((e) => {
