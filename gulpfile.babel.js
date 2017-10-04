@@ -40,7 +40,15 @@ gulp.task('styles', ['styles:lint'], () => {
     .pipe($.combineMq())
     .pipe(gulp.dest('./'))
     .pipe($.if(isProduction, $.sourcemaps.init({ loadMaps: true })))
-    .pipe($.if(isProduction, $.cssnano()))
+    .pipe($.if(isProduction, $.cssnano({
+      discardComments: {
+        removeAll: true,
+      },
+      discardDuplicates: true,
+      discardEmpty: true,
+      minifyFontValues: true,
+      minifySelectors: true,
+    })))
     .pipe($.if(isProduction, $.sourcemaps.write()))
     .pipe($.if(isProduction, $.rename('style.min.css')))
     .pipe($.if(isProduction, gulp.dest('./')));
@@ -63,7 +71,8 @@ gulp.task('scripts', ['scripts:lint'], () => {
   });
 
   $.fancyLog('-> Building js');
-  b.bundle()
+  b.transform('babelify', { presets: ['es2015'] })
+    .bundle()
     .pipe($.plumber({ errorHandler: onError }))
     .pipe($.vinylSourceStream('script.js'))
     .pipe($.vinylBuffer())

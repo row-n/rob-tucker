@@ -4,12 +4,14 @@
   "description": "Portfolio site, built with Wordpress for rob-tucker.com",
   "main": "gulpfile.babel.js",
   "dependencies": {
+    "jquery": "^3.2.1",
     "pace-progress": "git+https://github.com/HubSpot/pace.git",
     "vanilla-lazyload": "^10.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0",
     "browser-sync": "^2.18.13",
     "browserify": "^14.1.0",
     "del": "^2.2.2",
