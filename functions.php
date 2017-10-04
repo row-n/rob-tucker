@@ -56,7 +56,8 @@ function nav_menu_item_class($classes , $item, $args, $depth)
 }
 
 // Add class to menu link
-function nav_menu_link_atts($atts, $item, $args, $depth) {
+function nav_menu_link_atts($atts, $item, $args, $depth)
+{
   $new_atts = array('class' => 'menu__link');
   if (isset($atts['href'])) {
     $new_atts['href'] = $atts['href'];
