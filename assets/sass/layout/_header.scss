@@ -25,26 +25,24 @@
     z-index: -1;
   }
 
-  &:hover {
-    &:before {
-      transform: scale(1, 1);
+  .pace-done & {
+    &:hover {
+      &:before {
+        transform: scale(1, 1);
+      }
     }
+  }
 
-    .brand {
-      .brand__logo {
-        color: $brand-link-color;
+  .menu-open & {
+    &:hover {
+      &:before {
+        transform: scale(1, 0);
       }
     }
   }
 
   .page-template-page-splash & {
     background-color: transparent;
-  }
-
-  .menu-open & {
-    &:before {
-      transform: scale(1, 0);
-    }
   }
 
   .header__body {

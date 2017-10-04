@@ -9,6 +9,7 @@
       border-style: solid;
       border-width: 0 0 .125em;
       display: block;
+      margin: 0;
       padding: .4em .25em;
       position: relative;
       width: 100%;
@@ -21,33 +22,33 @@
   }
 
   label {
-    display: inline-block;
     text-align: left;
-    width: 100%;
   }
 
-  .button {
-    background-color: $button-background-color;
-    border: 0;
-    box-shadow: 0 4px 6px alpha($blue-v-dark, .11), 0 1px 3px alpha($black, .08);
-    color: $button-color;
-    cursor: pointer;
-    font-family: $body-font-family;
-    font-weight: $body-font-weight;
-    outline: none;
-    padding: .75em 2em;
-    text-transform: uppercase;
-    transition: background-color $global-duration ease, color $global-duration ease;
-    width: auto;
-
-    &:hover {
-      background-color: $blue-dark;
-      box-shadow: 0 7px 14px alpha($blue-v-dark, .1), 0 3px 6px alpha($black, .08);
-    }
-
-    &:active {
-      background-color: $blue-v-dark;
+  button {
+    &.button {
+      background-color: $button-background-color;
+      border: 0;
       box-shadow: 0 4px 6px alpha($blue-v-dark, .11), 0 1px 3px alpha($black, .08);
+      color: $button-color;
+      cursor: pointer;
+      font-family: $body-font-family;
+      font-weight: $body-font-weight;
+      outline: none;
+      padding: .75em 2em;
+      text-transform: uppercase;
+      transition: background-color $global-duration ease, color $global-duration ease;
+      width: auto;
+
+      &:hover {
+        background-color: $blue-dark;
+        box-shadow: 0 7px 14px alpha($blue-v-dark, .1), 0 3px 6px alpha($black, .08);
+      }
+
+      &:active {
+        background-color: $blue-v-dark;
+        box-shadow: 0 4px 6px alpha($blue-v-dark, .11), 0 1px 3px alpha($black, .08);
+      }
     }
   }
 

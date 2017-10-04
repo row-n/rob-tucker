@@ -1,11 +1,13 @@
-(function menuFactory() {
-  const $body = document.getElementsByTagName('body')[0];
-  const $trigger = document.getElementById('trigger');
+import $ from 'jquery';
+import plugin from './plugin';
 
-  // Menu trigger
-  function classToggle() {
-    $body.classList.toggle('menu-open');
+class Menu {
+  constructor(element, options) {
+    const $element = $(element);
+
   }
+}
 
-  $trigger.addEventListener('click', classToggle, false);
-}());
+Menu.DEFAULTS = {};
+
+plugin('Menu', Menu);

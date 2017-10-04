@@ -31,8 +31,8 @@
           </span>
         </button>
       </div>
-    </header>
 
-    <nav id="menu" class="menu" role="navigation">
-      <?php main_nav(); ?>
-    </nav>
+      <nav id="menu" class="menu" role="navigation">
+        <?php main_nav(); ?>
+      </nav>
+    </header>

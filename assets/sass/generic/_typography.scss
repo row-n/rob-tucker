@@ -117,6 +117,7 @@ a {
   &:active,
   &:focus,
   &:hover {
+    border-bottom: 0;
     color: $anchor-color-hover;
     outline: inherit;
     text-decoration: $anchor-text-decoration-hover;

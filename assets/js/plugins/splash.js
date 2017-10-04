@@ -1,45 +1,40 @@
-(function splashFactory() {
-  const $mouse = document.getElementById('mouse');
-  const offset = 10;
+import $ from 'jquery';
+import plugin from './plugin';
 
-  // helper function
-  function $$(selector, context) {
-    const newContext = context || document;
-    const elements = newContext.querySelectorAll(selector);
-    return Array.prototype.slice.call(elements);
-  }
+class Splash {
+  constructor(element, options) {
+    const $element = $(element);
 
-  function scrollSplash() {
-    const $splash = $$('.splash');
-    const scrollObject = {
-      x: window.pageXOffset,
-      y: window.pageYOffset,
-    };
+    $(window).scroll(() => {
+      const $mouse = document.getElementById('mouse');
+      const limit = $element.offset().top + $element.outerHeight();
+      const scrollObject = {
+        x: window.pageXOffset,
+        y: window.pageYOffset,
+      };
 
-    Array.from($splash).forEach((el) => {
-      const $element = el;
-      const limit = $element.offsetTop + $element.offsetHeight;
-
-      if (scrollObject.y > $element.offsetTop && scrollObject.y <= limit) {
-        const scrollOffset = (scrollObject.y - $element.offsetTop) / 1.5;
-        $element.style.backgroundPositionY = `-${scrollOffset}px`;
+      if (scrollObject.y > $element.offset().top && scrollObject.y <= limit) {
+        const scrollOffset = (scrollObject.y - $element.offset().top) / 1.5;
+        $element.css({ 'background-position-y': `-${scrollOffset}px` });
       } else {
-        $element.style.backgroundPositionY = '0';
+        $element.css({ 'background-position-y': '0' });
+      }
+
+      if (scrollObject.y >= options.offset) {
+        if ($mouse) {
+          $mouse.classList.remove('is-visible');
+        }
+      } else if (scrollObject.y < options.offset) {
+        if ($mouse) {
+          $mouse.classList.add('is-visible');
+        }
       }
     });
-
-    if (scrollObject.y >= offset) {
-      if ($mouse) {
-        $mouse.classList.remove('is-visible');
-      }
-    } else if (scrollObject.y < offset) {
-      if ($mouse) {
-        $mouse.classList.add('is-visible');
-      }
-    }
   }
+}
 
-  window.addEventListener('scroll', () => {
-    scrollSplash();
-  }, false);
-}());
+Splash.DEFAULTS = {
+  offset: 100,
+};
+
+plugin('Splash', Splash);
