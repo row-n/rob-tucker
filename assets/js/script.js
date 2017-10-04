@@ -7,5 +7,6 @@ import './plugins/menu';
 import './plugins/to-top';
 import './plugins/splash';
 
+$('#trigger').click(() => $('body').toggleClass('menu-open'));
 $('#scroll-to-top').ScrollToTop();
 $('#splash').Splash();
