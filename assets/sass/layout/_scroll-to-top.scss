@@ -1,8 +1,11 @@
-.back-to-top {
+.scroll-to-top {
+  background-color: transparent;
   border: .125em solid $black;
   bottom: .75em;
+  cursor: pointer;
   height: 2em;
   opacity: 0;
+  outline: none;
   padding: .75em;
   position: fixed;
   right: 5%;

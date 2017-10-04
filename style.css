@@ -322,7 +322,8 @@ a {
 }
 
 a:active,a:focus,a:hover {
-  color: #022346;
+  border-bottom: 0;
+  color: #0580ff;
   outline: inherit;
   text-decoration: none;
 }
@@ -342,6 +343,7 @@ body {
   font-family: "Plain","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 100%;
   font-weight: 200;
+  line-height: 1.5;
   margin-bottom: 4em;
   min-height: calc(100vh - (4em + 4em));
 }
@@ -359,40 +361,6 @@ body.pace-running,body.menu-open {
   padding: 0;
   position: absolute;
   width: 1px;
-}
-
-.back-to-top {
-  border: 0.125em solid #000;
-  bottom: .75em;
-  height: 2em;
-  opacity: 0;
-  padding: .75em;
-  position: fixed;
-  right: 5%;
-  transform: translate3d(1em, 0, 0);
-  -ms-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-  transition: opacity 200ms ease-out, transform 200ms ease-out;
-  width: 2em;
-  z-index: 20;
-}
-
-.back-to-top .icon {
-  animation-duration: 1.35s;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  display: block;
-  fill: #000;
-}
-
-.back-to-top:hover .icon {
-  animation-name: scroll-up;
-}
-
-.back-to-top.is-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
 }
 
 .brand {
@@ -416,17 +384,13 @@ body.pace-running,body.menu-open {
   color: #fff;
 }
 
-.pace-running .brand .brand__logo {
-  color: #fff;
-}
-
 .brand .brand__description {
   display: none;
 }
 
 .content {
-  margin: 4em auto 4em;
-  min-height: calc(100vh - (4em + 4em));
+  margin: 6em auto 6em;
+  min-height: calc(100vh - ((4em * 1.5) + (4em * 1.5)));
   opacity: 1;
   position: relative;
   transition: opacity 350ms cubic-bezier(0.8, 0, 0.55, 0.94);
@@ -451,6 +415,10 @@ body.pace-running,body.menu-open {
 
 .content .entry {
   position: relative;
+}
+
+.content img {
+  max-width: 100%;
 }
 
 .footer {
@@ -489,6 +457,7 @@ body.pace-running,body.menu-open {
   border-style: solid;
   border-width: 0 0 .125em;
   display: block;
+  margin: 0;
   padding: .4em .25em;
   position: relative;
   width: 100%;
@@ -500,12 +469,10 @@ body.pace-running,body.menu-open {
 }
 
 .form label {
-  display: inline-block;
   text-align: left;
-  width: 100%;
 }
 
-.form .button {
+.form button.button {
   background-color: #0580ff;
   border: 0;
   box-shadow: 0 4px 6px rgba(2,35,70,0.11),0 1px 3px rgba(0,0,0,0.08);
@@ -520,12 +487,12 @@ body.pace-running,body.menu-open {
   width: auto;
 }
 
-.form .button:hover {
+.form button.button:hover {
   background-color: #0452a3;
   box-shadow: 0 7px 14px rgba(2,35,70,0.1),0 3px 6px rgba(0,0,0,0.08);
 }
 
-.form .button:active {
+.form button.button:active {
   background-color: #022346;
   box-shadow: 0 4px 6px rgba(2,35,70,0.11),0 1px 3px rgba(0,0,0,0.08);
 }
@@ -650,22 +617,18 @@ body.pace-running,body.menu-open {
   z-index: -1;
 }
 
-.header:hover:before {
+.pace-done .header:hover:before {
   -ms-transform: scale(1, 1);
   transform: scale(1, 1);
 }
 
-.header:hover .brand .brand__logo {
-  color: #000;
+.menu-open .header:hover:before {
+  -ms-transform: scale(1, 0);
+  transform: scale(1, 0);
 }
 
 .page-template-page-splash .header {
   background-color: transparent;
-}
-
-.menu-open .header:before {
-  -ms-transform: scale(1, 0);
-  transform: scale(1, 0);
 }
 
 .header .header__body {
@@ -754,6 +717,7 @@ body.pace-running,body.menu-open {
   margin: 0 auto;
   opacity: 0;
   padding-left: 0;
+  position: relative;
   transition: opacity 350ms cubic-bezier(0.8, 0, 0.55, 0.94);
   width: 90%;
 }
@@ -781,7 +745,7 @@ body.pace-running,body.menu-open {
   border-bottom: 0;
   color: #fff;
   cursor: pointer;
-  font-size: 18vh;
+  font-size: 18vmin;
   font-weight: 400;
   padding-bottom: 0;
   position: relative;
@@ -791,6 +755,12 @@ body.pace-running,body.menu-open {
 
 .menu .menu__link:hover {
   color: #0580ff;
+}
+
+.sub-menu {
+  padding-left: 0;
+  position: absolute;
+  top: 0;
 }
 
 .mouse {
@@ -901,6 +871,43 @@ body.pace-running,body.menu-open {
 .pagination a:hover {
   border-color: #0452a3;
   color: #0452a3;
+}
+
+.scroll-to-top {
+  background-color: transparent;
+  border: 0.125em solid #000;
+  bottom: .75em;
+  cursor: pointer;
+  height: 2em;
+  opacity: 0;
+  outline: none;
+  padding: .75em;
+  position: fixed;
+  right: 5%;
+  transform: translate3d(1em, 0, 0);
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+  width: 2em;
+  z-index: 20;
+}
+
+.scroll-to-top .icon {
+  animation-duration: 1.35s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  display: block;
+  fill: #000;
+}
+
+.scroll-to-top:hover .icon {
+  animation-name: scroll-up;
+}
+
+.scroll-to-top.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 .social {
@@ -1029,7 +1036,7 @@ body.pace-running,body.menu-open {
 }
 
 @media only screen and (min-width: 30em) {
-  .back-to-top {
+  .scroll-to-top {
     height: 2.5em;
     padding: 1em;
     width: 2.5em;
@@ -1059,10 +1066,6 @@ body.pace-running,body.menu-open {
     min-height: calc(100vh - (6em + 6em));
   }
 
-  .back-to-top {
-    bottom: 1.75em;
-  }
-
   .brand .brand__description {
     display: inline-block;
     font-size: 75%;
@@ -1079,11 +1082,9 @@ body.pace-running,body.menu-open {
     margin-bottom: 4em;
   }
 
-  .content .entry .entry__col--form {
-    background-color: #fff;
-    float: left;
-    padding: 2em;
-    width: 50%;
+  .content .entry {
+    display: -ms-flexbox;
+    display: flex;
   }
 
   .content .entry .entry__col--contact {
@@ -1097,6 +1098,21 @@ body.pace-running,body.menu-open {
   .content .entry .entry__col--contact * {
     border-color: inherit;
     color: inherit;
+  }
+
+  .content .entry .entry__col--contact h3:first-child {
+    margin-top: 0;
+  }
+
+  .content .entry .entry__col--form {
+    background-color: #fff;
+    float: left;
+    padding: 2em;
+    width: 50%;
+  }
+
+  .content .entry .entry__col--form h3:first-child {
+    margin-top: 0;
   }
 
   .footer {
@@ -1119,6 +1135,10 @@ body.pace-running,body.menu-open {
     height: 6em;
   }
 
+  .menu .menu__link {
+    font-size: 14vmin;
+  }
+
   .page .page__header {
     margin-bottom: 4em;
     margin-top: 4em;
@@ -1135,6 +1155,10 @@ body.pace-running,body.menu-open {
     bottom: .5em;
     left: 1em;
     position: absolute;
+  }
+
+  .scroll-to-top {
+    bottom: 1.75em;
   }
 
   .social .icon {
@@ -1154,6 +1178,15 @@ body.pace-running,body.menu-open {
 }
 
 @media only screen and (min-width: 62em) {
+  .content .entry {
+    display: block;
+  }
+
+  .content .entry .entry__col--contact {
+    float: none;
+    padding: 4em 6em 4em 4em;
+  }
+
   .content .entry .entry__col--form {
     float: none;
     padding: 4em;
@@ -1163,9 +1196,8 @@ body.pace-running,body.menu-open {
     width: 60%;
   }
 
-  .content .entry .entry__col--contact {
-    float: none;
-    padding: 4em;
+  .menu .menu__link {
+    font-size: 13.5vmin;
   }
 
   .thumbnail {

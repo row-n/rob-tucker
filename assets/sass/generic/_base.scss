@@ -19,6 +19,7 @@ body {
   font-family: $body-font-family;
   font-size: $body-font-size;
   font-weight: $body-font-weight;
+  line-height: $global-lineheight;
   margin-bottom: $footer-height-mobile;
   min-height: calc(100vh - (#{$site-header-height-mobile} + #{$footer-height-mobile}));
 

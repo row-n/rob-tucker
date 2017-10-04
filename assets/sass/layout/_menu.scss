@@ -26,6 +26,7 @@
     margin: 0 auto;
     opacity: 0;
     padding-left: 0;
+    position: relative;
     transition: opacity ($global-duration / 2) $global-timing-function;
     width: 90%;
 
@@ -55,15 +56,29 @@
     border-bottom: 0;
     color: $white;
     cursor: pointer;
-    font-size: 18vh;
+    font-size: 18vmin;
     font-weight: 400;
     padding-bottom: 0;
     position: relative;
     text-decoration: none;
     text-transform: lowercase;
 
+    @media #{$tablet} {
+      font-size: 14vmin;
+    }
+
+    @media #{$desktop} {
+      font-size: 13.5vmin;
+    }
+
     &:hover {
       color: $blue;
     }
   }
+}
+
+.sub-menu {
+  padding-left: 0;
+  position: absolute;
+  top: 0;
 }
