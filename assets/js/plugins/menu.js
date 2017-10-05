@@ -15,11 +15,12 @@ class Menu {
 
     if ($subMenu) {
       Array.from($subMenu).forEach((el) => {
-        console.log($(el).siblings());
+        const $subMenuTrigger = $(el).siblings();
 
-        $(el).siblings().on('click', (event) => {
+        $subMenuTrigger.on('click', (event) => {
           event.preventDefault();
-          console.log('sib click');
+          $(el).show().children('li').addClass('is-visible');
+          $element.children().children('li').addClass('is-hidden');
         });
       });
     }

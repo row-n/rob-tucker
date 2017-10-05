@@ -56,6 +56,22 @@
         }
       }
     }
+
+    &.is-hidden {
+      .menu__link {
+        opacity: 0;
+        transform: translate(-2em, 0);
+        transition: opacity ($global-duration / 2) ease, transform ($global-duration / 2) ease;
+      }
+    }
+
+    &.is-visible {
+      .menu__link {
+        opacity: 1;
+        transform: translate(0, 0);
+        transition: opacity ($global-duration / 2) ease, transform ($global-duration / 2) ease;
+      }
+    }
   }
 
   .menu__link {
@@ -76,9 +92,12 @@
 }
 
 .menu-back {
+  background-color: transparent;
+  border: 0;
   bottom: 0;
   color: $white;
   height: 4em;
+  opacity: 0;
   position: absolute;
   right: 5%;
 
@@ -90,9 +109,16 @@
 }
 
 .sub-menu {
-  opacity: 0;
+  display: none;
   padding-left: 0;
   position: absolute;
+
+  .menu__item {
+    .menu__link {
+      opacity: 0;
+      transform: translate(-2em, 0);
+    }
+  }
 }
 
 .child-items-1 {
