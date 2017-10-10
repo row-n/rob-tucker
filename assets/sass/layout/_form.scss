@@ -21,8 +21,21 @@
     }
   }
 
-  label {
+  > label {
+    margin-bottom: 1em;
     text-align: left;
+
+    &:nth-child(1) {
+      float: left;
+      margin-right: 2.5%;
+      width: 47.5%;
+    }
+
+    &:nth-child(2) {
+      float: left;
+      margin-left: 2.5%;
+      width: 47.5%;
+    }
   }
 
   button {

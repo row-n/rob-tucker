@@ -11,9 +11,7 @@ const $ = require('gulp-load-plugins')({
   scope: ['devDependencies'],
 });
 
-const onError = (err) => {
-  console.log(err); // eslint-disable-line no-console
-};
+const onError = err => console.log(err); // eslint-disable-line no-console
 
 // Styles
 gulp.task('styles:lint', () => {
