@@ -4,13 +4,16 @@ import plugin from './plugin';
 class Menu {
   constructor(element) {
     const $element = $(element);
-    const $subMenu = $element.find('.sub-menu');
+    const $menu = $element.children('ul');
+    const $subMenu = $menu.find('ul');
+    let $menuItems;
 
     Array.from($element.find('ul')).forEach((el) => {
       const $menuList = el;
-      const $menuItems = $($menuList).children('li').length;
+      $menuItems = $($menuList).children('li').length;
 
       $($menuList).addClass(`child-items-${$menuItems}`);
+      return $menuItems;
     });
 
     if ($subMenu) {
@@ -19,8 +22,16 @@ class Menu {
 
         $subMenuTrigger.on('click', (event) => {
           event.preventDefault();
-          $(el).show().children('li').addClass('is-visible');
-          $element.children().children('li').addClass('is-hidden');
+          $menu.find('> li > a').addClass('animate-out');
+          $subMenu.show().animate({ left: '0' });
+          $subMenu.find('> li > a').addClass('animate-in');
+          for (let i = 0; i <= $menuItems; i += 1) {
+            console.log(this);
+          }
+          setTimeout(() => {
+            // $menu.find('> li > a').removeClass('animate-out').addClass('is-hidden');
+            // $subMenu.find('> li > a').removeClass('animate-in').addClass('is-visible');
+          }, 1000);
         });
       });
     }
