@@ -15,7 +15,7 @@
   &.content--splash {
     .content__header {
       > * {
-        color: $black-20;
+        color: $black-30;
       }
     }
   }
@@ -25,11 +25,7 @@
   }
 
   .content__header {
-    margin-bottom: 2em;
-
-    @media #{$tablet} {
-      margin-bottom: 4em;
-    }
+    margin-bottom: 4em;
   }
 
   .content__excerpt {
@@ -39,36 +35,21 @@
   .entry {
     position: relative;
 
-    @media #{$tablet} {
-      display: flex;
-    }
-
     @media #{$desktop} {
       display: block;
     }
 
     .entry__col--contact {
-      @media #{$tablet} {
-        background-color: $blue;
-        color: $white;
-        float: left;
-        padding: 2em;
+      margin-bottom: 4em;
+
+      @media #{$desktop} {
+        background-color: $black-10;
+        float: none;
+        padding: 4em 6em 4em 4em;
         width: 50%;
       }
 
-      @media #{$desktop} {
-        float: none;
-        padding: 4em 6em 4em 4em;
-      }
-
       * {
-        @media #{$tablet} {
-          border-color: inherit;
-          color: inherit;
-        }
-      }
-
-      h3 {
         &:first-child {
           @media #{$tablet} {
             margin-top: 0;
@@ -78,14 +59,8 @@
     }
 
     .entry__col--form {
-      @media #{$tablet} {
-        background-color: $white;
-        float: left;
-        padding: 2em;
-        width: 50%;
-      }
-
       @media #{$desktop} {
+        background-color: $white;
         float: none;
         padding: 4em;
         position: absolute;

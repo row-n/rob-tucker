@@ -44,7 +44,7 @@
                   <div class="thumbnail__body">
                     <h3 class="thumbnail__heading"><?php echo $children->post_title; ?></h3>
                     <?php if ( $children->post_excerpt ) { ?>
-                      <h4 class="thumbnail__excerpt"><?php echo $children->post_excerpt; ?></h4>
+                      <h5 class="thumbnail__excerpt"><?php echo $children->post_excerpt; ?></h5>
                     <?php } ?>
                   </div>
                 </a>

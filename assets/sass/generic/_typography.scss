@@ -9,7 +9,6 @@ h5,
 h6 {
   color: $header-color;
   line-height: ($header-lineheight / 1.1);
-  margin-bottom: $header-margin-bottom;
 
   @media #{$tablet} {
     line-height: $header-lineheight;
@@ -20,6 +19,7 @@ h1 {
   font-family: $header-font-family;
   font-size: ($h1-font-size / 1.5);
   font-weight: $header-font-weight;
+  margin-bottom: ($header-margin-bottom * 2.5);
 
   @media #{$tablet} {
     font-size: $h1-font-size;
@@ -30,6 +30,7 @@ h2 {
   font-family: $header-font-family;
   font-size: ($h2-font-size / 1.3);
   font-weight: $header-font-weight;
+  margin-bottom: ($header-margin-bottom * 2.5);
 
   @media #{$tablet} {
     font-size: $h2-font-size;
@@ -39,6 +40,7 @@ h2 {
 h3 {
   font-size: ($h3-font-size / 1.2);
   font-weight: $header-font-weight;
+  margin-bottom: ($header-margin-bottom * 2.5);
 
   @media #{$tablet} {
     font-size: $h3-font-size;
@@ -46,22 +48,40 @@ h3 {
 }
 
 h4 {
+  font-family: $header-font-family;
   font-size: $h4-font-size;
   font-weight: $body-font-weight;
+  margin-bottom: $header-margin-bottom;
 }
 
 h5 {
+  color: $black-30;
+  font-family: $header-font-family;
   font-size: $h5-font-size;
   font-weight: $body-font-weight;
+  margin-bottom: $header-margin-bottom;
 }
 
 h6 {
+  color: $black-30;
+  font-family: $header-font-family;
   font-size: $h6-font-size;
   font-weight: $body-font-weight;
+  margin-bottom: $header-margin-bottom;
 }
 
 p {
   margin-top: 0;
+}
+
+hr {
+  background-color: $body-font-colour;
+  border: 0;
+  display: block;
+  height: .125em;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  width: 100%;
 }
 
 // Additional sizes
@@ -108,7 +128,7 @@ sup {
 
 a {
   border-bottom: .09375em dashed $anchor-color;
-  color: $body-font-colour;
+  color: $anchor-color;
   outline: none;
   padding-bottom: .0625em;
   text-decoration: $anchor-text-decoration;

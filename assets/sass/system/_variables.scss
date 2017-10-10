@@ -16,6 +16,13 @@ $black-80: darken($white, 80%);
 $black-90: darken($white, 90%);
 $black: #000;
 
+// Beigescale
+$beige-v-light: #eae6d9;
+$beige-light: #dcd6c1;
+$beige: #cec5a8;
+$beige-dark: #c0b58f;
+$beige-v-dark: #b3a577;
+
 // Bluescale
 $blue-v-light: #badcff;
 $blue-light: #5faeff;
@@ -75,6 +82,8 @@ $x-small-font-size: 75%;
 $small-font-size: 87.5%;
 $large-font-size: 112.5%;
 $x-large-font-size: 125%;
+$font-size-min: 16;
+$font-size-max: 18;
 $paragraph-lineheight: 1.6;
 $paragraph-margin-bottom: 1rem;
 $anchor-color: $blue;

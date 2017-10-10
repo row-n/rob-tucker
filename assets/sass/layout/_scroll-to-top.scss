@@ -6,7 +6,7 @@
   height: 2em;
   opacity: 0;
   outline: none;
-  padding: .75em;
+  padding: .65em;
   position: fixed;
   right: 5%;
   transform: translate3d(1em, 0, 0);
@@ -17,12 +17,13 @@
 
   @media #{$mobile} {
     height: 2.5em;
-    padding: 1em;
+    padding: .95em;
     width: 2.5em;
   }
 
   @media #{$tablet} {
     bottom: 1.75em;
+    padding: .9em;
   }
 
   .icon {

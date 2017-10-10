@@ -8,6 +8,22 @@
   }
 }
 
+:root {
+  font-size: $body-font-size;
+}
+
+@media (min-width: #{$screen-xs}) and (max-width: #{$screen-md}) {
+  :root {
+    font-size: calc(#{$font-size-min}px + (#{$font-size-max} - #{$font-size-min}) * ( (100vw - #{$screen-xs}) / (992 - 480) ));
+  }
+}
+
+@media #{$desktop} {
+  :root {
+    font-size: $body-font-size-desktop;
+  }
+}
+
 html {
   background-color: $body-background;
   height: 100%;
@@ -17,14 +33,12 @@ body {
   background-color: $body-background;
   color: $body-font-colour;
   font-family: $body-font-family;
-  font-size: $body-font-size;
   font-weight: $body-font-weight;
   line-height: $global-lineheight;
   margin-bottom: $footer-height-mobile;
   min-height: calc(100vh - (#{$site-header-height-mobile} + #{$footer-height-mobile}));
 
   @media #{$tablet} {
-    font-size: $body-font-size-desktop;
     margin-bottom: $footer-height-desktop;
     min-height: calc(100vh - (#{$site-header-height-desktop} + #{$footer-height-desktop}));
   }
@@ -32,6 +46,14 @@ body {
   &.pace-running,
   &.menu-open {
     overflow: hidden;
+  }
+}
+
+.main {
+  opacity: 0;
+
+  .pace-done & {
+    opacity: 1;
   }
 }
 
