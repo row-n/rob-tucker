@@ -34,22 +34,22 @@
             // Filter through all pages and find Portfolio's children
             $portfolio_children = get_page_children( $portfolio->ID, $all_wp_pages );
 
-            foreach( $portfolio_children as $children ) {
+            foreach( $portfolio_children as $children ) :
               $thumbnail = get_the_post_thumbnail( $children->ID, 'large' );
-              if ( $thumbnail ) { ?>
+              if ( $thumbnail ) : ?>
                 <a href="<?php echo get_page_link( $children->ID ); ?>" class="thumbnail">
                   <div class="thumbnail__image">
                     <?php echo $thumbnail ?>
                   </div>
                   <div class="thumbnail__body">
                     <h3 class="thumbnail__heading"><?php echo $children->post_title; ?></h3>
-                    <?php if ( $children->post_excerpt ) { ?>
+                    <?php if ( $children->post_excerpt ) : ?>
                       <h5 class="thumbnail__excerpt"><?php echo $children->post_excerpt; ?></h5>
-                    <?php } ?>
+                    <?php endif; ?>
                   </div>
                 </a>
-              <?php }
-            } ?>
+              <?php endif;
+            endforeach; ?>
 
           </div>
 

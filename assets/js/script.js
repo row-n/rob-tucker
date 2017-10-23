@@ -7,7 +7,9 @@ import './plugins/menu';
 import './plugins/to-top';
 import './plugins/splash';
 
-pace.start();
+pace.start({
+  ajax: false,
+});
 
 $('#trigger').click(() => $('body').toggleClass('menu-open'));
 

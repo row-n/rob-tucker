@@ -50,6 +50,7 @@ body {
 }
 
 .main {
+  @include clearfix;
   opacity: 0;
 
   .pace-done & {

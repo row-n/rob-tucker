@@ -24,23 +24,22 @@
   }
 
   &:hover {
-    img {
-      box-shadow: none;
-      transform: scale(.98);
+    .thumbnail__image {
+      img {
+        box-shadow: none;
+        transform: scale(.98);
+      }
     }
   }
 
-  img {
-    box-shadow: 0 0 2em 0 alpha($black, .3);
-    height: auto;
-    margin: auto;
-    transform: scale(1);
-    transition: box-shadow ($global-duration / 2) $global-timing-function, transform ($global-duration / 2) $global-timing-function;
-    width: 100%;
-  }
-
   .thumbnail__image {
-
+    img {
+      box-shadow: 0 0 2em 0 alpha($black, .3);
+      margin: auto;
+      transform: scale(1);
+      transition: box-shadow ($global-duration / 2) $global-timing-function, transform ($global-duration / 2) $global-timing-function;
+      width: 100%;
+    }
   }
 
   .thumbnail__body {
@@ -54,7 +53,7 @@
 
   .thumbnail__heading {
     color: $blue;
-    margin-bottom: 0;
+    margin-bottom: .5em;
     margin-top: 0;
   }
 

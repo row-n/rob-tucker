@@ -1,53 +1,53 @@
 <?php get_header(); ?>
 
-  <main class="main">
+<main class="main">
 
-    <section class="content">
+  <section class="content">
 
-      <?php if (have_posts()) : ?>
+    <?php if (have_posts()) : ?>
 
-        <?php while (have_posts()) : the_post(); ?>
+      <?php while (have_posts()) : the_post(); ?>
 
-          <header class="content__header">
-            <h1><?php the_title(); ?></h1>
-          </header>
+        <header class="content__header">
+          <h1><?php the_title(); ?></h1>
+        </header>
 
-          <?php if (has_post_thumbnail()) the_post_thumbnail(); ?>
+        <?php if (has_post_thumbnail()) the_post_thumbnail(); ?>
 
-          <div class="entry">
+        <div class="entry">
 
-            <?php the_content(); ?>
+          <?php the_content(); ?>
 
-            <?php
-            $fields = get_field_objects();
+          <?php
+          $fields = get_field_objects();
 
-            if( $fields ) :
-              uasort($fields,'compare_order_no');
-              foreach( $fields as $field ): ?>
+          if( $fields ) :
+            uasort($fields,'compare_order_no');
+            foreach( $fields as $field ): ?>
 
-              <?php if( $field['value'] ): ?>
-                <div class="entry__col entry__col--<?php echo $field['name']; ?>">
-                  <?php echo $field['value']; ?>
-                </div>
-              <?php endif;
+            <?php if( $field['value'] ): ?>
+              <div class="entry__col entry__col--<?php echo $field['name']; ?>">
+                <?php echo $field['value']; ?>
+              </div>
+            <?php endif;
 
-              endforeach;
-            endif; ?>
+            endforeach;
+          endif; ?>
 
-            <?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
+          <?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
 
-          </div>
+        </div>
 
-        <?php endwhile; ?>
+      <?php endwhile; ?>
 
-      <?php else : ?>
+    <?php else : ?>
 
-        <?php get_template_part('inc/gone'); ?>
+      <?php get_template_part('inc/gone'); ?>
 
-      <?php endif; ?>
+    <?php endif; ?>
 
-    </section>
+  </section>
 
-  </main>
+</main>
 
 <?php get_footer(); ?>

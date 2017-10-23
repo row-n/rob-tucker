@@ -1,36 +1,36 @@
 <?php get_header(); ?>
 
-  <div id="content">
+<main class="main">
+
+  <section class="content">
 
     <?php if (have_posts()) : ?>
 
       <?php while (have_posts()) : the_post(); ?>
 
-        <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <header class="content__header">
+          <h1><?php the_title(); ?></h1>
+          <time class="time" datetime="<?php the_time('Y-m-d'); ?>" pubdate><?php the_time('F jS, Y'); ?></time>
+        </header>
 
-          <h1><a href="<?php the_permalink(); ?>" title="Permanent link: <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+        <?php if (has_post_thumbnail()) the_post_thumbnail(); ?>
 
-          <?php get_template_part('inc/meta'); ?>
+        <div class="entry">
 
-          <?php if (has_post_thumbnail()) the_post_thumbnail(); ?>
+          <?php the_content(); ?>
 
-          <div class="entry">
+          <?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
 
-            <?php the_content(); ?>
+        </div>
 
-            <?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
+        <div class="meta">
 
+          <div class="meta__tags">
+            <?php the_tags('<p>Tags: ', ', ', '</p>'); ?>
           </div>
 
-          <div class="postmetadata">
-
-            <?php the_tags('<p>Tags: ', ', ', '</p>'); ?>
-
-            <p>
-              <?php _e('Posted in', 'rob-tucker'); ?> <?php the_category(', '); ?> |
-              <?php comments_popup_link('Leave a comment', '1 comment', '% comments', 'comments-link', 'Comments disabled'); ?>
-            </p>
-
+          <div class="meta__categories">
+            <?php the_category(' | '); ?>
           </div>
 
         </div>
@@ -39,16 +39,14 @@
 
       <?php get_template_part('inc/nav'); ?>
 
-      <?php comments_template(); ?>
-
     <?php else : ?>
 
       <?php get_template_part('inc/gone'); ?>
 
     <?php endif; ?>
 
-  </div>
+  </section>
 
-<?php get_sidebar(); ?>
+</main>
 
 <?php get_footer(); ?>

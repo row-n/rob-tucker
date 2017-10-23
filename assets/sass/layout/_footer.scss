@@ -13,6 +13,12 @@
     height: $footer-height-desktop;
   }
 
+  .footer__social {
+    border-bottom: 0;
+    fill: $blue;
+    margin-right: 1em;
+  }
+
   .footer__content {
     align-items: center;
     display: inline-flex;
@@ -21,7 +27,7 @@
     width: 90%;
   }
 
-  .copyright {
+  .footer__copyright {
     color: $footer-color;
     font-size: $footer-font-size;
     margin-bottom: 0;

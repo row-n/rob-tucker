@@ -79,7 +79,9 @@ function header_scripts()
 function footer_scripts()
 {
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
+    // global $post;
     wp_register_script('rob-tucker', get_template_directory_uri() . '/script.js', array(), '', true); // Custom scripts
+    // wp_localize_script('rob-tucker', 'php_vars', array('title' => $post->post_name)); // Add page title to global variable
     wp_enqueue_script('rob-tucker'); // Enqueue it!
   }
 }
@@ -159,10 +161,22 @@ function remove_admin_bar()
   return false;
 }
 
+// Limit excerpt length
+function custom_excerpt_length($length)
+{
+  return 20;
+}
+
 // Order Advanced Custom Fields by sort order
 function compare_order_no($elem1, $elem2)
 {
   return strcmp($elem1['order_no'], $elem2['order_no']);
+}
+
+// Hide featured image on post page
+function wordpress_hide_feature_image($html, $post_id, $post_image_id)
+{
+  return is_single() ? '' : $html;
 }
 
 /*------------------------------------*\
@@ -171,7 +185,7 @@ function compare_order_no($elem1, $elem2)
 
 // Add Actions
 add_action('init', 'header_scripts'); // Add Custom Scripts to wp_head()
-add_action('init', 'footer_scripts'); // Add Custom Scripts to wp_footer()
+add_action('wp_enqueue_scripts', 'footer_scripts'); // Add Custom Scripts to wp_footer()
 add_action('wp_enqueue_scripts', 'styles'); // Add Theme Stylesheet
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('after_setup_theme', 'shapeSpace_setup'); // Add theme support setup
@@ -203,3 +217,5 @@ add_filter('nav_menu_link_attributes', 'nav_menu_link_atts', 10, 4); // Add clas
 add_filter('style_loader_src', 'sdt_remove_ver_css_js', 9999); // Remove WP Version From Styles
 add_filter('script_loader_src', 'sdt_remove_ver_css_js', 9999); // Remove WP Version From Scripts
 add_filter('use_default_gallery_style', '__return_false'); // Remove Gallery styles
+add_filter('excerpt_length', 'custom_excerpt_length', 9999); // Limit excerpt length
+add_filter('post_thumbnail_html', 'wordpress_hide_feature_image', 10, 4); // Hide featured image on post page

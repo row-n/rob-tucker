@@ -8,7 +8,6 @@ class ScrollToTop {
 
     $(window).scroll((event) => {
       const scroll = debounce(() => {
-        console.log('test');
         if ($(event.target).scrollTop() > options.offset) {
           $element.addClass('is-visible');
         } else {
