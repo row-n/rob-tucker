@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import plugin from './plugin';
 
-class Splash {
+class Hero {
   constructor(element, options) {
     const $element = $(element);
 
@@ -33,8 +33,8 @@ class Splash {
   }
 }
 
-Splash.DEFAULTS = {
+Hero.DEFAULTS = {
   offset: 100,
 };
 
-plugin('Splash', Splash);
+plugin('Hero', Hero);

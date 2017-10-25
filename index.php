@@ -6,11 +6,11 @@
 
     <?php if (have_posts()) : ?>
 
-      <header class="content__header">
+      <header class="container content__header">
         <h1><?php single_post_title(); ?></h1>
       </header>
 
-      <div class="post-list">
+      <div class="content__body post-list">
 
         <?php while (have_posts()) : the_post(); ?>
 

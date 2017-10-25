@@ -2,28 +2,50 @@
 
 <main class="main">
 
-  <section class="content">
+  <section class="content single">
 
     <?php if (have_posts()) : ?>
 
       <?php while (have_posts()) : the_post(); ?>
 
-        <header class="content__header">
+        <header class="container content__header">
           <h1><?php the_title(); ?></h1>
           <time class="time" datetime="<?php the_time('Y-m-d'); ?>" pubdate><?php the_time('F jS, Y'); ?></time>
         </header>
 
         <?php if (has_post_thumbnail()) the_post_thumbnail(); ?>
 
-        <div class="entry">
+        <div class="container">
 
-          <?php the_content(); ?>
+          <div class="content__body">
+            <?php the_content(); ?>
+          </div>
+
+        </div>
+
+        <?php
+        $fields = get_field_objects();
+
+        if( $fields ) :
+          uasort($fields,'compare_order_no');
+          foreach( $fields as $field ): ?>
+
+          <?php if( $field['value'] ): ?>
+            <div class="single__<?php echo $field['name']; ?>">
+              <?php echo $field['value']; ?>
+            </div>
+          <?php endif;
+
+          endforeach;
+        endif; ?>
+
+        <div class="container">
 
           <?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
 
         </div>
 
-        <div class="meta">
+        <div class="container meta">
 
           <div class="meta__tags">
             <?php the_tags('<p>Tags: ', ', ', '</p>'); ?>
@@ -37,7 +59,11 @@
 
       <?php endwhile; ?>
 
-      <?php get_template_part('inc/nav'); ?>
+      <div class="container">
+
+        <?php get_template_part('inc/nav'); ?>
+
+      </div>
 
     <?php else : ?>
 

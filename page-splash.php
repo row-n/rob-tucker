@@ -12,10 +12,10 @@
 
         if (has_post_thumbnail()) :
           $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
-          echo '<div class="splash" id="splash" style="background-image: url(' . esc_url($featured_img_url) . ');"><div class="mouse is-visible" id="mouse"><div class="mouse__scroll"></div></div></div>';
+          echo '<div class="hero" id="hero" style="background-image: url(' . esc_url($featured_img_url) . ');"><div class="mouse is-visible" id="mouse"><div class="mouse__scroll"></div></div></div>';
         endif; ?>
 
-        <section class="content content--splash">
+        <section class="content splash">
 
           <header class="content__header">
             <h1>Works</h1>
