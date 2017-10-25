@@ -7,7 +7,7 @@
 
   img {
     height: auto;
-    max-height: calc(100vh - (#{$site-header-height-mobile} + #{$footer-height-mobile}));
+    max-height: calc(100vh - #{$site-header-height-desktop});
     max-width: 100%;
 
     @media #{$tablet} {

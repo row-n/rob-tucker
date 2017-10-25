@@ -31,7 +31,7 @@
           foreach( $fields as $field ): ?>
 
           <?php if( $field['value'] ): ?>
-            <div class="single__<?php echo $field['name']; ?>">
+            <div class="single__<?php echo $field['name']; ?> gallery">
               <?php echo $field['value']; ?>
             </div>
           <?php endif;
