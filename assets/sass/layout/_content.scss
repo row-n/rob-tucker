@@ -20,6 +20,16 @@
     }
   }
 
+  &.single {
+    img {
+      margin-bottom: 1em;
+
+      @media #{$tablet} {
+        margin-bottom: 4em;
+      }
+    }
+  }
+
   .pace-running & {
     opacity: 0;
   }
