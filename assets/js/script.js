@@ -14,5 +14,5 @@ pace.start({
 $('#trigger').click(() => $('body').toggleClass('menu-open'));
 
 $('#menu').Menu();
+$('#hero').Hero();
 $('#scroll-to-top').ScrollToTop();
-$('#splash').Splash();

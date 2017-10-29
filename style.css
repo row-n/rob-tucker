@@ -696,10 +696,6 @@ body.pace-running,body.menu-open {
   transform: scale(1, 1);
 }
 
-.page-template-page-splash .header {
-  background-color: transparent;
-}
-
 .header .header__body {
   -ms-flex-align: center;
   align-items: center;
