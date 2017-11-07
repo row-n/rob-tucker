@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import pace from 'pace-progress';
 
-import './plugins/form';
 import './plugins/hero';
 import './plugins/lazy-load';
 import './plugins/menu';
