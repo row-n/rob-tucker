@@ -98,14 +98,30 @@
 }
 
 .menu-back {
+  align-items: center;
   background-color: transparent;
   border: 0;
   bottom: 0;
   color: $white;
+  display: flex;
   height: 4em;
   opacity: 0;
   position: absolute;
   right: 5%;
+  transition: opacity ($global-duration / 2) ease;
+
+  &:before {
+    @extend %icon--md;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwIDRxMC40MTQgMCAwLjcwNyAwLjI5M3QwLjI5MyAwLjcwN3EwIDAuNDIyLTAuMjk3IDAuNzExbC01LjI4OSA1LjI4OWgxNS41ODZxMC40MTQgMCAwLjcwNyAwLjI5M3QwLjI5MyAwLjcwNy0wLjI5MyAwLjcwNy0wLjcwNyAwLjI5M2gtMTUuNTg2bDUuMjg5IDUuMjg5cTAuMjk3IDAuMjg5IDAuMjk3IDAuNzExIDAgMC40MTQtMC4yOTMgMC43MDd0LTAuNzA3IDAuMjkzcS0wLjQyMiAwLTAuNzExLTAuMjg5bC03LTdxLTAuMjg5LTAuMzA1LTAuMjg5LTAuNzExdDAuMjg5LTAuNzExbDctN3EwLjI5Ny0wLjI4OSAwLjcxMS0wLjI4OXoiIGZpbGw9IiNmZmZmZmYiPjwvcGF0aD48L3N2Zz4=');
+    content: '';
+    display: block;
+    float: left;
+    margin-right: 1em;
+  }
+
+  &.is-visible {
+    opacity: 1;
+  }
 
   .icon {
     fill: $white;

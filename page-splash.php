@@ -12,7 +12,9 @@
 
         if (has_post_thumbnail()) :
           $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
-          echo '<div class="hero" id="hero" style="background-image: url(' . esc_url($featured_img_url) . ');"><div class="mouse is-visible" id="mouse"><div class="mouse__scroll"></div></div></div>';
+          echo '<div class="hero" id="hero" style="background-image: url(' . esc_url($featured_img_url) . ');">';
+          echo '<svg class="icon icon--scroll icon--md mouse is-visible" id="mouse" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2q0.414 0 0.707 0.293t0.293 0.707v15.586l5.289-5.297q0.289-0.289 0.711-0.289 0.43 0 0.715 0.285t0.285 0.715q0 0.422-0.289 0.711l-7 7q-0.289 0.289-0.711 0.289t-0.711-0.289l-7-7q-0.289-0.289-0.289-0.711 0-0.43 0.285-0.715t0.715-0.285q0.422 0 0.711 0.289l5.289 5.297v-15.586q0-0.414 0.293-0.707t0.707-0.293z"></path></svg>';
+          echo '</div>';
         endif; ?>
 
         <section class="content splash">

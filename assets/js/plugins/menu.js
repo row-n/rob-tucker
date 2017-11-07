@@ -6,6 +6,7 @@ class Menu {
     const $element = $(element);
     const $menu = $element.children('ul');
     const $subMenu = $menu.find('ul');
+    const $back = $element.find('#menu-back');
     let $menuItems;
 
     Array.from($element.find('ul')).forEach((el) => {
@@ -27,6 +28,7 @@ class Menu {
           $subMenu.find('> li > a').addClass('animate-in');
           for (let i = 0; i <= $menuItems; i += 1) {
             console.log(this);
+            $back.addClass('is-visible');
           }
           setTimeout(() => {
             // $menu.find('> li > a').removeClass('animate-out').addClass('is-hidden');
@@ -34,6 +36,12 @@ class Menu {
           }, 1000);
         });
       });
+
+      if ($back.is(':visible')) {
+        $back.on('click', (event) => {
+          console.log(event);
+        });
+      }
     }
   }
 }

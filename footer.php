@@ -12,8 +12,8 @@
   </footer>
 
   <button class="scroll-to-top" id="scroll-to-top">
-    <svg role="img" class="icon icon--chevron icon--xs" viewBox="0 0 17.11 10.06" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.11 8.55a1.5 1.5 0 0 1-2.57 1.06l-6-6-6 6a1.5 1.5 0 0 1-2.1-2.12L7.49.44a1.51 1.51 0 0 1 2.12 0l7.05 7.05a1.5 1.5 0 0 1 .45 1.06z" fill="#ffffff"/>
+    <svg role="img" class="icon icon--chevron icon--sm" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2q0.422 0 0.711 0.289l7 7q0.289 0.289 0.289 0.711 0 0.43-0.285 0.715t-0.715 0.285q-0.422 0-0.711-0.289l-5.289-5.297v15.586q0 0.414-0.293 0.707t-0.707 0.293-0.707-0.293-0.293-0.707v-15.586l-5.289 5.297q-0.289 0.289-0.711 0.289-0.43 0-0.715-0.285t-0.285-0.715q0-0.422 0.289-0.711l7-7q0.289-0.289 0.711-0.289z"></path>
     </svg>
   </button>
 

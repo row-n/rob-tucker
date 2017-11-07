@@ -1,29 +1,15 @@
 .mouse {
-  border: .125em solid alpha($white, .5);
-  border-radius: .8em;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-name: scroll-down;
+  animation-timing-function: ease-in-out;
   bottom: 2em;
-  height: 2.5em;
-  left: 50%;
-  margin-left: -.4em;
-  opacity: 0;
-  padding: 1.4em .7em;
+  display: none;
+  left: 5%;
   position: absolute;
-  transition: opacity 200ms ease-out;
 
   &.is-visible {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-
-  .mouse__scroll {
-    animation-duration: 1.35s;
-    animation-fill-mode: both;
-    animation-iteration-count: infinite;
-    animation-name: scroll-down;
-    animation-timing-function: ease-in-out;
-    background-color: $white;
-    border-radius: 50%;
-    height: .25em;
-    width: .25em;
+    display: block;
   }
 }
