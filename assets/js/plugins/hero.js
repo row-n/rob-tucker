@@ -4,9 +4,10 @@ import plugin from './plugin';
 class Hero {
   constructor(element, options) {
     const $element = $(element);
+    const $mouse = document.getElementById('mouse');
+    const splashOffset = $('.splash').offset().top;
 
     $(window).scroll(() => {
-      const $mouse = document.getElementById('mouse');
       const limit = $element.offset().top + $element.outerHeight();
       const scrollObject = {
         x: window.pageXOffset,
@@ -30,11 +31,20 @@ class Hero {
         }
       }
     });
+
+    $($mouse).click((e) => {
+      e.preventDefault();
+
+      $('html, body').animate({
+        scrollTop: splashOffset,
+      }, options.speed);
+    });
   }
 }
 
 Hero.DEFAULTS = {
   offset: 100,
+  speed: 500,
 };
 
 plugin('Hero', Hero);
