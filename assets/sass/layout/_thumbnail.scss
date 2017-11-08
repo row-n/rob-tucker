@@ -18,7 +18,7 @@
     width: calc(50% - 2em);
   }
 
-  @media #{$desktop} {
+  @media #{$screen} {
     margin-bottom: 4em;
     width: calc(33.333% - 2em);
   }

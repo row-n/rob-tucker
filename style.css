@@ -441,9 +441,12 @@ body.pace-running,body.menu-open {
 }
 
 .content {
-  margin: 6em auto 6em;
+  margin-left: auto;
+  margin-right: auto;
   min-height: calc(100vh - ((4em * 1.5) + (4em * 1.5)));
   opacity: 1;
+  padding-bottom: 6em;
+  padding-top: 6em;
   position: relative;
   transition: opacity 350ms cubic-bezier(0.8, 0, 0.55, 0.94);
   width: 90%;
@@ -588,6 +591,10 @@ body.pace-running,body.menu-open {
   -ms-flex-direction: column;
   flex-direction: column;
   width: 100%;
+}
+
+.gallery>p:last-child {
+  margin-bottom: 0;
 }
 
 .gallery img {
@@ -918,6 +925,19 @@ body.pace-running,body.menu-open {
   font-size: 6vmin;
 }
 
+.meta {
+  margin-bottom: 2em;
+}
+
+.meta::before,.meta::after {
+  content: ' ';
+  display: table;
+}
+
+.meta::after {
+  clear: both;
+}
+
 .meta .meta__categories {
   color: #ccc;
 }
@@ -928,9 +948,13 @@ body.pace-running,body.menu-open {
   animation-iteration-count: infinite;
   animation-name: scroll-down;
   animation-timing-function: ease-in-out;
+  background-color: transparent;
+  border: 0;
   bottom: 2em;
   display: none;
   left: 5%;
+  outline: none;
+  padding: 0;
   position: absolute;
 }
 
@@ -1052,6 +1076,7 @@ body.pace-running,body.menu-open {
 .scroll-to-top {
   background-color: transparent;
   border: 0.125em solid #000;
+  border-radius: 0;
   bottom: .75em;
   cursor: pointer;
   height: 2em;
@@ -1238,9 +1263,9 @@ body.pace-running,body.menu-open {
   }
 
   .content {
-    margin-bottom: 9em;
-    margin-top: 9em;
     min-height: calc(100vh - (6em + 6em));
+    padding-bottom: 9em;
+    padding-top: 9em;
   }
 
   .content.single img {
@@ -1285,6 +1310,11 @@ body.pace-running,body.menu-open {
 
   .child-items-7>.menu__item>.menu__link {
     font-size: 7vmin;
+  }
+
+  .meta .meta__categories,.meta .meta__tags {
+    float: left;
+    width: 50%;
   }
 
   .post {
@@ -1359,17 +1389,21 @@ body.pace-running,body.menu-open {
   .child-items-7>.menu__item>.menu__link {
     font-size: 6.5vmin;
   }
+}
+
+@media only screen and (min-width: 75em) {
+  .post {
+    width: calc(33.333% - 2em);
+  }
+
+  .social .icon {
+    height: 3em;
+    width: 3em;
+  }
 
   .thumbnail {
     margin-bottom: 4em;
     width: calc(33.333% - 2em);
-  }
-}
-
-@media only screen and (min-width: 75em) {
-  .social .icon {
-    height: 3em;
-    width: 3em;
   }
 }
 

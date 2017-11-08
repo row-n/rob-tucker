@@ -47,12 +47,13 @@
 
         <div class="container meta">
 
-          <div class="meta__tags">
-            <?php the_tags('<p>Tags: ', ', ', '</p>'); ?>
+          <div class="meta__categories">
+            <h5>Categories:</h5>
+            <?php the_category(' | '); ?>
           </div>
 
-          <div class="meta__categories">
-            <?php the_category(' | '); ?>
+          <div class="meta__tags">
+            <?php the_tags('<h5>Tags:</h5> ', ', ', ''); ?>
           </div>
 
         </div>
@@ -61,6 +62,7 @@
 
       <div class="container">
 
+        <h5>Continue:</h5>
         <?php get_template_part('inc/nav'); ?>
 
       </div>
