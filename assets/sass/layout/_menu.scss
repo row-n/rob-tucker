@@ -1,3 +1,24 @@
+@keyframes MenuAnimOut {
+  0% {}
+
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes MenuAnimIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .menu {
   background-color: $black;
   display: block;
@@ -28,6 +49,7 @@
   }
 
   .menu__list {
+    backface-visibility: hidden;
     list-style: none;
     margin: 0 auto;
     opacity: 0;
@@ -40,9 +62,37 @@
       opacity: 1;
       transition: opacity $global-duration $global-timing-function $global-duration;
     }
+
+    &.sub-view {
+      .menu__item {
+        display: none;
+
+        &.sub-view,
+        &.sub-view--open {
+          display: block;
+
+          > a {
+            display: none;
+          }
+
+          > .sub-menu {
+            display: block;
+
+            > li {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    &.animate-out {
+      animation: MenuAnimOut .3s ease-in-out;
+    }
   }
 
   .menu__item {
+    position: relative;
     text-align: left;
 
     &.selected {
@@ -99,15 +149,15 @@
 
 .menu-back {
   align-items: center;
-  background-color: transparent;
-  border: 0;
-  bottom: 0;
+  // background-color: transparent;
+  // border: 0;
+  // bottom: 0;
   color: $white;
   display: flex;
   height: 4em;
-  opacity: 0;
-  position: absolute;
-  right: 5%;
+  // opacity: 0;
+  // position: absolute;
+  // right: 5%;
   transition: opacity ($global-duration / 2) ease;
 
   &:before {
@@ -132,9 +182,9 @@
 
 .sub-menu {
   display: none;
-  left: 2em;
-  padding-left: 0;
-  position: absolute;
+  // left: 2em;
+  // padding-left: 0;
+  // position: absolute;
 
   // .menu__item {
   //   .menu__link {
