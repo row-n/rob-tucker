@@ -839,18 +839,18 @@ body.pace-running,body.menu-open {
   animation: MenuAnimOut .3s ease-in-out;
 }
 
-.menu .menu__item {
+.menu .menu-item {
   position: relative;
   text-align: left;
 }
 
-.menu .menu__item.selected .menu__link {
+.menu .menu-item.selected .menu__link {
   color: #000;
   text-shadow: -1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff;
   transition: text-shadow 350ms ease;
 }
 
-.menu .menu__item.selected .menu__link:hover {
+.menu .menu-item.selected .menu__link:hover {
   text-shadow: -1px -1px 0 #0580ff,1px -1px 0 #0580ff,-1px 1px 0 #0580ff,1px 1px 0 #0580ff;
 }
 

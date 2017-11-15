@@ -10,14 +10,14 @@ class Menu {
     //   animation: 'animationend',
     // };
     const $element = $(element);
-    const $menu = this.$element.children('ul.menu__list');
-    const $menuItems = $menu.find('li:not(.menu__item--back)').children('a');
+    const $menu = $element.children('ul.menu__list');
+    // const $menuItems = $menu.find('li:not(.menu-item--back)').children('a');
     const $subMenu = $menu.find('ul.sub-menu');
     let $menuItemIndex;
 
-    $subMenu.prepend('<li class="menu__item menu__item--back"><a href="#" class="menu__link">back</a></li>');
+    $subMenu.prepend('<li class="menu-item menu-item--back"><a href="#" class="menu__link">back</a></li>');
 
-    const $back = $menu.find('li.menu__item--back').children('a');
+    // const $back = $menu.find('li.menu-item--back').children('a');
 
     // const animEndEventName = `${animEndEventNames.animation}.menu`;
 
@@ -29,12 +29,15 @@ class Menu {
       return $menuItemIndex;
     });
 
-    $('.has-children').children('a').on('click', function(event){
-  		//prevent default clicking on direct children of .has-children
-  		event.preventDefault();
-  		var selected = $(this);
-  		selected.next('ul').removeClass('is-hidden').end().parent('.has-children').parent('ul').addClass('move-out');
-  	});
+    $('.menu-item-has-children').children('a').on('click', (event) => {
+      // prevent default clicking on direct children of .has-children
+      event.preventDefault();
+      const selected = $(event.target);
+      console.log(selected.next('ul'));
+      selected.next('ul').removeClass('is-hidden').end().parent('.menu-item-has-children')
+        .parent('ul')
+        .addClass('animate-out');
+    });
 
     // $menuItems.on('click.menu', (event) => {
     //   event.stopPropagation();

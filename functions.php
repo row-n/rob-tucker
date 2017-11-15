@@ -45,14 +45,19 @@ function main_nav()
 }
 
 // Add class to menu items
-function nav_menu_item_class($classes , $item, $args, $depth)
+// function nav_menu_item_class($classes, $item, $args, $depth)
+// {
+//   $new_classes = array('menu__item');
+//   if (in_array('current-menu-item', $classes)) {
+//     $new_classes[] = 'selected';
+//   }
+//
+//   return $new_classes;
+// }
+
+function nav_menu_item_class($var)
 {
-  // $new_classes = array('menu__item');
-  // if (in_array('current-menu-item', $classes)) {
-  //   $new_classes[] = 'selected';
-  // }
-  //
-  // return $new_classes;
+  return is_array($var) ? array_intersect($var, array('menu-item', 'current-menu-item', 'menu-item-has-children')) : '';
 }
 
 // Add class to menu link
@@ -212,16 +217,10 @@ remove_action('wp_print_styles', 'print_emoji_styles'); // Remove emoji styles
 add_filter('body_class', 'add_slug_to_body_class'); // Add slug to body class (Starkers build)
 add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 add_filter('nav_menu_item_id', '__return_empty_string'); // Remove id from nav menu items
-// add_filter('nav_menu_css_class', 'nav_menu_item_class', 10, 4); // Add class to menu items
+add_filter('nav_menu_css_class', 'nav_menu_item_class', 10, 4); // Add class to menu items
 add_filter('nav_menu_link_attributes', 'nav_menu_link_atts', 10, 4); // Add class to menu link
 add_filter('style_loader_src', 'sdt_remove_ver_css_js', 9999); // Remove WP Version From Styles
 add_filter('script_loader_src', 'sdt_remove_ver_css_js', 9999); // Remove WP Version From Scripts
 add_filter('use_default_gallery_style', '__return_false'); // Remove Gallery styles
 add_filter('excerpt_length', 'custom_excerpt_length', 9999); // Limit excerpt length
 add_filter('post_thumbnail_html', 'wordpress_hide_feature_image', 10, 4); // Hide featured image on post page
-
-
-function wp_nav_menu_attributes_filter($var) {
-	return is_array($var) ? array_intersect($var, array('menu-item', 'current-menu-item', 'menu-item-has-children')) : '';
-}
-add_filter('nav_menu_css_class', 'wp_nav_menu_attributes_filter', 100, 1);
