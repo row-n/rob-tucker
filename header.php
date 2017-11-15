@@ -34,6 +34,5 @@
 
       <nav id="menu" class="menu" role="navigation">
         <?php main_nav(); ?>
-        <button class="menu-back" id="menu-back">Back</button>
       </nav>
     </header>
