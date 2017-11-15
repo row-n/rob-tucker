@@ -815,23 +815,23 @@ body.pace-running,body.menu-open {
   transition: opacity 700ms cubic-bezier(0.8, 0, 0.55, 0.94) 700ms;
 }
 
-.menu .menu__list.sub-view .menu__item {
+.menu .menu__list.sub-view .menu-item {
   display: none;
 }
 
-.menu .menu__list.sub-view .menu__item.sub-view,.menu .menu__list.sub-view .menu__item.sub-view--open {
+.menu .menu__list.sub-view .menu-item.sub-view,.menu .menu__list.sub-view .menu-item.sub-view--open {
   display: block;
 }
 
-.menu .menu__list.sub-view .menu__item.sub-view>a,.menu .menu__list.sub-view .menu__item.sub-view--open>a {
+.menu .menu__list.sub-view .menu-item.sub-view>a,.menu .menu__list.sub-view .menu-item.sub-view--open>a {
   display: none;
 }
 
-.menu .menu__list.sub-view .menu__item.sub-view>.sub-menu,.menu .menu__list.sub-view .menu__item.sub-view--open>.sub-menu {
+.menu .menu__list.sub-view .menu-item.sub-view>.sub-menu,.menu .menu__list.sub-view .menu-item.sub-view--open>.sub-menu {
   display: block;
 }
 
-.menu .menu__list.sub-view .menu__item.sub-view>.sub-menu>li,.menu .menu__list.sub-view .menu__item.sub-view--open>.sub-menu>li {
+.menu .menu__list.sub-view .menu-item.sub-view>.sub-menu>li,.menu .menu__list.sub-view .menu-item.sub-view--open>.sub-menu>li {
   display: block;
 }
 
@@ -915,31 +915,31 @@ body.pace-running,body.menu-open {
   display: none;
 }
 
-.child-items-1>.menu__item>.menu__link {
+.child-items-1>.menu-item>.menu__link {
   font-size: 20vmin;
 }
 
-.child-items-2>.menu__item>.menu__link {
+.child-items-2>.menu-item>.menu__link {
   font-size: 18vmin;
 }
 
-.child-items-3>.menu__item>.menu__link {
+.child-items-3>.menu-item>.menu__link {
   font-size: 17vmin;
 }
 
-.child-items-4>.menu__item>.menu__link {
+.child-items-4>.menu-item>.menu__link {
   font-size: 13vmin;
 }
 
-.child-items-5>.menu__item>.menu__link {
+.child-items-5>.menu-item>.menu__link {
   font-size: 10vmin;
 }
 
-.child-items-6>.menu__item>.menu__link {
+.child-items-6>.menu-item>.menu__link {
   font-size: 8vmin;
 }
 
-.child-items-7>.menu__item>.menu__link {
+.child-items-7>.menu-item>.menu__link {
   font-size: 6vmin;
 }
 
@@ -1259,23 +1259,23 @@ body.pace-running,body.menu-open {
     height: 6em;
   }
 
-  .child-items-3>.menu__item>.menu__link {
+  .child-items-3>.menu-item>.menu__link {
     font-size: 14vmin;
   }
 
-  .child-items-4>.menu__item>.menu__link {
+  .child-items-4>.menu-item>.menu__link {
     font-size: 13vmin;
   }
 
-  .child-items-5>.menu__item>.menu__link {
+  .child-items-5>.menu-item>.menu__link {
     font-size: 11vmin;
   }
 
-  .child-items-6>.menu__item>.menu__link {
+  .child-items-6>.menu-item>.menu__link {
     font-size: 9vmin;
   }
 
-  .child-items-7>.menu__item>.menu__link {
+  .child-items-7>.menu-item>.menu__link {
     font-size: 7vmin;
   }
 
@@ -1337,23 +1337,23 @@ body.pace-running,body.menu-open {
     width: 60%;
   }
 
-  .child-items-3>.menu__item>.menu__link {
+  .child-items-3>.menu-item>.menu__link {
     font-size: 13.5vmin;
   }
 
-  .child-items-4>.menu__item>.menu__link {
+  .child-items-4>.menu-item>.menu__link {
     font-size: 12.5vmin;
   }
 
-  .child-items-5>.menu__item>.menu__link {
+  .child-items-5>.menu-item>.menu__link {
     font-size: 10.5vmin;
   }
 
-  .child-items-6>.menu__item>.menu__link {
+  .child-items-6>.menu-item>.menu__link {
     font-size: 8.5vmin;
   }
 
-  .child-items-7>.menu__item>.menu__link {
+  .child-items-7>.menu-item>.menu__link {
     font-size: 6.5vmin;
   }
 }

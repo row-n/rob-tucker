@@ -64,7 +64,7 @@
     }
 
     &.sub-view {
-      .menu__item {
+      .menu-item {
         display: none;
 
         &.sub-view,
@@ -186,7 +186,7 @@
   // padding-left: 0;
   // position: absolute;
 
-  // .menu__item {
+  // .menu-item {
   //   .menu__link {
   //     opacity: 0;
   //     transform: translate(-2em, 0);
@@ -195,7 +195,7 @@
 }
 
 .child-items-1 {
-  > .menu__item {
+  > .menu-item {
     > .menu__link {
       font-size: 20vmin;
     }
@@ -203,7 +203,7 @@
 }
 
 .child-items-2 {
-  > .menu__item {
+  > .menu-item {
     > .menu__link {
       font-size: 18vmin;
     }
@@ -211,7 +211,7 @@
 }
 
 .child-items-3 {
-  > .menu__item {
+  > .menu-item {
     > .menu__link {
       font-size: 17vmin;
 
@@ -227,7 +227,7 @@
 }
 
 .child-items-4 {
-  > .menu__item {
+  > .menu-item {
     > .menu__link {
       font-size: 13vmin;
 
@@ -243,7 +243,7 @@
 }
 
 .child-items-5 {
-  > .menu__item {
+  > .menu-item {
     > .menu__link {
       font-size: 10vmin;
 
@@ -259,7 +259,7 @@
 }
 
 .child-items-6 {
-  > .menu__item {
+  > .menu-item {
     > .menu__link {
       font-size: 8vmin;
 
@@ -275,7 +275,7 @@
 }
 
 .child-items-7 {
-  > .menu__item {
+  > .menu-item {
     > .menu__link {
       font-size: 6vmin;
 
