@@ -2,110 +2,40 @@ import $ from 'jquery';
 import plugin from './plugin';
 
 class Menu {
-  constructor(element, options) {
-    // const animEndEventNames = {
-    //   WebkitAnimation: 'webkitAnimationEnd',
-    //   OAnimation: 'oAnimationEnd',
-    //   msAnimation: 'MSAnimationEnd',
-    //   animation: 'animationend',
-    // };
+  constructor(element) {
     const $element = $(element);
     const $menu = $element.children('ul.menu__list');
-    // const $menuItems = $menu.find('li:not(.menu-item--back)').children('a');
-    const $subMenu = $menu.find('ul.sub-menu');
+    const $subMenu = $element.find('ul.sub-menu');
+    const $hasSubMenu = $element.find('.menu__item--has-children').children('a');
     let $menuItemIndex;
 
-    $subMenu.prepend('<li class="menu-item menu-item--back"><a href="#" class="menu__link">back</a></li>');
+    $subMenu.prepend('<li class="menu__item menu__item--back"><a href="#" class="menu__link">back</a></li>');
 
-    // const $back = $menu.find('li.menu-item--back').children('a');
-
-    // const animEndEventName = `${animEndEventNames.animation}.menu`;
+    const $back = $menu.find('li.menu__item--back').children('a');
 
     Array.from($element.find('ul')).forEach((el) => {
       const $menuList = el;
       $menuItemIndex = $($menuList).children('li').length;
 
-      $($menuList).addClass(`child-items-${$menuItemIndex}`);
+      $($menuList).addClass(`menu-list--items-${$menuItemIndex}`);
       return $menuItemIndex;
     });
 
-    $('.menu-item-has-children').children('a').on('click', (event) => {
-      // prevent default clicking on direct children of .has-children
+    $hasSubMenu.on('click', (event) => {
       event.preventDefault();
       const selected = $(event.target);
-      console.log(selected.next('ul'));
-      selected.next('ul').removeClass('is-hidden').end().parent('.menu-item-has-children')
-        .parent('ul')
-        .addClass('animate-out');
+
+      $(selected).next('ul').addClass('animate-in').end();
+      $menu.addClass('animate-out');
     });
 
-    // $menuItems.on('click.menu', (event) => {
-    //   event.stopPropagation();
-    //
-    //   const $link = $(event.target);
-    //   const $item = $link.parent();
-    //   const $submenu = $link.siblings('ul.sub-menu');
-    //
-    //   if ($submenu.length > 0) {
-    //     const $flyin = $submenu.clone().insertAfter($menu);
-    //     const onAnimationEndFn = () => {
-    //       console.log(animEndEventName);
-    //       $menu.off(animEndEventName).removeClass('animate-out').addClass('sub-view');
-    //       $item.addClass('sub-view--open').parents('.sub-view--open:first').removeClass('sub-view--open').addClass('sub-view');
-    //       $flyin.remove();
-    //     };
-    //
-    //     setTimeout(() => {
-    //       $flyin.addClass('animate-in');
-    //       $menu.addClass('animate-out');
-    //       console.log(animEndEventName);
-    //       $menu.on(animEndEventName, onAnimationEndFn());
-    //
-    //       // onAnimationEndFn.call();
-    //
-    //       options.onLevelClick($link, $link.text());
-    //     });
-    //   } else {
-    //     options.onLinkClick($link, event);
-    //   }
-    // });
-    //
-    // $back.on('click.menu', (event) => {
-    //   const $this = $(event.target);
-    //   const $submenu = $this.parents('ul.sub-menu:first');
-    //   const $item = $submenu.parent();
-    //   const $flyin = $submenu.clone().insertAfter($menu);
-    //   const onAnimationEndFn = () => {
-    //     console.log(animEndEventName);
-    //     $menu.off(animEndEventName).removeClass('animate-in');
-    //     $flyin.remove();
-    //   };
-    //
-    //   setTimeout(() => {
-    //     $flyin.addClass('animate-out');
-    //     $menu.addClass('animate-in');
-    //     console.log(animEndEventName);
-    //     $menu.on(animEndEventName, onAnimationEndFn());
-    //
-    //     // onAnimationEndFn.call();
-    //
-    //     $item.removeClass('sub-view--open');
-    //
-    //     const $subview = $this.parents('.sub-view:first');
-    //     if ($subview.is('li')) {
-    //       $subview.addClass('sub-view--open');
-    //     }
-    //     $subview.removeClass('sub-view');
-    //   });
-    //
-    //   return false;
-    // });
+    $back.on('click', (event) => {
+      const selected = $(event.target);
+
+      $(selected).parents('.sub-menu').removeClass('animate-in');
+      $menu.removeClass('animate-out');
+    });
   }
 }
-
-// Menu.DEFAULTS = {
-//   onLevelClick(el, name) { return false; },
-//   onLinkClick(el, ev) { return false; },
-// };
 
 plugin('Menu', Menu);

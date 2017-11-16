@@ -45,19 +45,25 @@ function main_nav()
 }
 
 // Add class to menu items
-// function nav_menu_item_class($classes, $item, $args, $depth)
-// {
-//   $new_classes = array('menu__item');
-//   if (in_array('current-menu-item', $classes)) {
-//     $new_classes[] = 'selected';
-//   }
-//
-//   return $new_classes;
-// }
-
-function nav_menu_item_class($var)
+function nav_menu_item_class($classes, $item, $args, $depth)
 {
-  return is_array($var) ? array_intersect($var, array('menu-item', 'current-menu-item', 'menu-item-has-children')) : '';
+  for($i = 0; $i < count($classes); $i++){
+    if ($classes[$i] == 'menu-item') {
+      $classes[$i] = 'menu__item';
+    }
+
+    if ($classes[$i] == 'menu-item-has-children') {
+      $classes[$i] = 'menu__item--has-children';
+    }
+
+    if ($classes[$i] == 'current-menu-item') {
+      $classes[$i] = 'menu__item--active';
+    }
+  }
+
+  $new_classes = is_array($classes) ? array_intersect($classes, array('menu__item', 'menu__item--active', 'menu__item--has-children')) : '';
+
+  return $new_classes;
 }
 
 // Add class to menu link
