@@ -553,6 +553,7 @@ body.pace-running,body.menu-open {
 .form button.button {
   background-color: #0580ff;
   border: 0;
+  border-radius: 0;
   box-shadow: 0 4px 6px rgba(2,35,70,0.11),0 1px 3px rgba(0,0,0,0.08);
   color: #fff;
   cursor: pointer;
@@ -1423,7 +1424,7 @@ body.pace-running,body.menu-open {
   .contact .contact__details {
     background-color: #e6e6e6;
     float: none;
-    padding: 4em 6em 4em 4em;
+    padding: 4em 7em 4em 4em;
     width: 50%;
   }
 

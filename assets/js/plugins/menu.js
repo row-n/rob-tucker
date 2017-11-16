@@ -17,6 +17,8 @@ class Menu {
 
     $trigger.click(() => {
       $body.toggleClass('menu-open');
+      $menu.removeClass('animate-out');
+      $subMenu.removeClass('animate-in');
     });
 
     Array.from($element.find('ul')).forEach((el) => {
