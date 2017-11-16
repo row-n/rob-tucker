@@ -1,6 +1,6 @@
 {
   "name": "rob-tucker",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Portfolio site, built with Wordpress for rob-tucker.com",
   "main": "gulpfile.babel.js",
   "dependencies": {
