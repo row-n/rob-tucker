@@ -1,19 +1,11 @@
-.splash {
+.hero {
+  background-attachment: fixed;
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
-  left: 0;
-  opacity: 0;
+  height: 100vh;
   overflow: hidden;
-  position: fixed;
-  top: 0;
   transition: opacity ($global-duration / 2) $global-timing-function;
-  width: 100%;
+  width: 100vw;
   z-index: 0;
-
-  .pace-done & {
-    opacity: 1;
-    transform: scale(1);
-  }
 }

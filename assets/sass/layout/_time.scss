@@ -1,0 +1,9 @@
+.time {
+  color: $black-20;
+  display: block;
+
+  .post & {
+    border-top: .125em solid $black-20;
+    padding-top: ($thumbnail-content-padding / 2);
+  }
+}

@@ -8,27 +8,28 @@
 // Generic base styles
 @import 'generic/normalize';
 @import 'generic/keyframes';
-// @import 'generic/grid';
-@import 'generic/base';
 @import 'generic/font';
-@import 'generic/typography';
 @import 'generic/icons';
-@import 'generic/spinner';
+@import 'generic/typography';
+@import 'generic/base';
 
 // Site specific
-@import 'layout/background';
-@import 'layout/back-to-top';
 @import 'layout/brand';
-@import 'layout/button';
-@import 'layout/hamburger';
-@import 'layout/header';
+@import 'layout/contact';
 @import 'layout/content';
 @import 'layout/footer';
 @import 'layout/form';
-@import 'layout/menu';
-@import 'layout/pagination';
-@import 'layout/post';
-@import 'layout/thumbnail';
+@import 'layout/gallery';
+@import 'layout/hamburger';
+@import 'layout/header';
+@import 'layout/hero';
 @import 'layout/image';
+@import 'layout/loading';
+@import 'layout/menu';
+@import 'layout/meta';
+@import 'layout/mouse';
+@import 'layout/post';
+@import 'layout/scroll-to-top';
 @import 'layout/social';
-@import 'layout/splash';
+@import 'layout/time';
+@import 'layout/thumbnail';

@@ -1,8 +1,15 @@
-// global.$ = require('jquery');
+import $ from 'jquery';
+import pace from 'pace-progress';
 
-// var form = require('./plugins/form');
-// var lazyLoad = require('./plugins/lazy-load');
-var loading = require('./plugins/loading');
-var menu = require('./plugins/menu');
-// var splash = require('./plugins/splash');
-var toTop = require('./plugins/to-top');
+import './plugins/hero';
+import './plugins/lazy-load';
+import './plugins/menu';
+import './plugins/to-top';
+
+pace.start({
+  ajax: false,
+});
+
+$('#menu').Menu();
+$('#hero').Hero();
+$('#scroll-to-top').ScrollToTop();

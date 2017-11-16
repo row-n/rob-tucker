@@ -1,10 +1,3 @@
-var Blazy = require('blazy');
+import LazyLoad from 'vanilla-lazyload';
 
-var bLazy = new Blazy({
-  success: function(element){
-    setTimeout(function(){
-      var parent = element.parentNode;
-      parent.className = parent.className.replace(/\bloading\b/,'');
-    }, 200);
-  }
-});
+new LazyLoad(); // eslint-disable-line no-new

@@ -1,33 +1,57 @@
 <?php get_header(); ?>
 
-  <?php if (have_posts()) : ?>
+<main class="main">
 
-    <?php while (have_posts()) : the_post(); ?>
+  <section class="content">
 
-      <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <?php if (have_posts()) : ?>
 
-        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+      <header class="container content__header">
+        <h1><?php single_post_title(); ?></h1>
+      </header>
 
-        <?php get_template_part('inc/meta'); ?>
+      <div class="content__body post-list">
 
-        <div class="entry">
+        <?php while (have_posts()) : the_post(); ?>
 
-          <?php the_excerpt(); ?>
+          <a href="<?php the_permalink(); ?>" class="post">
 
-        </div>
+            <?php $thumbnail = get_the_post_thumbnail( $post->ID, 'large' );
+              if ( $thumbnail ) : ?>
 
+              <div class="post__image">
+                <?php echo $thumbnail ?>
+              </div>
+
+            <?php endif; ?>
+
+            <div class="post__body">
+
+              <h3 class="post__heading"><?php the_title(); ?></h3>
+
+              <div class="post__excerpt">
+                <?php the_excerpt(); ?>
+              </div>
+
+              <time class="time" datetime="<?php the_time('Y-m-d'); ?>" pubdate><?php the_time('F jS, Y'); ?></time>
+
+            </div>
+
+          </a>
+
+        <?php endwhile; ?>
       </div>
 
-    <?php endwhile; ?>
+      <?php get_template_part('inc/nav'); ?>
 
-    <?php get_template_part('inc/nav'); ?>
+    <?php else : ?>
 
-  <?php else : ?>
+      <?php get_template_part('inc/gone'); ?>
 
-    <?php get_template_part('inc/gone'); ?>
+    <?php endif; ?>
 
-  <?php endif; ?>
+  </section>
 
-<?php get_sidebar(); ?>
+</main>
 
 <?php get_footer(); ?>

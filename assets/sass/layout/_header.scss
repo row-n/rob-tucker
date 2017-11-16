@@ -1,10 +1,15 @@
 .header {
-  height: $site-header-height;
+  height: $site-header-height-mobile;
   left: 0;
   position: fixed;
   top: 0;
+  transition: height ($global-duration / 2) $global-timing-function;
   width: $site-header-width;
   z-index: $site-header-zindex;
+
+  @media #{$tablet} {
+    height: $site-header-height-desktop;
+  }
 
   &:before {
     background-color: $white;
@@ -20,15 +25,11 @@
     z-index: -1;
   }
 
-  &:hover {
-    &:before {
-      transform: scale(1, 1);
-    }
-  }
-
-  .menu-open & {
-    &:before {
-      transform: scale(1, 0);
+  .pace-done & {
+    &:hover {
+      &:before {
+        transform: scale(1, 1);
+      }
     }
   }
 
@@ -36,11 +37,7 @@
     align-items: center;
     height: inherit;
     margin: 0 auto;
-    width: 85%;
-
-    @media #{$tablet} {
-      width: 90%;
-    }
+    width: 90%;
 
     > * {
       align-items: center;

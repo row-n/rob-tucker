@@ -1,50 +1,107 @@
 <?php
 
+/*------------------------------------*\
+  Theme Support
+\*------------------------------------*/
+
 if (!defined('ABSPATH')) exit;
 
 /*------------------------------------*\
-	Functions
+  Functions
 \*------------------------------------*/
 
 // Set up theme support
 function shapeSpace_setup()
 {
+  add_theme_support('menus');
   add_theme_support('post-thumbnails');
   add_theme_support('automatic-feed-links');
   add_theme_support('title-tag');
 }
 
-// Load Blank scripts (header.php)
-function blank_header_scripts()
+// Blank navigation
+function main_nav()
+{
+  wp_nav_menu(
+    array(
+      'theme_location'  => 'header-menu',
+      'menu'            => 'main',
+      'container'       => 'false',
+      'container_class' => 'menu-{menu slug}-container',
+      'container_id'    => '',
+      'menu_class'      => 'menu',
+      'menu_id'         => '',
+      'echo'            => true,
+      'fallback_cb'     => 'wp_page_menu',
+      'before'          => '',
+      'after'           => '',
+      'link_before'     => '',
+      'link_after'      => '',
+      'items_wrap'      => '<ul class="menu__list">%3$s</ul>',
+      'depth'           => 0,
+      'walker'          => ''
+    )
+  );
+}
+
+// Add class to menu items
+function nav_menu_item_class($classes, $item, $args, $depth)
+{
+  for($i = 0; $i < count($classes); $i++){
+    if ($classes[$i] == 'menu-item') {
+      $classes[$i] = 'menu__item';
+    }
+
+    if ($classes[$i] == 'menu-item-has-children') {
+      $classes[$i] = 'menu__item--has-children';
+    }
+
+    if ($classes[$i] == 'current-menu-item') {
+      $classes[$i] = 'menu__item--active';
+    }
+  }
+
+  $new_classes = is_array($classes) ? array_intersect($classes, array('menu__item', 'menu__item--active', 'menu__item--has-children')) : '';
+
+  return $new_classes;
+}
+
+// Add class to menu link
+function nav_menu_link_atts($atts, $item, $args, $depth)
+{
+  $new_atts = array('class' => 'menu__link');
+  if (isset($atts['href'])) {
+    $new_atts['href'] = $atts['href'];
+  }
+
+  return $new_atts;
+}
+
+// Load scripts (header.php)
+function header_scripts()
 {
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
     wp_deregister_script('wp-embed'); // Remove wp-embed
-    wp_deregister_script('jquery'); // Remove jQuery
-
+    // wp_deregister_script('jquery'); // Remove jQuery
   }
 }
 
-// Load Blank scripts (footer.php)
-function blank_footer_scripts()
+// Load scripts (footer.php)
+function footer_scripts()
 {
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-    wp_register_script('rob-tucker', get_template_directory_uri() . '/script.js', array(), '1.0.0', true); // Custom scripts
+    // global $post;
+    wp_register_script('rob-tucker', get_template_directory_uri() . '/script.js', array(), '', true); // Custom scripts
+    // wp_localize_script('rob-tucker', 'php_vars', array('title' => $post->post_name)); // Add page title to global variable
     wp_enqueue_script('rob-tucker'); // Enqueue it!
   }
 }
 
-// Load Blank styles
-function blank_styles()
+// Load styles
+function styles()
 {
-  wp_register_style('rob-tucker', get_template_directory_uri() . '/style.css', array(), '1.0.0', 'all');
+  wp_register_style('rob-tucker', get_template_directory_uri() . '/style.css', array(), '', 'all');
   wp_enqueue_style('rob-tucker'); // Enqueue it!
-}
-
-// Remove the <div> surrounding the dynamic navigation to cleanup markup
-function my_wp_nav_menu_args($args = '')
-{
-  $args['container'] = false;
-  return $args;
 }
 
 // Add page slug to body class, love this - Credit: Starkers Wordpress Theme
@@ -101,22 +158,51 @@ function my_remove_recent_comments_style()
   ));
 }
 
+// Function to remove version numbers
+function sdt_remove_ver_css_js($src)
+{
+  if (strpos( $src, 'ver=' ))
+    $src = remove_query_arg('ver', $src);
+  return $src;
+}
+
 // Remove Admin bar
 function remove_admin_bar()
 {
   return false;
 }
 
+// Limit excerpt length
+function custom_excerpt_length($length)
+{
+  return 20;
+}
+
+// Order Advanced Custom Fields by sort order
+function compare_order_no($elem1, $elem2)
+{
+  return strcmp($elem1['order_no'], $elem2['order_no']);
+}
+
+// Hide featured image on post page
+function wordpress_hide_feature_image($html, $post_id, $post_image_id)
+{
+  return is_single() ? '' : $html;
+}
+
 /*------------------------------------*\
-	Actions + Filters + ShortCodes
+  Actions + Filters + ShortCodes
 \*------------------------------------*/
 
 // Add Actions
-add_action('init', 'blank_header_scripts'); // Add Custom Scripts to wp_head()
-add_action('init', 'blank_footer_scripts'); // Add Custom Scripts to wp_footer()
-add_action('wp_enqueue_scripts', 'blank_styles'); // Add Theme Stylesheet
+add_action('init', 'header_scripts'); // Add Custom Scripts to wp_head()
+add_action('wp_enqueue_scripts', 'footer_scripts'); // Add Custom Scripts to wp_footer()
+add_action('wp_enqueue_scripts', 'styles'); // Add Theme Stylesheet
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('after_setup_theme', 'shapeSpace_setup'); // Add theme support setup
+
+// Add Support
+add_post_type_support('page', 'excerpt'); // Add excerpt to Pages
 
 // Remove Actions
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
@@ -136,3 +222,11 @@ remove_action('wp_print_styles', 'print_emoji_styles'); // Remove emoji styles
 // Add Filters
 add_filter('body_class', 'add_slug_to_body_class'); // Add slug to body class (Starkers build)
 add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
+add_filter('nav_menu_item_id', '__return_empty_string'); // Remove id from nav menu items
+add_filter('nav_menu_css_class', 'nav_menu_item_class', 10, 4); // Add class to menu items
+add_filter('nav_menu_link_attributes', 'nav_menu_link_atts', 10, 4); // Add class to menu link
+add_filter('style_loader_src', 'sdt_remove_ver_css_js', 9999); // Remove WP Version From Styles
+add_filter('script_loader_src', 'sdt_remove_ver_css_js', 9999); // Remove WP Version From Scripts
+add_filter('use_default_gallery_style', '__return_false'); // Remove Gallery styles
+add_filter('excerpt_length', 'custom_excerpt_length', 9999); // Limit excerpt length
+add_filter('post_thumbnail_html', 'wordpress_hide_feature_image', 10, 4); // Hide featured image on post page

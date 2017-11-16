@@ -1,3 +1,10 @@
+.global-icons {
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+}
+
 .icon,
 %icon {
   background-position: center center;

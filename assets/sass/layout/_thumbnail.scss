@@ -1,58 +1,65 @@
+.thumbnail-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: -1em;
+  margin-right: -1em;
+}
+
 .thumbnail {
-  background-color: $black-20;
-  cursor: pointer;
-  display: block;
+  border-bottom: 0;
+  margin-bottom: 2em;
   margin-left: 1em;
-  overflow: hidden;
-  position: relative;
-  text-align: left;
+  margin-right: 1em;
   width: 100%;
 
-  @media #{$mobile} {
-    width: 50%;
-  }
-
-  @media #{$desktop} {
-    width: 33.33333%;
+  @media #{$tablet} {
+    margin-bottom: 2em;
+    width: calc(50% - 2em);
   }
 
   @media #{$screen} {
-    width: 25%;
+    margin-bottom: 4em;
+    width: calc(33.333% - 2em);
   }
 
-  &:first-child {
-    margin-left: 0;
-  }
-
-  .thumbnail__link {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    float: left;
-    min-height: ($thumbnail-height / 2);
-    padding: $thumbnail-padding;
-    position: relative;
-    text-decoration: none;
-    width: 100%;
-  }
-
-  .thumbnail__caption {
-    @media #{$tablet} {
-      background-image: none;
+  &:hover {
+    .thumbnail__image {
+      img {
+        box-shadow: none;
+        transform: scale(.98);
+      }
     }
   }
 
-  .thumbnail__title {
-    margin-bottom: 0;
+  .thumbnail__image {
+    img {
+      box-shadow: 0 0 2em 0 alpha($black, .3);
+      margin: auto;
+      transform: scale(1);
+      transition: box-shadow ($global-duration / 2) $global-timing-function, transform ($global-duration / 2) $global-timing-function;
+      width: 100%;
+    }
+  }
+
+  .thumbnail__body {
+    margin-top: .625em;
+
+    @media #{$tablet} {
+      padding-left: $thumbnail-content-padding;
+      padding-right: $thumbnail-content-padding;
+    }
+  }
+
+  .thumbnail__heading {
+    color: $blue;
+    margin-bottom: .5em;
     margin-top: 0;
   }
 
-  hr {
-    background-color: $thumbnail-hr-color;
-    border: 0;
-    height: 3px;
-    margin-left: 0;
-    width: 4em;
+  .thumbnail__excerpt {
+    color: $thumbnail-excerpt-color;
+    margin-bottom: 0;
+    margin-top: 0;
   }
 }

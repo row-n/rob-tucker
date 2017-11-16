@@ -1,0 +1,44 @@
+.contact {
+  .contact__body {
+    position: relative;
+  }
+
+  .contact__details {
+    margin-bottom: 4em;
+
+    @media #{$desktop} {
+      background-color: $black-10;
+      float: none;
+      padding: 4em 7em 4em 4em;
+      width: 50%;
+    }
+
+    * {
+      &:first-child {
+        @media #{$tablet} {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .contact__form {
+    @media #{$desktop} {
+      background-color: $white;
+      float: none;
+      padding: 4em;
+      position: absolute;
+      right: 0;
+      top: 2em;
+      width: 60%;
+    }
+
+    h3 {
+      &:first-child {
+        @media #{$tablet} {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.meta {
+  @include clearfix;
+  margin-bottom: 2em;
+
+  .meta__categories,
+  .meta__tags {
+    @media #{$tablet} {
+      float: left;
+      width: 50%;
+    }
+  }
+
+  .meta__categories {
+    color: $black-20;
+  }
+}

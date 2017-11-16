@@ -1,15 +1,5 @@
 // sass-lint:disable no-color-keywords
 
-// Susy
-// -------
-
-$susy: (
-  columns: 12,
-  gutters: 1,
-  global-box-sizing: border-box
-);
-
-
 // Colours
 // ----------
 
@@ -26,37 +16,26 @@ $black-80: darken($white, 80%);
 $black-90: darken($white, 90%);
 $black: #000;
 
-// Bluescale
-$blue-v-light: #dde0e4;
-$blue-light: #bbc1ca;
-$blue: #9aa3af;
-$blue-dark: #788495;
-$blue-v-dark: #56667b;
-
-// Beige
+// Beigescale
 $beige-v-light: #eae6d9;
 $beige-light: #dcd6c1;
 $beige: #cec5a8;
 $beige-dark: #c0b58f;
 $beige-v-dark: #b3a577;
 
-// Green
-$green-v-light: #dadeda;
-$green-light: #c2c8c2;
-$green: #aab2aa;
-$green-dark: #929c92;
-$green-v-dark: #7a877a;
+// Bluescale
+$blue-v-light: #badcff;
+$blue-light: #5faeff;
+$blue: #0580ff;
+$blue-dark: #0452a3;
+$blue-v-dark: #022346;
 
-// Maroon
-
-$maroon-v-light: #dbd3d2;
-$maroon-light: #c3b5b4;
-$maroon: #ab9896;
-$maroon-dark: #937b78;
-$maroon-v-dark: #7b5e5a;
-
-// Validation
-$red: #dc6d51;
+// redscale
+$red-v-light: #ffd8d2;
+$red-light: #ffa496;
+$red: #ff715b;
+$red-dark: #a3483a;
+$red-v-dark: #461f19;
 
 // Social
 $facebook: #3b5998;
@@ -72,10 +51,11 @@ $global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-duration: 700ms;
 $global-timing-function: cubic-bezier(.8, 0, .55, .94);
-$body-background: $white;
-$body-font-colour: $black-80;
+$body-background: #f7f7f7;
+$body-font-colour: $black;
 $body-font-family: 'Plain', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $body-font-size: $global-font-size;
+$body-font-size-desktop: 18px;
 $body-font-weight: 200;
 $body-border-box: true;
 $font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
@@ -84,28 +64,30 @@ $font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
 // Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
-$header-font-weight: 400;
+$header-font-family: 'Playfair Display', Cambria, Georgia, serif;
+$header-font-weight: 200;
 $header-font-style: normal;
 $font-family-monospace: $font-family-monospace;
-$header-color: $black-90;
+$header-color: $black;
 $header-lineheight: 1.4;
 $header-letter-spacing: .1em;
 $header-margin-bottom: .5rem;
-$h1-font-size: 1.602em;
-$h2-font-size: 1.424em;
-$h3-font-size: 1.266em;
-$h4-font-size: 1.125em;
+$h1-font-size: 2.441em;
+$h2-font-size: 1.953em;
+$h3-font-size: 1.563em;
+$h4-font-size: 1.25em;
 $h5-font-size: 1em;
-$h6-font-size: .889em;
+$h6-font-size: .8em;
 $x-small-font-size: 75%;
 $small-font-size: 87.5%;
 $large-font-size: 112.5%;
 $x-large-font-size: 125%;
+$font-size-min: 16;
+$font-size-max: 18;
 $paragraph-lineheight: 1.6;
 $paragraph-margin-bottom: 1rem;
-$anchor-color: $beige;
-$anchor-color-hover: $beige-v-dark;
+$anchor-color: $blue;
+$anchor-color-hover: $blue;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: 100%;
@@ -150,8 +132,8 @@ $screen: 'only screen and (min-width: #{$screen-lg})'; //1200px
 // --------
 
 $brand-height: 4em;
-$brand-link-color: $black-90;
-$brand-link-color-hover: $beige;
+$brand-link-color: $black;
+$brand-link-color-hover: $blue;
 $brand-link-color-active: $white;
 $brand-font-size: $x-large-font-size;
 $brand-font-family: $header-font-family;
@@ -164,12 +146,9 @@ $brand-font-weight: 200;
 $button-font-family: $header-font-family;
 $button-letter-spacing: $header-letter-spacing;
 $button-color: $white;
-$button-background-color: $black-60;
+$button-background-color: $blue;
 $button-color-hover: $button-color;
-$button-background-color-hover: $black-80;
-$button-bordered-color-hover: $black-80;
-$button-bordered-background-color: transparent;
-$button-bordered-background-color-hover: transparent;
+$button-background-color-hover: $blue-dark;
 $button-border-color: $black-60;
 $button-border-color-hover: $black-80;
 $button-border: .125em solid $button-border-color;
@@ -188,27 +167,27 @@ $close-height: $close-width;
 // Hamburger
 // ------------
 
-$hamburger-link-color: $black-90;
-$hamburger-link-color-hover: $beige;
+$hamburger-link-color: $black;
+$hamburger-link-color-hover: $blue;
 $hamburger-link-color-active: $white;
-$hamburger-font-family: $header-font-family;
-$hamburger-font-size: $x-large-font-size;
+$hamburger-font-family: $body-font-family;
+$hamburger-font-size: $body-font-size;
 $hamburger-font-weight: 200;
 
 
 // Header
 // ---------
 
-$site-header-height: 4em;
+$site-header-height-mobile: 4em;
+$site-header-height-desktop: ($site-header-height-mobile * 1.5);
 $site-header-width: 100%;
 $site-header-background: $white;
-$site-header-link-color: $black-90;
+$site-header-link-color: $black;
 $site-header-link-color-hover: $white;
 $site-header-link-background-hover: $black-80;
 $site-header-font-size: $x-large-font-size;
 $site-header-font-family: $header-font-family;
 $site-header-font-weight: 200;
-$site-header-line-height: $site-header-height;
 $site-header-text-decoration: none;
 $site-header-padding: 0 1.15em;
 
@@ -219,8 +198,8 @@ $site-header-padding: 0 1.15em;
 $navbar-font-family: $header-font-family;
 $navbar-font-size: $body-font-size;
 $navbar-font-weight: $header-font-weight;
-$navbar-item-color: $black-90;
-$navbar-item-color-hover: $black-90;
+$navbar-item-color: $black;
+$navbar-item-color-hover: $black;
 $navbar-item-1-background-hover: $black-60;
 $navbar-item-1-background-active: $black-80;
 $navbar-item-2-background-hover: $black-60;
@@ -231,7 +210,6 @@ $navbar-link-padding: 0 1.25em;
 // Content
 // ----------
 
-$content-top-spacing: $site-header-height;
 $content-width: 80em;
 
 
@@ -239,7 +217,9 @@ $content-width: 80em;
 // ---------
 
 $footer-color: $black-30;
-$footer-height: $site-header-height;
+$footer-background: $white;
+$footer-height-mobile: $site-header-height-mobile;
+$footer-height-desktop: ($footer-height-mobile * 1.5);
 $footer-font-size: $x-small-font-size;
 
 
@@ -272,10 +252,10 @@ $social-icon-spacing: 1em;
 
 $thumbnail-color: $white;
 $thumbnail-background: $black;
-$thumbnail-background-opacity: .9;
-$thumbnail-height: 19.5em;
-$thumbnail-title-font-size:  $global-font-size;
-$thumbnail-padding: 2em;
+$thumbnail-excerpt-color: $body-font-colour;
+$thumbnail-excerpt-font-family: $header-font-family;
+$thumbnail-excerpt-font-size:  $global-font-size;
+$thumbnail-content-padding: 2em;
 $thumbnail-hr-color: $thumbnail-color;
 
 
@@ -286,7 +266,7 @@ $brand-zindex: 40;
 $hamburger-zindex: $brand-zindex;
 $site-header-zindex: 30;
 $menu-zindex: 20;
-$footer-zindex: 10;
+$footer-zindex: -1;
 $backtotop-zindex: $menu-zindex;
 
 // sass-lint:disable no-color-keywords

@@ -1,98 +1,48 @@
-@keyframes bounce {
-  from,
-  20%,
-  53%,
-  80%,
-  to {
-    animation-timing-function: cubic-bezier(.215, .61, .355, 1);
-    transform: translate3d(0, 0, 0);
-  }
-
-  40%,
-  43% {
-    animation-timing-function: cubic-bezier(.755, .05, .855, .06);
-    transform: translate3d(0, -.25em, 0);
-  }
-
-  70% {
-    animation-timing-function: cubic-bezier(.755, .05, .855, .06);
-    transform: translate3d(0, -.5em, 0);
-  }
-
-  90% {
-    transform: translate3d(0, -.1em, 0);
-  }
-}
-
-@keyframes fold-cube {
-  0%,
-  10% {
-    opacity: 0;
-    transform: perspective(140px) rotateX(-180deg);
-  }
-
-  25%,
-  75% {
-    opacity: 1;
-    transform: perspective(140px) rotateX(0deg);
-  }
-
-  90%,
-  100% {
-    opacity: 0;
-    transform: perspective(140px) rotateY(180deg);
-  }
-}
-
-@keyframes arrow-move-top {
+@keyframes scroll-up {
   0% {
     opacity: 1;
   }
 
-  33% {
-    margin-top: -1em;
-    opacity: 0;
+  40% {
+    opacity: 1;
+    transform: translate(0, 0);
   }
 
-  66% {
-    margin-top: 0;
+  60% {
     opacity: 0;
+    transform: translate(0, -.5em);
+  }
+
+  80% {
+    opacity: 0;
+    transform: translate(0, .5em);
   }
 
   100% {
-    margin-top: 0;
     opacity: 1;
   }
 }
 
-@keyframes background {
+@keyframes scroll-down {
   0% {
-    background-color: $blue-v-light;
+    opacity: 0;
   }
 
-  33% {
-    background-color: $green-v-light;
+  40% {
+    opacity: 0;
+    transform: translate(0, -1em);
   }
 
-  66% {
-    background-color: $maroon-v-light;
+  60% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  80% {
+    opacity: 1;
   }
 
   100% {
-    background-color: $blue-v-light;
-  }
-}
-
-@keyframes pulse {
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-
-  50% {
-    transform: scale3d(1.05, 1.05, 1.05);
-  }
-
-  to {
-    transform: scale3d(1, 1, 1);
+    opacity: 0;
   }
 }

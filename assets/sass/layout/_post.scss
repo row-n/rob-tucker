@@ -1,60 +1,56 @@
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: -1em;
+  margin-right: -1em;
+}
+
 .post {
   @include clearfix;
-  display: block;
+  background-color: $white;
+  border-bottom: 0;
+  box-shadow: 0 0 2em 0 alpha($black, .3);
   margin-bottom: 2em;
-  text-align: left;
+  margin-left: 1em;
+  margin-right: 1em;
+  transform: scale(1);
+  transition: box-shadow ($global-duration / 2) $global-timing-function, transform ($global-duration / 2) $global-timing-function;
   width: 100%;
 
   @media #{$tablet} {
-    display: table;
+    width: calc(50% - 2em);
   }
 
-  .post__link {
-    text-decoration: none;
+  @media #{$screen} {
+    width: calc(33.333% - 2em);
   }
 
-  .post__img {
-    width: 100%;
+  &:hover {
+    box-shadow: none;
+    transform: scale(.98);
+  }
 
-    @media #{$tablet} {
-      display: table-cell;
-      vertical-align: top;
-      width: 35%;
+  .post__image {
+    img {
+      width: 100%;
     }
   }
 
-  .post__content {
-    @media #{$tablet} {
-      display: table-cell;
-      padding-left: 1em;
-      position: relative;
-      vertical-align: top;
-    }
-
-    .date {
-      @media #{$tablet} {
-        bottom: .5em;
-        left: 1em;
-        position: absolute;
-      }
-    }
+  .post__body {
+    padding: ($thumbnail-content-padding / 1.5) $thumbnail-content-padding $thumbnail-content-padding;
   }
 
-  .post__title {
-    border-bottom: 3px solid $black-90;
-
-    @media #{$tablet} {
-      margin-top: 0;
-    }
-
-    a {
-      color: $header-color;
-      text-decoration: none;
-    }
+  .post__heading {
+    color: $blue;
+    margin-bottom: .5em;
+    margin-top: 0;
   }
 
-  .post__thumbnail {
-    float: left;
-    max-width: 100%;
+  .post__excerpt {
+    color: $thumbnail-excerpt-color;
+    font-family: $header-font-family;
+    margin-bottom: 0;
+    margin-top: 0;
   }
 }

@@ -4,6 +4,7 @@
   color: $hamburger-link-color;
   float: right;
   font-family: $hamburger-font-family;
+  font-size: $hamburger-font-size;
   font-weight: $hamburger-font-weight;
   height: inherit;
   outline: none;
@@ -30,7 +31,7 @@
     .hamburger__line {
       background-color: $hamburger-link-color;
       display: block;
-      height: .0625em;
+      height: .125em;
       margin-left: auto;
       margin-right: auto;
       transition: background-color ($global-duration / 2) $global-timing-function, transform ($global-duration / 2) $global-timing-function;
@@ -44,11 +45,11 @@
         background-color: $hamburger-link-color-active;
 
         &.hamburger__line--1 {
-          transform: translate3d(0, .25em, 0) scale(1) rotate(45deg);
+          transform: translate3d(0, .28em, 0) scale(1) rotate(45deg);
         }
 
         &.hamburger__line--2 {
-          transform: translate3d(0, -.25em, 0) scale(1) rotate(-45deg);
+          transform: translate3d(0, -.28em, 0) scale(1) rotate(-45deg);
         }
       }
     }
