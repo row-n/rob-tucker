@@ -4,6 +4,8 @@ import plugin from './plugin';
 class Menu {
   constructor(element) {
     const $element = $(element);
+    const $body = $('body');
+    const $trigger = $('#trigger');
     const $menu = $element.children('ul.menu__list');
     const $subMenu = $element.find('ul.sub-menu');
     const $hasSubMenu = $element.find('.menu__item--has-children').children('a');
@@ -12,6 +14,10 @@ class Menu {
     $subMenu.prepend('<li class="menu__item menu__item--back"><a href="#" class="menu__link">back</a></li>');
 
     const $back = $menu.find('li.menu__item--back').children('a');
+
+    $trigger.click(() => {
+      $body.toggleClass('menu-open');
+    });
 
     Array.from($element.find('ul')).forEach((el) => {
       const $menuList = el;
