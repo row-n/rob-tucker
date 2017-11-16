@@ -48,7 +48,6 @@ gulp.task('styles', ['styles:lint'], () => {
       minifySelectors: true,
     })))
     .pipe($.if(isProduction, $.sourcemaps.write()))
-    .pipe($.if(isProduction, $.rename('style.min.css')))
     .pipe($.if(isProduction, gulp.dest('./')));
 });
 
@@ -78,7 +77,6 @@ gulp.task('scripts', ['scripts:lint'], () => {
     .pipe($.if(isProduction, $.sourcemaps.init({ loadMaps: true })))
     .pipe($.if(isProduction, $.uglify()))
     .pipe($.if(isProduction, $.sourcemaps.write()))
-    .pipe($.if(isProduction, $.rename('script.min.js')))
     .pipe($.if(isProduction, gulp.dest('./')));
 });
 

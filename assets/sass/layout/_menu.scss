@@ -64,14 +64,14 @@
         }
 
         > .menu__link {
-          font-size: calc(15.5vh - #{$i}vh);
+          font-size: calc(14.5vh - #{$i}vh);
 
           @media #{$tablet} {
-            font-size: calc(14.5vh - #{$i}vh);
+            font-size: calc(13.5vh - #{$i}vh);
           }
 
           @media #{$desktop} {
-            font-size: calc(13.5vh - #{$i}vh);
+            font-size: calc(12.5vh - #{$i}vh);
           }
         }
       }
